@@ -1,27 +1,27 @@
 {
-  "updatedAt": "2026-04-09T13:30:48Z",
-  "marketIndex": 1016.77,
-  "rawAveragePrice": 337.27,
+  "updatedAt": "2026-04-09T17:44:29Z",
+  "marketIndex": 1016.94,
+  "rawAveragePrice": 337.33,
   "topGainers": [
     {
       "ticker": "CHPL",
-      "chg24h": 1.06
+      "chg24h": 1.32
     },
     {
       "ticker": "CNTC",
-      "chg24h": 1.06
+      "chg24h": 1.32
     },
     {
       "ticker": "FEID",
-      "chg24h": 0.96
+      "chg24h": 1.19
     },
     {
       "ticker": "TRVS",
-      "chg24h": 0.91
+      "chg24h": 1.13
     },
     {
-      "ticker": "SABR",
-      "chg24h": 0.0
+      "ticker": "OLVR",
+      "chg24h": 0.38
     }
   ],
   "topLosers": [
@@ -92,8 +92,8 @@
     },
     {
       "sector": "Hip-hop",
-      "avgPrice": 351.35,
-      "chg24h": 0.1,
+      "avgPrice": 351.44,
+      "chg24h": 0.12,
       "members": [
         "DRKE",
         "TRVS",
@@ -146,8 +146,8 @@
     },
     {
       "sector": "Latin",
-      "avgPrice": 375.71,
-      "chg24h": 0.06,
+      "avgPrice": 375.77,
+      "chg24h": 0.08,
       "members": [
         "BNNY",
         "PESO",
@@ -168,8 +168,8 @@
     },
     {
       "sector": "Pop",
-      "avgPrice": 357.22,
-      "chg24h": 0.04,
+      "avgPrice": 357.3,
+      "chg24h": 0.07,
       "members": [
         "SABR",
         "TSWF",
@@ -200,8 +200,8 @@
     },
     {
       "sector": "R&B",
-      "avgPrice": 329.45,
-      "chg24h": 0.0,
+      "avgPrice": 329.58,
+      "chg24h": 0.04,
       "members": [
         "WKND",
         "SZA",
@@ -265,9 +265,9 @@
       "followers": 8069075,
       "image": "https://i.scdn.co/image/ab6761610000e5ebd258ecb0d66244e6300bcf64",
       "fairPrice": 320.7,
-      "price": 315.41,
-      "chg24h": 1.06,
-      "volatility30d": 1.276,
+      "price": 316.2,
+      "chg24h": 1.32,
+      "volatility30d": 1.576,
       "volume": 1704,
       "youtube": null,
       "youtubeBoost": 0.0,
@@ -279,15 +279,15 @@
       "name": "Olivia Rodrigo",
       "genre": "Pop",
       "spotifyId": "1McMsnEElThX1knmY4oliG",
-      "popularity": 86,
-      "popularityDelta": 0,
+      "popularity": 87,
+      "popularityDelta": 1,
       "followers": 52453589,
       "image": "https://i.scdn.co/image/ab6761610000e5eb24bf95fba063cbca2f748462",
-      "fairPrice": 358.41,
-      "price": 358.41,
-      "chg24h": 0.0,
-      "volatility30d": 0.0,
-      "volume": 4345,
+      "fairPrice": 367.43,
+      "price": 359.76,
+      "chg24h": 0.38,
+      "volatility30d": 0.446,
+      "volume": 7822,
       "youtube": null,
       "youtubeBoost": 0.0,
       "chartPositions": null,
@@ -721,9 +721,9 @@
       "followers": 43274489,
       "image": "https://i.scdn.co/image/ab6761610000e5eb19c2790744c792d05570bb71",
       "fairPrice": 404.05,
-      "price": 398.31,
-      "chg24h": 0.91,
-      "volatility30d": 1.383,
+      "price": 399.17,
+      "chg24h": 1.13,
+      "volatility30d": 1.709,
       "volume": 3947,
       "youtube": null,
       "youtubeBoost": 0.0,
@@ -968,9 +968,9 @@
       "followers": 10814405,
       "image": "https://i.scdn.co/image/ab6761610000e5eb6ce131983245fc2e6940f6c2",
       "fairPrice": 321.08,
-      "price": 315.79,
-      "chg24h": 1.06,
-      "volatility30d": 1.311,
+      "price": 316.58,
+      "chg24h": 1.32,
+      "volatility30d": 1.566,
       "volume": 1973,
       "youtube": null,
       "youtubeBoost": 0.0,
@@ -1248,15 +1248,15 @@
       "name": "Daniel Caesar",
       "genre": "R&B",
       "spotifyId": "20wkVLutqVOYrc0kxFs7rA",
-      "popularity": 86,
-      "popularityDelta": 0,
+      "popularity": 87,
+      "popularityDelta": 1,
       "followers": 13535936,
       "image": "https://i.scdn.co/image/ab6761610000e5ebe4d94f7cbebb17504c25d419",
-      "fairPrice": 356.65,
-      "price": 356.65,
-      "chg24h": 0.0,
-      "volatility30d": 0.0,
-      "volume": 2207,
+      "fairPrice": 365.67,
+      "price": 358.0,
+      "chg24h": 0.38,
+      "volatility30d": 0.503,
+      "volume": 3973,
       "youtube": null,
       "youtubeBoost": 0.0,
       "chartPositions": null,
@@ -1348,9 +1348,9 @@
       "followers": 20006521,
       "image": "https://i.scdn.co/image/ab6761610000e5eb7e529f4ad13f86c69962cb12",
       "fairPrice": 375.28,
-      "price": 369.69,
-      "chg24h": 0.96,
-      "volatility30d": 1.385,
+      "price": 370.53,
+      "chg24h": 1.19,
+      "volatility30d": 1.657,
       "volume": 2684,
       "youtube": null,
       "youtubeBoost": 0.0,
