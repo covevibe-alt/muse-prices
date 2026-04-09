@@ -1,0 +1,13 @@
+{
+  "name": "muse-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Muse Exchange — synthetic artist stock market backend + app",
+  "scripts": {
+    "fetch": "node fetch-prices.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

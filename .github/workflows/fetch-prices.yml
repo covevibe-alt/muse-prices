@@ -1,0 +1,67 @@
+name: Fetch Muse prices
+
+# Runs hourly + on-demand. Each run pulls Spotify artist stats, Spotify
+# editorial chart positions (Global Top 50 + Viral 50), and YouTube channel
+# statistics, recomputes fair prices with smoothing, appends to the rolling
+# history, and commits the results back to the repo. GitHub Pages (or any
+# static host pointed at this repo) then serves the updated files to the
+# frontend with zero infrastructure on our side.
+#
+# Schedule rationale: hourly is well under Spotify's 3 req/s rate limit
+# (we issue ~5 requests per run) and uses ~72 YouTube quota units/day
+# (free daily limit is 10 000), leaving plenty of headroom for ad-hoc runs.
+#
+# Required repo secrets (Settings → Secrets and variables → Actions):
+#   SPOTIFY_CLIENT_ID
+#   SPOTIFY_CLIENT_SECRET
+#   YOUTUBE_API_KEY        (optional — omit to disable the YouTube signal)
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # Never run two price updates in parallel — they'd race on the commit.
+  group: fetch-prices
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          # We need full history so the bot's commits don't create a detached
+          # state when pushing back.
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run fetcher
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python fetch-prices.py
+
+      - name: Commit updated price data
+        run: |
+          git config user.name "Muse Price Bot"
+          git config user.email "bot@muse.exchange"
+          git add prices.json prices.js history.json history.js artists.json youtube-channels.json .market-baseline.json
+          if git diff --staged --quiet; then
+            echo "No price changes — skipping commit."
+          else
+            git commit -m "chore: update prices $(date -u +%Y-%m-%dT%H:%MZ)"
+            # Retry once on push failure (common if another workflow pushed first)
+            git push || (git pull --rebase && git push)
+          fi
