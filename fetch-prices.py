@@ -41,6 +41,7 @@ HISTORY_JS_FILE = HERE / "history.js"  # file:// fallback
 YOUTUBE_CACHE_FILE = HERE / "youtube-channels.json"
 TOKEN_CACHE_FILE = HERE / ".spotify-token.json"
 BASELINE_FILE = HERE / ".market-baseline.json"
+LISTENER_RATIOS_FILE = HERE / "listener-ratios.json"
 DEBUG_LOG_FILE = HERE / "_debug.txt"
 HISTORY_MAX_POINTS = 1080  # ~6 months at one point every 4 hours
 HISTORY_DEDUP_SECONDS = 60  # drop points logged within 60s of the previous one
@@ -891,6 +892,23 @@ def main():
         print(f"  ! monthly-listener scraping failed entirely: {e}")
         print("  · falling back to follower-based proxy for all artists")
 
+    # Load per-artist listener/follower calibration ratios. These were
+    # computed once from real Spotify monthly-listener data and allow
+    # accurate estimates when the real scrape fails (datacenter IP blocks).
+    listener_ratios = {}
+    default_listener_ratio = 0.6  # safe fallback if file is missing
+    try:
+        with open(LISTENER_RATIOS_FILE) as f:
+            cal = json.load(f)
+        listener_ratios = cal.get("ratios", {})
+        default_listener_ratio = cal.get("defaultRatio", 0.6)
+        print(f"  · loaded calibration ratios for {len(listener_ratios)} artists "
+              f"(default ratio: {default_listener_ratio})")
+    except FileNotFoundError:
+        print("  ! listener-ratios.json not found — using flat 0.6 fallback")
+    except Exception as e:
+        print(f"  ! failed to load listener-ratios.json: {e} — using flat 0.6")
+
     print("Fetching Spotify editorial chart positions…")
     chart_positions_by_id = fetch_chart_positions(token)
     charted_in_roster = sum(
@@ -923,15 +941,17 @@ def main():
         image = (live.get("images") or [{}])[0].get("url") if live.get("images") else None
 
         # Real monthly listeners scraped from open.spotify.com. If the
-        # scrape failed for this artist, fall back to the old proxy of
-        # 60% of followers so the pipeline still produces a number.
+        # scrape failed for this artist, estimate from followers using a
+        # per-artist calibrated ratio (scraped once from real data) or
+        # fall back to the overall median ratio.
         scraped_listeners = monthly_listeners_by_id.get(a["spotifyId"])
         if scraped_listeners and scraped_listeners > 0:
             monthly_listeners = scraped_listeners
             listeners_source = "spotify-page"
         else:
-            monthly_listeners = int(round(followers * 0.6))
-            listeners_source = "follower-proxy"
+            ratio = listener_ratios.get(a["spotifyId"], default_listener_ratio)
+            monthly_listeners = int(round(followers * ratio))
+            listeners_source = "calibrated-proxy"
 
         yt_stats = youtube_data.get(a["ticker"])
         chart_stats = chart_positions_by_id.get(a["spotifyId"])
