@@ -60,11 +60,14 @@ jobs:
         run: |
           git config user.name "Muse Price Bot"
           git config user.email "bot@muse.exchange"
+          # Sync with remote first so we never conflict
+          git stash --include-untracked
+          git pull --rebase origin main
+          git stash pop || true
           git add prices.json prices.js history.json history.js artists.json youtube-channels.json .market-baseline.json
           if git diff --staged --quiet; then
             echo "No price changes — skipping commit."
           else
             git commit -m "chore: update prices $(date -u +%Y-%m-%dT%H:%MZ)"
-            # Retry once on push failure (common if another workflow pushed first)
-            git push || (git pull --rebase -X theirs && git push)
+            git push
           fi
