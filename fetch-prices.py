@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Muse price fetcher â Python version.
+Muse price fetcher — Python version.
 
 Pulls the 24 tracked artists from the Spotify Web API, optionally augments
 with YouTube Data API view/subscriber counts, runs the pricing formula,
@@ -12,12 +12,12 @@ Dependencies: Python 3.8+ standard library only. No pip install required.
 Environment variables (read from .env in the same folder OR the shell):
     SPOTIFY_CLIENT_ID      (required)
     SPOTIFY_CLIENT_SECRET  (required)
-    YOUTUBE_API_KEY        (optional â enables YouTube-weighted pricing)
+    YOUTUBE_API_KEY        (optional — enables YouTube-weighted pricing)
 
 Output files:
-    prices.json            â latest snapshot used by the prototype
-    history.json           â rolling price history (1080-point cap)
-    youtube-channels.json  â cached YouTube channel IDs (auto-populated)
+    prices.json            — latest snapshot used by the prototype
+    history.json           — rolling price history (1080-point cap)
+    youtube-channels.json  — cached YouTube channel IDs (auto-populated)
 """
 
 import base64
@@ -35,7 +35,7 @@ from pathlib import Path
 HERE = Path(__file__).parent
 ARTISTS_FILE = HERE / "artists.json"
 OUT_FILE = HERE / "prices.json"
-OUT_JS_FILE = HERE / "prices.js"  # file:// fallback â loaded via <script> tag
+OUT_JS_FILE = HERE / "prices.js"  # file:// fallback — loaded via <script> tag
 HISTORY_FILE = HERE / "history.json"
 HISTORY_JS_FILE = HERE / "history.js"  # file:// fallback
 YOUTUBE_CACHE_FILE = HERE / "youtube-channels.json"
@@ -45,7 +45,7 @@ HISTORY_MAX_POINTS = 1080  # ~6 months at one point every 4 hours
 HISTORY_DEDUP_SECONDS = 60  # drop points logged within 60s of the previous one
 MUSE_INDEX_BASELINE = 1000.0  # market index is rebased to this on first run
 
-# Pricing weights â tune these if one signal starts dominating.
+# Pricing weights — tune these if one signal starts dominating.
 YOUTUBE_BOOST_MAX = 0.30  # a huge YouTube presence can boost the Spotify fair
                           # price by up to +30%. Artists with no YouTube data
                           # just get boost = 0 (back to pure Spotify pricing).
@@ -54,7 +54,7 @@ CHART_BOOST_MAX = 0.25    # appearing at the top of Spotify's Global Top 50 /
                           # price. Artists off the charts get 0 boost.
 
 # Spotify editorial chart playlists we track. These are the canonical "charts"
-# endpoints on Spotify â the Web API deprecated the old /v1/browse/charts route
+# endpoints on Spotify — the Web API deprecated the old /v1/browse/charts route
 # in 2024 but the playlists themselves are still public and fetchable with the
 # same client credentials token we already have.
 SPOTIFY_CHART_PLAYLISTS = {
@@ -64,11 +64,11 @@ SPOTIFY_CHART_PLAYLISTS = {
 YOUTUBE_MAX_RESOLVES_PER_RUN = 80  # Channel-search costs 100 quota units each.
                                     # Free tier is 10,000/day, so capping at 80
                                     # keeps first-run cost at 8,000 + the stats
-                                    # call (â1 unit) â 8,001 â well under limit.
+                                    # call (≈1 unit) ≈ 8,001 — well under limit.
                                     # If the roster is >80 unresolved artists,
                                     # the rest finish on subsequent runs.
 
-# Loaded at runtime from artists.json â see load_artists_config().
+# Loaded at runtime from artists.json — see load_artists_config().
 ARTISTS = []
 
 TOKEN_URL = "https://accounts.spotify.com/api/token"
@@ -80,20 +80,20 @@ def load_artists_config():
     """Load the artist roster from artists.json. Must contain ticker/name/
     genre and optional spotifyId. Tickers must be unique."""
     if not ARTISTS_FILE.exists():
-        raise SystemExit(f"â Missing {ARTISTS_FILE.name} â cannot continue.")
+        raise SystemExit(f"✗ Missing {ARTISTS_FILE.name} — cannot continue.")
     try:
         data = json.loads(ARTISTS_FILE.read_text())
     except Exception as e:
-        raise SystemExit(f"â {ARTISTS_FILE.name} is not valid JSON: {e}")
+        raise SystemExit(f"✗ {ARTISTS_FILE.name} is not valid JSON: {e}")
     if not isinstance(data, list) or not data:
-        raise SystemExit(f"â {ARTISTS_FILE.name} must be a non-empty JSON array.")
+        raise SystemExit(f"✗ {ARTISTS_FILE.name} must be a non-empty JSON array.")
     seen = set()
     for a in data:
         t = a.get("ticker")
         if not t or not a.get("name") or not a.get("genre"):
-            raise SystemExit(f"â Bad entry in {ARTISTS_FILE.name}: {a}")
+            raise SystemExit(f"✗ Bad entry in {ARTISTS_FILE.name}: {a}")
         if t in seen:
-            raise SystemExit(f"â Duplicate ticker in {ARTISTS_FILE.name}: {t}")
+            raise SystemExit(f"✗ Duplicate ticker in {ARTISTS_FILE.name}: {t}")
         seen.add(t)
         a.setdefault("spotifyId", "")
     return data
@@ -102,7 +102,7 @@ def load_artists_config():
 def save_artists_config(artists):
     """Write the artist roster back, preserving any Spotify IDs we just
     resolved. We keep the compact per-line formatting so diffs stay readable,
-    and use ensure_ascii=False so names like 'RosalÃ­a' stay human-readable."""
+    and use ensure_ascii=False so names like 'Rosalía' stay human-readable."""
     def j(v):
         return json.dumps(v, ensure_ascii=False)
     lines = ["["]
@@ -133,13 +133,13 @@ def _spotify_search(token, q):
 
 
 def spotify_search_artist_id(token, name):
-    """Resolve an artist name â Spotify artist ID via the Search endpoint.
+    """Resolve an artist name → Spotify artist ID via the Search endpoint.
     Filters out low-quality matches (tiny namesake accounts) and prefers
     the candidate with the highest popularity. Returns None on miss.
 
     Guards against the "Giveon" problem: an exact literal search for
     'artist:"Giveon"' may return a tiny unrelated account, while the real
-    Giveon is indexed under 'GIVÄON'. We therefore try several queries
+    Giveon is indexed under 'GIVĒON'. We therefore try several queries
     and always reject candidates under the follower/popularity floor.
     """
     # Try progressively broader queries until we find a high-quality match.
@@ -178,7 +178,7 @@ def resolve_missing_spotify_ids(artists, token):
     missing = [a for a in artists if not a.get("spotifyId")]
     if not missing:
         return 0
-    print(f"  Â· resolving Spotify IDs for {len(missing)} new artistsâ¦")
+    print(f"  · resolving Spotify IDs for {len(missing)} new artists…")
     resolved = 0
     for a in missing:
         cid = spotify_search_artist_id(token, a["name"])
@@ -193,7 +193,7 @@ def resolve_missing_spotify_ids(artists, token):
 
 
 def load_dotenv():
-    """Minimal .env loader â only needed when run outside GitHub Actions."""
+    """Minimal .env loader — only needed when run outside GitHub Actions."""
     env_path = HERE / ".env"
     if not env_path.exists():
         return
@@ -213,7 +213,7 @@ def http_request(method, url, headers=None, data=None, timeout=30):
 
 # --------- Real monthly listeners (scraped from open.spotify.com) ----------
 #
-# The Spotify Web API does NOT expose monthly listeners â only followers and
+# The Spotify Web API does NOT expose monthly listeners — only followers and
 # popularity. But the public artist page has the real number embedded in its
 # <meta name="description"> tag and in the JSON-LD blob. Scraping is cheap
 # (one request per artist, no auth, heavily cached by Spotify's CDN) and
@@ -226,7 +226,7 @@ import re
 
 ARTIST_PAGE_URL = "https://open.spotify.com/artist/{id}"
 # Common patterns seen in the page HTML:
-#   "Artist Â· 82,437,887 monthly listeners"
+#   "Artist · 82,437,887 monthly listeners"
 #   '"monthly_listeners":82437887'
 #   "82.437.887 monthly listeners"  (European locales)
 _LISTENER_PATTERNS = [
@@ -241,7 +241,7 @@ _BROWSER_UA = (
 
 
 def _parse_listener_number(raw):
-    """Normalize '82,437,887' / '82.437.887' / '82 437 887' â 82437887."""
+    """Normalize '82,437,887' / '82.437.887' / '82 437 887' → 82437887."""
     if raw is None:
         return None
     digits = re.sub(r"[^\d]", "", str(raw))
@@ -294,7 +294,7 @@ def fetch_all_monthly_listeners(spotify_ids):
     """Scrape monthly listeners for every artist id in `spotify_ids`.
 
     Returns { spotify_id: int }. Missing entries mean the scrape failed
-    for that artist â the caller should fall back to follower proxy.
+    for that artist — the caller should fall back to follower proxy.
     Adds a tiny delay between requests so we don't hammer the CDN.
     """
     out = {}
@@ -314,7 +314,7 @@ def load_cached_token():
         data = json.loads(TOKEN_CACHE_FILE.read_text())
     except Exception:
         return None
-    # Require â¥60s left to avoid using a token that expires mid-request.
+    # Require ≥60s left to avoid using a token that expires mid-request.
     if data.get("expires_at", 0) - time.time() > 60:
         return data.get("access_token")
     return None
@@ -412,15 +412,15 @@ def fetch_chart_positions(token):
                 cur = bucket.get(key)
                 if cur is None or rank < cur:
                     bucket[key] = rank
-        print(f"  Â· fetched {meta['label']}: {len(items)} tracks â "
+        print(f"  · fetched {meta['label']}: {len(items)} tracks → "
               f"{sum(1 for p in positions.values() if key in p)} unique artists on chart")
     return positions
 
 
 def chart_boost_factor(chart_stats):
-    """Turn chart positions into a 0.0â0.25 multiplier.
+    """Turn chart positions into a 0.0–0.25 multiplier.
 
-    Scoring per chart: position 1 â 1.0, position 50 â 0.02, off-chart â 0.
+    Scoring per chart: position 1 → 1.0, position 50 → 0.02, off-chart → 0.
     We then weight charts (Top 50 Global outweighs Viral 50), take the max
     weighted score across charts, and scale to CHART_BOOST_MAX.
     """
@@ -458,8 +458,8 @@ def save_youtube_cache(cache):
 
 
 def youtube_search_channel_id(api_key, name):
-    """Resolve an artist name â canonical YouTube channel ID. Costs 100 quota
-    units per call, vs 1 for a stats fetch â so we only call this once per
+    """Resolve an artist name → canonical YouTube channel ID. Costs 100 quota
+    units per call, vs 1 for a stats fetch — so we only call this once per
     artist and cache the result in youtube-channels.json."""
     params = urllib.parse.urlencode({
         "part": "snippet",
@@ -484,7 +484,7 @@ def youtube_fetch_stats(api_key, channel_ids):
 
     The YouTube channels endpoint caps at 50 IDs per call, so we batch in
     groups of 50. Each batch costs 1 quota unit, so fetching 105 artists
-    costs â3 units â trivial compared to the free daily 10 000.
+    costs ≈3 units — trivial compared to the free daily 10 000.
     """
     if not channel_ids:
         return {}
@@ -519,7 +519,7 @@ def youtube_fetch_stats(api_key, channel_ids):
 def fetch_all_youtube(api_key):
     """Returns { ticker: {subscribers, views, videos} } for every artist we
     can resolve, or {} if the API key is missing/invalid. Safe to call with
-    a missing key â just returns empty."""
+    a missing key — just returns empty."""
     if not api_key:
         return {}
     cache = load_youtube_cache()
@@ -531,10 +531,10 @@ def fetch_all_youtube(api_key):
                if not (cache.get(a["ticker"]) or {}).get("channelId")]
     to_resolve = pending[:YOUTUBE_MAX_RESOLVES_PER_RUN]
     if len(pending) > len(to_resolve):
-        print(f"  Â· {len(pending)} YouTube channels unresolved; resolving "
+        print(f"  · {len(pending)} YouTube channels unresolved; resolving "
               f"{len(to_resolve)} this run (quota-capped), remainder next run")
     for a in to_resolve:
-        print(f"  Â· resolving YouTube channel for {a['name']}â¦")
+        print(f"  · resolving YouTube channel for {a['name']}…")
         # Prefer "Topic" auto-channels (more canonical) but fall back to direct.
         cid = youtube_search_channel_id(api_key, a["name"] + " topic")
         if not cid:
@@ -565,7 +565,7 @@ def youtube_boost_factor(yt_stats):
         return 0.0
     views = yt_stats.get("views", 0) or 0
     subs = yt_stats.get("subscribers", 0) or 0
-    # log10(5B) â 9.7, log10(100M) â 8. Normalize so 1B views â half the cap.
+    # log10(5B) ≈ 9.7, log10(100M) ≈ 8. Normalize so 1B views ≈ half the cap.
     view_score = max(0.0, (math.log10(views + 1) - 6.0) / 4.0)   # 0 at 1M, ~0.9 at 10B
     sub_score  = max(0.0, (math.log10(subs + 1) - 5.0) / 3.0)    # 0 at 100k, ~1.0 at 100M
     # Blend and cap.
@@ -574,17 +574,17 @@ def youtube_boost_factor(yt_stats):
 
 
 def compute_fair_price(popularity, followers, youtube_stats=None, chart_stats=None, monthly_listeners=None):
-    # ââ Muse Streaming Index formula ââ
+    # ── Muse Streaming Index formula ──
     # Must stay in sync with the frontend `fairFromListeners()`:
-    #   fairPrice = (monthlyListeners Ã VALUE_PER_LISTENER) / SHARES_OUTSTANDING
-    # where VALUE_PER_LISTENER = â¬0.03 and SHARES_OUTSTANDING = 1 000 000.
+    #   fairPrice = (monthlyListeners × VALUE_PER_LISTENER) / SHARES_OUTSTANDING
+    # where VALUE_PER_LISTENER = €0.03 and SHARES_OUTSTANDING = 1 000 000.
     VALUE_PER_LISTENER = 0.03
     SHARES_OUTSTANDING = 1_000_000
     listeners = monthly_listeners if monthly_listeners and monthly_listeners > 0 else int(round((followers or 0) * 0.6))
     base = max(0.01, (listeners * VALUE_PER_LISTENER) / SHARES_OUTSTANDING)
     yt_boost = youtube_boost_factor(youtube_stats)
     ch_boost = chart_boost_factor(chart_stats)
-    # Boosts stack additively (capped total â 0.55) â an artist at #1 on the
+    # Boosts stack additively (capped total ≈ 0.55) — an artist at #1 on the
     # Global Top 50 AND with a billion-view YouTube presence gets +55% over
     # their pure Spotify fair price.
     return round(base * (1 + yt_boost + ch_boost), 2)
@@ -612,7 +612,7 @@ def load_previous_prices():
 
 
 def load_history():
-    """Load the rolling price history. Shape: { ticker: [{t, p}, â¦] }."""
+    """Load the rolling price history. Shape: { ticker: [{t, p}, …] }."""
     if not HISTORY_FILE.exists():
         return {}
     try:
@@ -636,11 +636,11 @@ def append_history(history, ticker, timestamp, price, now_dt, listeners=None, po
 
     Each point carries the raw streaming fundamentals (`listeners`,
     `popularity`) so the frontend can re-derive a fair price from the
-    actual metrics we observed at that moment â not just a cached
+    actual metrics we observed at that moment — not just a cached
     number that may have been computed with a different formula.
 
     If the most recent existing point is within HISTORY_DEDUP_SECONDS, we
-    overwrite it instead of appending â this prevents rapid manual reruns
+    overwrite it instead of appending — this prevents rapid manual reruns
     from stuffing the rolling window with near-duplicate points.
     """
     point = {"t": timestamp, "p": price}
@@ -674,7 +674,7 @@ def price_24h_ago(series, now_dt):
         pt_dt = parse_iso(point.get("t", ""))
         if pt_dt and pt_dt <= cutoff:
             return point.get("p")
-    # Fall back to the oldest point we have â gives a partial-day estimate
+    # Fall back to the oldest point we have — gives a partial-day estimate
     # until history fills out past 24h.
     oldest = series[0]
     return oldest.get("p") if oldest else None
@@ -754,7 +754,7 @@ def main():
     client_secret = os.environ.get("SPOTIFY_CLIENT_SECRET")
     if not client_id or not client_secret:
         sys.exit(
-            "â Missing SPOTIFY_CLIENT_ID or SPOTIFY_CLIENT_SECRET.\n"
+            "✗ Missing SPOTIFY_CLIENT_ID or SPOTIFY_CLIENT_SECRET.\n"
             f"  Expected them in {HERE / '.env'} or as environment variables."
         )
 
@@ -766,9 +766,9 @@ def main():
     # First-run bootstrap: resolve any artist that doesn't have a spotifyId.
     resolved = resolve_missing_spotify_ids(ARTISTS, token)
     if resolved:
-        print(f"  Â· resolved {resolved} new Spotify IDs and wrote them back to {ARTISTS_FILE.name}")
+        print(f"  · resolved {resolved} new Spotify IDs and wrote them back to {ARTISTS_FILE.name}")
 
-    print(f"Fetching Spotify data for {len([a for a in ARTISTS if a.get('spotifyId')])} artistsâ¦")
+    print(f"Fetching Spotify data for {len([a for a in ARTISTS if a.get('spotifyId')])} artists…")
     spotify_data = fetch_all_artists(token)
 
     # Scrape real monthly listener counts from open.spotify.com artist
@@ -778,30 +778,30 @@ def main():
     # we fall back to the follower-based proxy so the pipeline keeps running.
     monthly_listeners_by_id = {}
     try:
-        print("Scraping real monthly listener counts from open.spotify.comâ¦")
+        print("Scraping real monthly listener counts from open.spotify.com…")
         listener_ids = [a["spotifyId"] for a in ARTISTS if a.get("spotifyId")]
         monthly_listeners_by_id = fetch_all_monthly_listeners(listener_ids)
         scraped_ok = len(monthly_listeners_by_id)
-        print(f"  Â· scraped monthly listeners for {scraped_ok}/{len(listener_ids)} artists")
+        print(f"  · scraped monthly listeners for {scraped_ok}/{len(listener_ids)} artists")
     except Exception as e:
         print(f"  ! monthly-listener scraping failed entirely: {e}")
-        print("  Â· falling back to follower-based proxy for all artists")
+        print("  · falling back to follower-based proxy for all artists")
 
-    print("Fetching Spotify editorial chart positionsâ¦")
+    print("Fetching Spotify editorial chart positions…")
     chart_positions_by_id = fetch_chart_positions(token)
     charted_in_roster = sum(
         1 for a in ARTISTS if chart_positions_by_id.get(a.get("spotifyId"))
     )
-    print(f"  Â· {charted_in_roster}/{len(ARTISTS)} of our roster is currently on at least one chart")
+    print(f"  · {charted_in_roster}/{len(ARTISTS)} of our roster is currently on at least one chart")
 
     youtube_key = os.environ.get("YOUTUBE_API_KEY")
     if youtube_key:
-        print("Fetching YouTube channel statisticsâ¦")
+        print("Fetching YouTube channel statistics…")
         youtube_data = fetch_all_youtube(youtube_key)
-        print(f"  Â· YouTube stats for {len(youtube_data)}/{len(ARTISTS)} artists")
+        print(f"  · YouTube stats for {len(youtube_data)}/{len(ARTISTS)} artists")
     else:
         youtube_data = {}
-        print("Â· YOUTUBE_API_KEY not set, skipping YouTube signal")
+        print("· YOUTUBE_API_KEY not set, skipping YouTube signal")
 
     previous = load_previous_prices()
     history = load_history()
@@ -849,7 +849,7 @@ def main():
 
         # Real 24h change from rolling history, not from the last run (which
         # could be minutes ago). Falls back to oldest-point comparison until
-        # we have â¥24h of history.
+        # we have ≥24h of history.
         ref_price = price_24h_ago(series, now_dt)
         if ref_price and ref_price > 0:
             chg = round(((price - ref_price) / ref_price) * 100, 2)
@@ -883,17 +883,17 @@ def main():
         })
 
     if not out_artists:
-        sys.exit("â No artist data returned from Spotify.")
+        sys.exit("✗ No artist data returned from Spotify.")
 
     # ---- Market index: normalize to Muse 1000 baseline ----
-    # When the artist roster changes size (e.g. we go from 24 â 105), the old
+    # When the artist roster changes size (e.g. we go from 24 → 105), the old
     # baseline is no longer comparable, so we rebase to 1000 on the new roster.
     raw_average = sum(a["price"] for a in out_artists) / len(out_artists)
     baseline, baseline_roster = load_baseline()
     if (baseline is None or baseline <= 0
             or baseline_roster != len(out_artists)):
         if baseline_roster and baseline_roster != len(out_artists):
-            print(f"  Â· roster changed ({baseline_roster} â {len(out_artists)}), rebasing Muse Index")
+            print(f"  · roster changed ({baseline_roster} → {len(out_artists)}), rebasing Muse Index")
         baseline = raw_average
         save_baseline(baseline, len(out_artists))
     market_index = round(MUSE_INDEX_BASELINE * raw_average / baseline, 2)
@@ -933,8 +933,8 @@ def main():
 
     # ---- Pretty terminal summary ----
     print()
-    print(f"â wrote {OUT_FILE.name}  ({len(out_artists)} artists)")
-    print(f"â wrote {HISTORY_FILE.name} ({total_points} points total)")
+    print(f"✓ wrote {OUT_FILE.name}  ({len(out_artists)} artists)")
+    print(f"✓ wrote {HISTORY_FILE.name} ({total_points} points total)")
     print()
     print(f"  Muse Index: {market_index:>8.2f}   (raw avg ${raw_average:.2f}, baseline ${baseline:.2f})")
     real_chg_artists = [a for a in out_artists if a["chg24h"] != 0.0]
@@ -951,16 +951,16 @@ def main():
                 break
             print(f"    {a['ticker']:<5} {a['chg24h']:+6.2f}%   ${a['price']:<7.2f}  {a['name']}")
     else:
-        print("  (no 24h change yet â gainers/losers kick in once history is â¥24h old)")
+        print("  (no 24h change yet — gainers/losers kick in once history is ≥24h old)")
     print()
     charted = [a for a in out_artists if a.get("chartPositions")]
     if charted:
         print()
-        print(f"  Charted artists: {len(charted)}/{len(out_artists)} â showing top 5 by chart boost:")
+        print(f"  Charted artists: {len(charted)}/{len(out_artists)} — showing top 5 by chart boost:")
         for a in sorted(charted, key=lambda x: -x["chartBoost"])[:5]:
             pos = a["chartPositions"]
             parts = [f"{k}=#{v}" for k, v in pos.items()]
-            print(f"    {a['ticker']:<5} boost +{a['chartBoost']*100:4.1f}%   {' Â· '.join(parts)}   {a['name']}")
+            print(f"    {a['ticker']:<5} boost +{a['chartBoost']*100:4.1f}%   {' · '.join(parts)}   {a['name']}")
     print()
     print("  Sector indices:")
     for s in sector_indices:
