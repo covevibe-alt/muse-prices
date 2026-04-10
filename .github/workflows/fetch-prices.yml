@@ -66,5 +66,5 @@ jobs:
           else
             git commit -m "chore: update prices $(date -u +%Y-%m-%dT%H:%MZ)"
             # Retry once on push failure (common if another workflow pushed first)
-            git push || (git pull --rebase && git push)
+            git push || (git pull --rebase -X theirs && git push)
           fi
