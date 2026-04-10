@@ -60,10 +60,20 @@ jobs:
         run: |
           git config user.name "Muse Price Bot"
           git config user.email "bot@muse.exchange"
-          # Sync with remote first so we never conflict
-          git stash --include-untracked
-          git pull --rebase origin main
-          git stash pop || true
+
+          # Save generated files to temp so we can reset cleanly
+          DATA_FILES="prices.json prices.js history.json history.js artists.json youtube-channels.json"
+          [ -f .market-baseline.json ] && DATA_FILES="$DATA_FILES .market-baseline.json"
+          mkdir -p /tmp/muse-data
+          cp $DATA_FILES /tmp/muse-data/
+
+          # Hard-reset to latest remote — guaranteed no conflicts
+          git fetch origin main
+          git reset --hard origin/main
+
+          # Put generated files back on top of latest remote
+          cp /tmp/muse-data/* .
+
           git add prices.json prices.js history.json history.js artists.json youtube-channels.json .market-baseline.json
           if git diff --staged --quiet; then
             echo "No price changes — skipping commit."
