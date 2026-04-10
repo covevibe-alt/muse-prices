@@ -81,4 +81,13 @@ jobs:
           else
             git commit -m "chore: update prices $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
+
+            # Purge jsDelivr CDN cache so the frontend picks up new data
+            # immediately instead of waiting for the branch-resolution TTL.
+            echo "Purging jsDelivr CDN cache…"
+            curl -sf "https://purge.jsdelivr.net/gh/covevibe-alt/muse-prices@main/prices.json" || true
+            curl -sf "https://purge.jsdelivr.net/gh/covevibe-alt/muse-prices@main/prices.js" || true
+            curl -sf "https://purge.jsdelivr.net/gh/covevibe-alt/muse-prices@main/history.json" || true
+            curl -sf "https://purge.jsdelivr.net/gh/covevibe-alt/muse-prices@main/history.js" || true
+            echo "CDN purge requests sent."
           fi
