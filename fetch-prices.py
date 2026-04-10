@@ -268,12 +268,25 @@ def _get_web_access_token(sp_dc, timeout=15):
     })
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
-            data = json.loads(resp.read().decode())
+            raw = resp.read().decode()
+            data = json.loads(raw)
         token = data.get("accessToken")
         client_id = data.get("clientId")
-        if token and not data.get("isAnonymous"):
+        is_anon = data.get("isAnonymous")
+        print(f"  · token exchange response: isAnonymous={is_anon}, "
+              f"hasToken={bool(token)}, clientId={client_id or 'none'}")
+        if token and not is_anon:
             return token, client_id
-        print("  ! sp_dc token exchange returned anonymous/empty token")
+        print(f"  ! sp_dc token exchange returned anonymous/empty token "
+              f"(isAnonymous={is_anon})")
+        return None, None
+    except urllib.error.HTTPError as e:
+        body = ""
+        try:
+            body = e.read().decode("utf-8", errors="replace")[:300]
+        except Exception:
+            pass
+        print(f"  ! sp_dc token exchange failed: HTTP {e.code} {body}")
         return None, None
     except Exception as e:
         print(f"  ! sp_dc token exchange failed: {e}")
@@ -344,6 +357,7 @@ def fetch_all_monthly_listeners(spotify_ids):
     for that artist — the caller should fall back to follower proxy.
     """
     sp_dc = os.environ.get("SP_DC", "").strip()
+    print(f"  · SP_DC env var: {'set (' + str(len(sp_dc)) + ' chars)' if sp_dc else 'NOT SET'}")
     if not sp_dc:
         print("  ! SP_DC env var not set — skipping monthly-listener fetch "
               "(all artists will use follower proxy)")
