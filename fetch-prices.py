@@ -41,6 +41,7 @@ HISTORY_JS_FILE = HERE / "history.js"  # file:// fallback
 YOUTUBE_CACHE_FILE = HERE / "youtube-channels.json"
 TOKEN_CACHE_FILE = HERE / ".spotify-token.json"
 BASELINE_FILE = HERE / ".market-baseline.json"
+DEBUG_LOG_FILE = HERE / "_debug.log"
 HISTORY_MAX_POINTS = 1080  # ~6 months at one point every 4 hours
 HISTORY_DEDUP_SECONDS = 60  # drop points logged within 60s of the previous one
 MUSE_INDEX_BASELINE = 1000.0  # market index is rebased to this on first run
@@ -254,11 +255,16 @@ _PARTNER_API = "https://api-partner.spotify.com/pathfinder/v1/query"
 _ARTIST_OVERVIEW_HASH = "da986392124383827dc03cbb3d66c1de81225244b6e82571ece77f1b596e9e05"
 
 
-def _get_web_access_token(sp_dc, timeout=15):
+def _get_web_access_token(sp_dc, timeout=15, _dbg=None):
     """Exchange an sp_dc cookie for a short-lived web-player access token.
 
     Returns (access_token: str, client_id: str) or (None, None) on failure.
     """
+    def log(msg):
+        print(msg)
+        if _dbg is not None:
+            _dbg.append(msg)
+
     url = ("https://open.spotify.com/get_access_token"
            "?reason=transport&productType=web_player")
     req = urllib.request.Request(url, headers={
@@ -273,12 +279,12 @@ def _get_web_access_token(sp_dc, timeout=15):
         token = data.get("accessToken")
         client_id = data.get("clientId")
         is_anon = data.get("isAnonymous")
-        print(f"  · token exchange response: isAnonymous={is_anon}, "
-              f"hasToken={bool(token)}, clientId={client_id or 'none'}")
+        log(f"  · token exchange response: isAnonymous={is_anon}, "
+            f"hasToken={bool(token)}, clientId={client_id or 'none'}")
         if token and not is_anon:
             return token, client_id
-        print(f"  ! sp_dc token exchange returned anonymous/empty token "
-              f"(isAnonymous={is_anon})")
+        log(f"  ! sp_dc token exchange returned anonymous/empty token "
+            f"(isAnonymous={is_anon})")
         return None, None
     except urllib.error.HTTPError as e:
         body = ""
@@ -286,10 +292,10 @@ def _get_web_access_token(sp_dc, timeout=15):
             body = e.read().decode("utf-8", errors="replace")[:300]
         except Exception:
             pass
-        print(f"  ! sp_dc token exchange failed: HTTP {e.code} {body}")
+        log(f"  ! sp_dc token exchange failed: HTTP {e.code} {body}")
         return None, None
     except Exception as e:
-        print(f"  ! sp_dc token exchange failed: {e}")
+        log(f"  ! sp_dc token exchange failed: {e}")
         return None, None
 
 
@@ -356,20 +362,29 @@ def fetch_all_monthly_listeners(spotify_ids):
     Returns { spotify_id: int }. Missing entries mean the fetch failed
     for that artist — the caller should fall back to follower proxy.
     """
+    debug_lines = []
+    def dbg(msg):
+        print(msg)
+        debug_lines.append(msg)
+
     sp_dc = os.environ.get("SP_DC", "").strip()
-    print(f"  · SP_DC env var: {'set (' + str(len(sp_dc)) + ' chars)' if sp_dc else 'NOT SET'}")
+    dbg(f"  · SP_DC env var: {'set (' + str(len(sp_dc)) + ' chars)' if sp_dc else 'NOT SET'}")
+    if sp_dc:
+        dbg(f"  · SP_DC first 8 chars: {sp_dc[:8]}...")
     if not sp_dc:
-        print("  ! SP_DC env var not set — skipping monthly-listener fetch "
-              "(all artists will use follower proxy)")
+        dbg("  ! SP_DC env var not set — skipping monthly-listener fetch "
+            "(all artists will use follower proxy)")
+        _write_debug_log(debug_lines)
         return {}
 
-    access_token, _ = _get_web_access_token(sp_dc)
+    access_token, _ = _get_web_access_token(sp_dc, _dbg=debug_lines)
     if not access_token:
-        print("  ! could not obtain web access token — "
-              "SP_DC cookie may have expired")
+        dbg("  ! could not obtain web access token — "
+            "SP_DC cookie may have expired")
+        _write_debug_log(debug_lines)
         return {}
 
-    print(f"  ✓ obtained web-player access token, querying {len(spotify_ids)} artists …")
+    dbg(f"  ✓ obtained web-player access token, querying {len(spotify_ids)} artists …")
     out = {}
     ok = 0
     for sid in spotify_ids:
@@ -379,8 +394,19 @@ def fetch_all_monthly_listeners(spotify_ids):
             ok += 1
         time.sleep(0.1)  # ~10 req/sec, well under any rate limit
 
-    print(f"  ✓ scraped monthly listeners for {ok}/{len(spotify_ids)} artists")
+    dbg(f"  ✓ scraped monthly listeners for {ok}/{len(spotify_ids)} artists")
+    _write_debug_log(debug_lines)
     return out
+
+
+def _write_debug_log(lines):
+    """Write debug lines to _debug.log for diagnosing GitHub Actions runs."""
+    try:
+        ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        header = f"=== debug run {ts} ===\n"
+        DEBUG_LOG_FILE.write_text(header + "\n".join(lines) + "\n")
+    except Exception as e:
+        print(f"  ! failed to write debug log: {e}")
 
 
 def load_cached_token():
