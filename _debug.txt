@@ -1,0 +1,16 @@
+=== debug run 2026-04-10T19:39:19Z ===
+  · SP_DC env var: set (210 chars)
+  · SP_DC first 8 chars: AQAj37bP...
+  ! sp_dc token exchange failed: HTTP 403 
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>403 URL Blocked</title>
+  </head>
+  <body>
+    <h1>Error 403 URL Blocked</h1>
+    <p>URL Blocked</p>
+    <h3>Error 54113</
+  ! could not obtain web access token — SP_DC cookie may have expired
