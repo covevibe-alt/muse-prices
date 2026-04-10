@@ -768,13 +768,19 @@ def main():
 
     # Scrape real monthly listener counts from open.spotify.com artist
     # pages. The Web API doesn't expose this number, so we pull it from
-    # the public artist page HTML (~1 req per artist, no auth). If a
-    # scrape fails we just fall back to the follower-based proxy below.
-    print("Scraping real monthly listener counts from open.spotify.com…")
-    listener_ids = [a["spotifyId"] for a in ARTISTS if a.get("spotifyId")]
-    monthly_listeners_by_id = fetch_all_monthly_listeners(listener_ids)
-    scraped_ok = len(monthly_listeners_by_id)
-    print(f"  · scraped monthly listeners for {scraped_ok}/{len(listener_ids)} artists")
+    # the public artist page HTML (~1 req per artist, no auth). If the
+    # scrape fails entirely (e.g. Cloudflare blocks GitHub Actions IPs),
+    # we fall back to the follower-based proxy so the pipeline keeps running.
+    monthly_listeners_by_id = {}
+    try:
+        print("Scraping real monthly listener counts from open.spotify.com…")
+        listener_ids = [a["spotifyId"] for a in ARTISTS if a.get("spotifyId")]
+        monthly_listeners_by_id = fetch_all_monthly_listeners(listener_ids)
+        scraped_ok = len(monthly_listeners_by_id)
+        print(f"  · scraped monthly listeners for {scraped_ok}/{len(listener_ids)} artists")
+    except Exception as e:
+        print(f"  ! monthly-listener scraping failed entirely: {e}")
+        print("  · falling back to follower-based proxy for all artists")
 
     print("Fetching Spotify editorial chart positions…")
     chart_positions_by_id = fetch_chart_positions(token)
