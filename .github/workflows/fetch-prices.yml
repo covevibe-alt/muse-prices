@@ -14,6 +14,8 @@ name: Fetch Muse prices
 # Required repo secrets (Settings → Secrets and variables → Actions):
 #   SPOTIFY_CLIENT_ID
 #   SPOTIFY_CLIENT_SECRET
+#   SP_DC                  (optional — Spotify sp_dc cookie for real monthly
+#                           listener counts; see fetch-prices.py for setup)
 #   YOUTUBE_API_KEY        (optional — omit to disable the YouTube signal)
 
 on:
@@ -50,6 +52,7 @@ jobs:
         env:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          SP_DC: ${{ secrets.SP_DC }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python fetch-prices.py
 

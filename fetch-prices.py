@@ -211,98 +211,161 @@ def http_request(method, url, headers=None, data=None, timeout=30):
         return json.loads(resp.read().decode("utf-8"))
 
 
-# --------- Real monthly listeners (scraped from open.spotify.com) ----------
+# --------- Real monthly listeners (Spotify internal partner API) ----------
 #
 # The Spotify Web API does NOT expose monthly listeners — only followers and
-# popularity. But the public artist page has the real number embedded in its
-# <meta name="description"> tag and in the JSON-LD blob. Scraping is cheap
-# (one request per artist, no auth, heavily cached by Spotify's CDN) and
-# gives us the exact same number a user sees on the Spotify web player.
+# popularity. The old approach of scraping the open.spotify.com artist page
+# no longer works because Spotify now serves a pure JavaScript SPA shell
+# with zero artist data in the initial HTML.
 #
-# We treat this as best-effort: if the request fails or the pattern changes,
-# we return None and the caller falls back to the follower-based proxy so
-# the pipeline keeps working.
+# Instead, we use the same internal partner API that the Spotify web player
+# calls.  This requires a web-player access token obtained via the `sp_dc`
+# cookie from any logged-in Spotify session.
+#
+# Setup (one-time):
+#   1. Log in to https://open.spotify.com in your browser.
+#   2. Open DevTools → Application → Cookies → open.spotify.com
+#   3. Copy the value of the `sp_dc` cookie.
+#   4. Store it as a GitHub repo secret named  SP_DC .
+#
+# The cookie typically stays valid for ~1 year. If the pipeline starts
+# falling back to the follower proxy for every artist, the cookie has
+# probably expired — just repeat the steps above.
+#
+# We treat this as best-effort: if anything fails we return None and the
+# caller falls back to the follower-based proxy so the pipeline keeps
+# working.
 import re
+import http.cookiejar
 
-ARTIST_PAGE_URL = "https://open.spotify.com/artist/{id}"
-# Common patterns seen in the page HTML:
-#   "Artist · 82,437,887 monthly listeners"
-#   '"monthly_listeners":82437887'
-#   "82.437.887 monthly listeners"  (European locales)
-_LISTENER_PATTERNS = [
-    re.compile(r'"monthly_listeners"\s*:\s*(\d+)'),
-    re.compile(r'([\d][\d,\. ]{2,})\s*monthly listeners', re.IGNORECASE),
-]
 _BROWSER_UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-    "AppleWebKit/605.1.15 (KHTML, like Gecko) "
-    "Version/17.0 Safari/605.1.15"
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/124.0.0.0 Safari/537.36"
 )
 
+# Spotify partner API GraphQL endpoint (same one the web player uses).
+_PARTNER_API = "https://api-partner.spotify.com/pathfinder/v1/query"
 
-def _parse_listener_number(raw):
-    """Normalize '82,437,887' / '82.437.887' / '82 437 887' → 82437887."""
-    if raw is None:
-        return None
-    digits = re.sub(r"[^\d]", "", str(raw))
-    if not digits:
-        return None
-    try:
-        n = int(digits)
-    except ValueError:
-        return None
-    # Sanity check: Spotify's biggest artists sit under ~200M monthly
-    # listeners. Anything wildly above that is almost certainly a
-    # follower count we picked up by mistake.
-    if n < 1_000 or n > 500_000_000:
-        return None
-    return n
+# Persisted-query hash for the "queryArtistOverview" operation.  Spotify
+# rotates these hashes when they ship new web-player builds, but the
+# artist-overview hash has historically been very stable.  If Spotify
+# changes it, update the value here.
+_ARTIST_OVERVIEW_HASH = "da986392124383827dc03cbb3d66c1de81225244b6e82571ece77f1b596e9e05"
 
 
-def fetch_monthly_listeners(spotify_id, timeout=15):
-    """Scrape the real monthly listener count from open.spotify.com.
+def _get_web_access_token(sp_dc, timeout=15):
+    """Exchange an sp_dc cookie for a short-lived web-player access token.
 
-    Returns an int, or None if the page can't be fetched / parsed. The
-    number is pulled from the page's JSON-LD / meta description blob
-    and validated against a plausibility range so we don't store a
-    nonsense value on formatting changes.
+    Returns (access_token: str, client_id: str) or (None, None) on failure.
     """
-    if not spotify_id:
-        return None
-    url = ARTIST_PAGE_URL.format(id=spotify_id)
+    url = ("https://open.spotify.com/get_access_token"
+           "?reason=transport&productType=web_player")
     req = urllib.request.Request(url, headers={
         "User-Agent": _BROWSER_UA,
-        "Accept": "text/html,application/xhtml+xml",
-        "Accept-Language": "en-US,en;q=0.9",
+        "Cookie": f"sp_dc={sp_dc}",
+        "Accept": "application/json",
     })
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
-            html = resp.read().decode("utf-8", errors="replace")
+            data = json.loads(resp.read().decode())
+        token = data.get("accessToken")
+        client_id = data.get("clientId")
+        if token and not data.get("isAnonymous"):
+            return token, client_id
+        print("  ! sp_dc token exchange returned anonymous/empty token")
+        return None, None
     except Exception as e:
-        print(f"  ! monthly-listeners scrape failed for {spotify_id}: {e}")
+        print(f"  ! sp_dc token exchange failed: {e}")
+        return None, None
+
+
+def _query_partner_api(access_token, spotify_id, timeout=15):
+    """Call the Spotify partner API to get monthly listeners for one artist.
+
+    Returns an int, or None on failure.
+    """
+    variables = json.dumps({
+        "uri": f"spotify:artist:{spotify_id}",
+        "locale": "en",
+        "includePrerelease": True,
+    })
+    extensions = json.dumps({
+        "persistedQuery": {
+            "version": 1,
+            "sha256Hash": _ARTIST_OVERVIEW_HASH,
+        }
+    })
+    params = urllib.parse.urlencode({
+        "operationName": "queryArtistOverview",
+        "variables": variables,
+        "extensions": extensions,
+    })
+    url = f"{_PARTNER_API}?{params}"
+    req = urllib.request.Request(url, headers={
+        "User-Agent": _BROWSER_UA,
+        "Authorization": f"Bearer {access_token}",
+        "Accept": "application/json",
+        "App-Platform": "WebPlayer",
+        "Spotify-App-Version": "1.2.52.442.g0f1fed98",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            data = json.loads(resp.read().decode())
+    except urllib.error.HTTPError as e:
+        body = ""
+        try:
+            body = e.read().decode("utf-8", errors="replace")[:200]
+        except Exception:
+            pass
+        print(f"  ! partner API failed for {spotify_id}: HTTP {e.code} {body}")
         return None
-    for pat in _LISTENER_PATTERNS:
-        m = pat.search(html)
-        if m:
-            n = _parse_listener_number(m.group(1))
-            if n:
-                return n
-    return None
+    except Exception as e:
+        print(f"  ! partner API failed for {spotify_id}: {e}")
+        return None
+
+    # Navigate the GraphQL response to find monthlyListeners.
+    try:
+        stats = data["data"]["artistUnion"]["stats"]
+        listeners = int(stats["monthlyListeners"])
+        if 1_000 <= listeners <= 500_000_000:
+            return listeners
+        print(f"  ! implausible listener count for {spotify_id}: {listeners}")
+        return None
+    except (KeyError, TypeError, ValueError) as e:
+        print(f"  ! could not parse partner API response for {spotify_id}: {e}")
+        return None
 
 
 def fetch_all_monthly_listeners(spotify_ids):
-    """Scrape monthly listeners for every artist id in `spotify_ids`.
+    """Fetch real monthly listeners for every artist via the partner API.
 
-    Returns { spotify_id: int }. Missing entries mean the scrape failed
+    Returns { spotify_id: int }. Missing entries mean the fetch failed
     for that artist — the caller should fall back to follower proxy.
-    Adds a tiny delay between requests so we don't hammer the CDN.
     """
+    sp_dc = os.environ.get("SP_DC", "").strip()
+    if not sp_dc:
+        print("  ! SP_DC env var not set — skipping monthly-listener fetch "
+              "(all artists will use follower proxy)")
+        return {}
+
+    access_token, _ = _get_web_access_token(sp_dc)
+    if not access_token:
+        print("  ! could not obtain web access token — "
+              "SP_DC cookie may have expired")
+        return {}
+
+    print(f"  ✓ obtained web-player access token, querying {len(spotify_ids)} artists …")
     out = {}
+    ok = 0
     for sid in spotify_ids:
-        n = fetch_monthly_listeners(sid)
+        n = _query_partner_api(access_token, sid)
         if n is not None:
             out[sid] = n
-        time.sleep(0.15)  # ~6-7 req/sec, polite and well under any rate limit
+            ok += 1
+        time.sleep(0.1)  # ~10 req/sec, well under any rate limit
+
+    print(f"  ✓ scraped monthly listeners for {ok}/{len(spotify_ids)} artists")
     return out
 
 
@@ -593,7 +656,8 @@ def compute_fair_price(popularity, followers, youtube_stats=None, chart_stats=No
 def blend_price(fair, previous):
     if previous is None:
         return fair
-    # If previous price is >5x away from fair, snap to fair (stale formula)
+    # If previous price is more than 5× away from fair in either direction,
+    # the old value is from a stale/different formula — snap to fair immediately
     if previous > 0 and fair > 0:
         ratio = previous / fair
         if ratio > 5 or ratio < 0.2:
