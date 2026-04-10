@@ -64,7 +64,7 @@ jobs:
           # Save generated files to temp so we can reset cleanly
           DATA_FILES="prices.json prices.js history.json history.js artists.json youtube-channels.json"
           [ -f .market-baseline.json ] && DATA_FILES="$DATA_FILES .market-baseline.json"
-          [ -f _debug.log ] && DATA_FILES="$DATA_FILES _debug.log"
+          [ -f _debug.txt ] && DATA_FILES="$DATA_FILES _debug.txt"
           mkdir -p /tmp/muse-data
           cp $DATA_FILES /tmp/muse-data/
 
@@ -75,7 +75,7 @@ jobs:
           # Put generated files back on top of latest remote
           cp /tmp/muse-data/* .
 
-          git add prices.json prices.js history.json history.js artists.json youtube-channels.json .market-baseline.json _debug.log
+          git add prices.json prices.js history.json history.js artists.json youtube-channels.json .market-baseline.json _debug.txt
           if git diff --staged --quiet; then
             echo "No price changes — skipping commit."
           else
