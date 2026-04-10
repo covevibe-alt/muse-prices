@@ -211,6 +211,101 @@ def http_request(method, url, headers=None, data=None, timeout=30):
         return json.loads(resp.read().decode("utf-8"))
 
 
+# --------- Real monthly listeners (scraped from open.spotify.com) ----------
+#
+# The Spotify Web API does NOT expose monthly listeners — only followers and
+# popularity. But the public artist page has the real number embedded in its
+# <meta name="description"> tag and in the JSON-LD blob. Scraping is cheap
+# (one request per artist, no auth, heavily cached by Spotify's CDN) and
+# gives us the exact same number a user sees on the Spotify web player.
+#
+# We treat this as best-effort: if the request fails or the pattern changes,
+# we return None and the caller falls back to the follower-based proxy so
+# the pipeline keeps working.
+import re
+
+ARTIST_PAGE_URL = "https://open.spotify.com/artist/{id}"
+# Common patterns seen in the page HTML:
+#   "Artist · 82,437,887 monthly listeners"
+#   '"monthly_listeners":82437887'
+#   "82.437.887 monthly listeners"  (European locales)
+_LISTENER_PATTERNS = [
+    re.compile(r'"monthly_listeners"\s*:\s*(\d+)'),
+    re.compile(r'([\d][\d,\. ]{2,})\s*monthly listeners', re.IGNORECASE),
+]
+_BROWSER_UA = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/605.1.15 (KHTML, like Gecko) "
+    "Version/17.0 Safari/605.1.15"
+)
+
+
+def _parse_listener_number(raw):
+    """Normalize '82,437,887' / '82.437.887' / '82 437 887' → 82437887."""
+    if raw is None:
+        return None
+    digits = re.sub(r"[^\d]", "", str(raw))
+    if not digits:
+        return None
+    try:
+        n = int(digits)
+    except ValueError:
+        return None
+    # Sanity check: Spotify's biggest artists sit under ~200M monthly
+    # listeners. Anything wildly above that is almost certainly a
+    # follower count we picked up by mistake.
+    if n < 1_000 or n > 500_000_000:
+        return None
+    return n
+
+
+def fetch_monthly_listeners(spotify_id, timeout=15):
+    """Scrape the real monthly listener count from open.spotify.com.
+
+    Returns an int, or None if the page can't be fetched / parsed. The
+    number is pulled from the page's JSON-LD / meta description blob
+    and validated against a plausibility range so we don't store a
+    nonsense value on formatting changes.
+    """
+    if not spotify_id:
+        return None
+    url = ARTIST_PAGE_URL.format(id=spotify_id)
+    req = urllib.request.Request(url, headers={
+        "User-Agent": _BROWSER_UA,
+        "Accept": "text/html,application/xhtml+xml",
+        "Accept-Language": "en-US,en;q=0.9",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            html = resp.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"  ! monthly-listeners scrape failed for {spotify_id}: {e}")
+        return None
+    for pat in _LISTENER_PATTERNS:
+        m = pat.search(html)
+        if m:
+            n = _parse_listener_number(m.group(1))
+            if n:
+                return n
+    return None
+
+
+def fetch_all_monthly_listeners(spotify_ids):
+    """Scrape monthly listeners for every artist id in `spotify_ids`.
+
+    Returns { spotify_id: int }. Missing entries mean the scrape failed
+    for that artist — the caller should fall back to follower proxy.
+    Adds a tiny delay between requests so we don't hammer the CDN.
+    """
+    out = {}
+    for sid in spotify_ids:
+        n = fetch_monthly_listeners(sid)
+        if n is not None:
+            out[sid] = n
+        time.sleep(0.15)  # ~6-7 req/sec, polite and well under any rate limit
+    return out
+
+
 def load_cached_token():
     """Return a cached Spotify access token if it's still valid, else None."""
     if not TOKEN_CACHE_FILE.exists():
@@ -478,20 +573,21 @@ def youtube_boost_factor(yt_stats):
     return round(min(YOUTUBE_BOOST_MAX, max(0.0, raw * YOUTUBE_BOOST_MAX)), 4)
 
 
-def compute_fair_price(popularity, followers, youtube_stats=None, chart_stats=None):
-    # Spotify popularity is 0–100, but almost everyone we track is 60+.
-    # Subtract a 30-point floor and exponentiate the headroom so mid-tier
-    # artists land around $150–$300 and stadium acts land around $500–$700.
-    headroom = max(0.0, popularity - 30)
-    base = 0.8 * math.pow(headroom, 1.5)
-    follower_bonus = math.log10(followers + 1) * 3
-    spotify_fair = base + follower_bonus
+def compute_fair_price(popularity, followers, youtube_stats=None, chart_stats=None, monthly_listeners=None):
+    # ── Muse Streaming Index formula ──
+    # Must stay in sync with the frontend `fairFromListeners()`:
+    #   fairPrice = (monthlyListeners × VALUE_PER_LISTENER) / SHARES_OUTSTANDING
+    # where VALUE_PER_LISTENER = €0.03 and SHARES_OUTSTANDING = 1 000 000.
+    VALUE_PER_LISTENER = 0.03
+    SHARES_OUTSTANDING = 1_000_000
+    listeners = monthly_listeners if monthly_listeners and monthly_listeners > 0 else int(round((followers or 0) * 0.6))
+    base = max(0.01, (listeners * VALUE_PER_LISTENER) / SHARES_OUTSTANDING)
     yt_boost = youtube_boost_factor(youtube_stats)
     ch_boost = chart_boost_factor(chart_stats)
     # Boosts stack additively (capped total ≈ 0.55) — an artist at #1 on the
     # Global Top 50 AND with a billion-view YouTube presence gets +55% over
     # their pure Spotify fair price.
-    return round(spotify_fair * (1 + yt_boost + ch_boost), 2)
+    return round(base * (1 + yt_boost + ch_boost), 2)
 
 
 def blend_price(fair, previous):
@@ -530,22 +626,32 @@ def parse_iso(ts):
         return None
 
 
-def append_history(history, ticker, timestamp, price, now_dt):
+def append_history(history, ticker, timestamp, price, now_dt, listeners=None, popularity=None):
     """Append one point to a ticker's series, trimming to HISTORY_MAX_POINTS.
+
+    Each point carries the raw streaming fundamentals (`listeners`,
+    `popularity`) so the frontend can re-derive a fair price from the
+    actual metrics we observed at that moment — not just a cached
+    number that may have been computed with a different formula.
 
     If the most recent existing point is within HISTORY_DEDUP_SECONDS, we
     overwrite it instead of appending — this prevents rapid manual reruns
     from stuffing the rolling window with near-duplicate points.
     """
+    point = {"t": timestamp, "p": price}
+    if listeners is not None:
+        point["listeners"] = listeners
+    if popularity is not None:
+        point["pop"] = popularity
     series = history.get(ticker, [])
     if series:
         last = series[-1]
         last_dt = parse_iso(last.get("t", ""))
         if last_dt and (now_dt - last_dt).total_seconds() < HISTORY_DEDUP_SECONDS:
-            series[-1] = {"t": timestamp, "p": price}
+            series[-1] = point
             history[ticker] = series
             return history
-    series.append({"t": timestamp, "p": price})
+    series.append(point)
     if len(series) > HISTORY_MAX_POINTS:
         series = series[-HISTORY_MAX_POINTS:]
     history[ticker] = series
@@ -660,6 +766,16 @@ def main():
     print(f"Fetching Spotify data for {len([a for a in ARTISTS if a.get('spotifyId')])} artists…")
     spotify_data = fetch_all_artists(token)
 
+    # Scrape real monthly listener counts from open.spotify.com artist
+    # pages. The Web API doesn't expose this number, so we pull it from
+    # the public artist page HTML (~1 req per artist, no auth). If a
+    # scrape fails we just fall back to the follower-based proxy below.
+    print("Scraping real monthly listener counts from open.spotify.com…")
+    listener_ids = [a["spotifyId"] for a in ARTISTS if a.get("spotifyId")]
+    monthly_listeners_by_id = fetch_all_monthly_listeners(listener_ids)
+    scraped_ok = len(monthly_listeners_by_id)
+    print(f"  · scraped monthly listeners for {scraped_ok}/{len(listener_ids)} artists")
+
     print("Fetching Spotify editorial chart positions…")
     chart_positions_by_id = fetch_chart_positions(token)
     charted_in_roster = sum(
@@ -691,9 +807,21 @@ def main():
         followers = (live.get("followers") or {}).get("total", 0)
         image = (live.get("images") or [{}])[0].get("url") if live.get("images") else None
 
+        # Real monthly listeners scraped from open.spotify.com. If the
+        # scrape failed for this artist, fall back to the old proxy of
+        # 60% of followers so the pipeline still produces a number.
+        scraped_listeners = monthly_listeners_by_id.get(a["spotifyId"])
+        if scraped_listeners and scraped_listeners > 0:
+            monthly_listeners = scraped_listeners
+            listeners_source = "spotify-page"
+        else:
+            monthly_listeners = int(round(followers * 0.6))
+            listeners_source = "follower-proxy"
+
         yt_stats = youtube_data.get(a["ticker"])
         chart_stats = chart_positions_by_id.get(a["spotifyId"])
-        fair = compute_fair_price(popularity, followers, yt_stats, chart_stats)
+        fair = compute_fair_price(popularity, followers, yt_stats, chart_stats,
+                                  monthly_listeners=monthly_listeners)
         prev_entry = previous.get(a["ticker"]) or {}
         prev_price = prev_entry.get("price")
         prev_popularity = prev_entry.get("popularity", popularity)
@@ -701,8 +829,11 @@ def main():
 
         # Append before we compute chg24h / volatility so the point we just
         # wrote is reflected in both. The de-dup logic inside append_history
-        # ensures rapid reruns overwrite instead of stacking.
-        append_history(history, a["ticker"], now_iso, price, now_dt)
+        # ensures rapid reruns overwrite instead of stacking. We store the
+        # REAL monthly listeners on the history point so the client can
+        # re-derive fair price from it later via the market-cap formula.
+        append_history(history, a["ticker"], now_iso, price, now_dt,
+                       listeners=monthly_listeners, popularity=popularity)
         series = history.get(a["ticker"], [])
 
         # Real 24h change from rolling history, not from the last run (which
@@ -726,6 +857,8 @@ def main():
             "popularity": popularity,
             "popularityDelta": pop_delta,
             "followers": followers,
+            "monthlyListeners": monthly_listeners,
+            "listenersSource": listeners_source,
             "image": image,
             "fairPrice": fair,
             "price": price,

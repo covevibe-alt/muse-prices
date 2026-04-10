@@ -1,27 +1,27 @@
 {
-  "updatedAt": "2026-04-10T06:19:23Z",
-  "marketIndex": 1017.39,
-  "rawAveragePrice": 337.48,
+  "updatedAt": "2026-04-09T10:14:09Z",
+  "marketIndex": 1016.66,
+  "rawAveragePrice": 337.23,
   "topGainers": [
     {
       "ticker": "CHPL",
-      "chg24h": 1.87
+      "chg24h": 0.77
     },
     {
       "ticker": "CNTC",
-      "chg24h": 1.87
+      "chg24h": 0.76
     },
     {
       "ticker": "FEID",
-      "chg24h": 1.69
+      "chg24h": 0.69
     },
     {
       "ticker": "TRVS",
-      "chg24h": 1.61
+      "chg24h": 0.66
     },
     {
-      "ticker": "DCSR",
-      "chg24h": 1.21
+      "ticker": "SABR",
+      "chg24h": 0.0
     }
   ],
   "topLosers": [
@@ -92,8 +92,8 @@
     },
     {
       "sector": "Hip-hop",
-      "avgPrice": 351.74,
-      "chg24h": 0.21,
+      "avgPrice": 351.26,
+      "chg24h": 0.07,
       "members": [
         "DRKE",
         "TRVS",
@@ -146,8 +146,8 @@
     },
     {
       "sector": "Latin",
-      "avgPrice": 375.89,
-      "chg24h": 0.11,
+      "avgPrice": 375.65,
+      "chg24h": 0.05,
       "members": [
         "BNNY",
         "PESO",
@@ -168,8 +168,8 @@
     },
     {
       "sector": "Pop",
-      "avgPrice": 357.49,
-      "chg24h": 0.12,
+      "avgPrice": 357.18,
+      "chg24h": 0.03,
       "members": [
         "SABR",
         "TSWF",
@@ -200,8 +200,8 @@
     },
     {
       "sector": "R&B",
-      "avgPrice": 329.88,
-      "chg24h": 0.12,
+      "avgPrice": 329.45,
+      "chg24h": 0.0,
       "members": [
         "WKND",
         "SZA",
@@ -224,17 +224,15 @@
       "spotifyId": "74KM79TiuVKeVCqs8QtB0B",
       "popularity": 90,
       "popularityDelta": 0,
-      "followers": 31270919,
+      "followers": 31241407,
       "image": "https://i.scdn.co/image/ab6761610000e5eb78e45cfa4697ce3c437cb455",
       "fairPrice": 394.29,
       "price": 394.29,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3355,
+      "volume": 3354,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "TSWF",
@@ -243,17 +241,15 @@
       "spotifyId": "06HL4z0CvFAxyc27GXpf02",
       "popularity": 97,
       "popularityDelta": 0,
-      "followers": 154975142,
+      "followers": 154919785,
       "image": "https://i.scdn.co/image/ab6761610000e5ebe2e8e7ff002a4afda1c7147e",
       "fairPrice": 463.31,
       "price": 463.3,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 7469,
+      "volume": 7468,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "CHPL",
@@ -262,36 +258,32 @@
       "spotifyId": "7GlBOeep6PqTfFi59PTUUN",
       "popularity": 82,
       "popularityDelta": 0,
-      "followers": 8072400,
+      "followers": 8069075,
       "image": "https://i.scdn.co/image/ab6761610000e5ebd258ecb0d66244e6300bcf64",
       "fairPrice": 320.7,
-      "price": 317.94,
-      "chg24h": 1.87,
-      "volatility30d": 2.223,
-      "volume": 1705,
+      "price": 314.48,
+      "chg24h": 0.77,
+      "volatility30d": 0.924,
+      "volume": 1704,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "OLVR",
       "name": "Olivia Rodrigo",
       "genre": "Pop",
       "spotifyId": "1McMsnEElThX1knmY4oliG",
-      "popularity": 87,
+      "popularity": 86,
       "popularityDelta": 0,
-      "followers": 52473911,
+      "followers": 52453589,
       "image": "https://i.scdn.co/image/ab6761610000e5eb24bf95fba063cbca2f748462",
-      "fairPrice": 367.43,
-      "price": 362.72,
-      "chg24h": 1.2,
-      "volatility30d": 1.55,
-      "volume": 4346,
+      "fairPrice": 358.41,
+      "price": 358.41,
+      "chg24h": 0.0,
+      "volatility30d": 0.0,
+      "volume": 4345,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "TATE",
@@ -300,17 +292,15 @@
       "spotifyId": "45dkTj5sMRSjrmBSBeiHym",
       "popularity": 88,
       "popularityDelta": 0,
-      "followers": 10625826,
+      "followers": 10619936,
       "image": "https://i.scdn.co/image/ab6761610000e5ebbed8016bd64422793ff3bc75",
       "fairPrice": 374.45,
       "price": 374.45,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1956,
+      "volume": 1955,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "DUAL",
@@ -319,7 +309,7 @@
       "spotifyId": "6M2wZ9GZgrQXHCFfjv46we",
       "popularity": 87,
       "popularityDelta": 0,
-      "followers": 47865121,
+      "followers": 47860459,
       "image": "https://i.scdn.co/image/ab6761610000e5eb0c68f6c95232e716f0abee8d",
       "fairPrice": 367.31,
       "price": 367.31,
@@ -327,9 +317,7 @@
       "volatility30d": 0.0,
       "volume": 4151,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "ARGR",
@@ -338,17 +326,15 @@
       "spotifyId": "66CXWjxzNUsdJxJ2JdwvnR",
       "popularity": 91,
       "popularityDelta": 0,
-      "followers": 110867887,
+      "followers": 110846600,
       "image": "https://i.scdn.co/image/ab6761610000e5eb6725802588d7dc1aba076ca5",
       "fairPrice": 405.27,
       "price": 405.27,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 6318,
+      "volume": 6317,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "SHRN",
@@ -357,7 +343,7 @@
       "spotifyId": "6eUKZXaKkcviH0Ku9w2n3V",
       "popularity": 88,
       "popularityDelta": 0,
-      "followers": 125792832,
+      "followers": 125776848,
       "image": "https://i.scdn.co/image/ab6761610000e5ebd55c95ad400aed87da52daec",
       "fairPrice": 377.67,
       "price": 377.67,
@@ -365,9 +351,7 @@
       "volatility30d": 0.0,
       "volume": 6729,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "HRST",
@@ -376,7 +360,7 @@
       "spotifyId": "6KImCVD70vtIoJWnq6nGn3",
       "popularity": 91,
       "popularityDelta": 0,
-      "followers": 35211822,
+      "followers": 35208108,
       "image": "https://i.scdn.co/image/ab6761610000e5ebe309f8c3056a59f20d0968ca",
       "fairPrice": 403.78,
       "price": 403.78,
@@ -384,9 +368,7 @@
       "volatility30d": 0.0,
       "volume": 3560,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "DOJA",
@@ -395,7 +377,7 @@
       "spotifyId": "5cj0lLjcoR7YOSnhnX0Po5",
       "popularity": 86,
       "popularityDelta": 0,
-      "followers": 36749491,
+      "followers": 36737888,
       "image": "https://i.scdn.co/image/ab6761610000e5eb8a0644455ebfa7d3976f5101",
       "fairPrice": 357.95,
       "price": 357.95,
@@ -403,9 +385,7 @@
       "volatility30d": 0.0,
       "volume": 3637,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "CHRL",
@@ -414,17 +394,15 @@
       "spotifyId": "25uiPmTg16RbhZWAqwLBy5",
       "popularity": 85,
       "popularityDelta": 0,
-      "followers": 6923227,
+      "followers": 6920273,
       "image": "https://i.scdn.co/image/ab6761610000e5ebdaa727dd396963ba92dd6377",
       "fairPrice": 346.83,
       "price": 346.83,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1579,
+      "volume": 1578,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "MLEY",
@@ -433,17 +411,15 @@
       "spotifyId": "5YGY8feqx7naU7z4HrwZM6",
       "popularity": 83,
       "popularityDelta": 0,
-      "followers": 27523245,
+      "followers": 27513792,
       "image": "https://i.scdn.co/image/ab6761610000e5ebb14a2f1cede69cef4fb03b60",
       "fairPrice": 331.0,
       "price": 330.99,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3148,
+      "volume": 3147,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "SHKR",
@@ -452,17 +428,15 @@
       "spotifyId": "0EmeFodog0BfCgMzAIvKQp",
       "popularity": 88,
       "popularityDelta": 0,
-      "followers": 42197782,
+      "followers": 42183563,
       "image": "https://i.scdn.co/image/ab6761610000e5eb2a24b7e572e325c4b550af12",
       "fairPrice": 376.25,
       "price": 376.25,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3898,
+      "volume": 3897,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "KTPR",
@@ -471,17 +445,15 @@
       "spotifyId": "6jJ0s89eD6GaHleKKya26X",
       "popularity": 86,
       "popularityDelta": 0,
-      "followers": 40018997,
+      "followers": 40007804,
       "image": "https://i.scdn.co/image/ab6761610000e5eb4be5330bd48527f9dd620663",
       "fairPrice": 358.06,
       "price": 358.06,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3796,
+      "volume": 3795,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "JBBR",
@@ -490,7 +462,7 @@
       "spotifyId": "1uNFoZAHBGtllmzznpCI3s",
       "popularity": 92,
       "popularityDelta": 0,
-      "followers": 88216126,
+      "followers": 88194558,
       "image": "https://i.scdn.co/image/ab6761610000e5ebaf20f7db5288bce9beede034",
       "fairPrice": 414.39,
       "price": 414.39,
@@ -498,9 +470,7 @@
       "volatility30d": 0.0,
       "volume": 5635,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BRNO",
@@ -509,17 +479,15 @@
       "spotifyId": "0du5cEVh5yTK9QJze8zA0C",
       "popularity": 95,
       "popularityDelta": 0,
-      "followers": 81247485,
+      "followers": 81209211,
       "image": "https://i.scdn.co/image/ab6761610000e5ebc7688aad1bf03986934d7e26",
       "fairPrice": 442.97,
       "price": 442.97,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 5408,
+      "volume": 5407,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "SLNA",
@@ -528,7 +496,7 @@
       "spotifyId": "0C8ZW7ezQVs4URX5aX7Kqx",
       "popularity": 82,
       "popularityDelta": 0,
-      "followers": 54072539,
+      "followers": 54066709,
       "image": "https://i.scdn.co/image/ab6761610000e5eb815e520e3ce7fe210046ba66",
       "fairPrice": 323.18,
       "price": 323.18,
@@ -536,9 +504,7 @@
       "volatility30d": 0.0,
       "volume": 4412,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "GAGA",
@@ -547,17 +513,15 @@
       "spotifyId": "1HY2Jd0NmPuamShAr6KMms",
       "popularity": 89,
       "popularityDelta": 0,
-      "followers": 45765194,
+      "followers": 45748573,
       "image": "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
       "fairPrice": 385.53,
       "price": 385.53,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 4059,
+      "volume": 4058,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BENS",
@@ -566,7 +530,7 @@
       "spotifyId": "22wbnEMDvgVIAGdFeek6ET",
       "popularity": 83,
       "popularityDelta": 0,
-      "followers": 7963638,
+      "followers": 7959748,
       "image": "https://i.scdn.co/image/ab6761610000e5ebb68234e1a673acc3d873d3e6",
       "fairPrice": 329.38,
       "price": 329.38,
@@ -574,9 +538,7 @@
       "volatility30d": 0.0,
       "volume": 1693,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "GRAB",
@@ -585,17 +547,15 @@
       "spotifyId": "4tuJ0bMpJh08umKkEXKUI5",
       "popularity": 83,
       "popularityDelta": 0,
-      "followers": 9142435,
+      "followers": 9133815,
       "image": "https://i.scdn.co/image/ab6761610000e5ebf6d51e6f5342d2d363220920",
       "fairPrice": 329.56,
       "price": 329.56,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1814,
+      "volume": 1813,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "CMLA",
@@ -604,7 +564,7 @@
       "spotifyId": "4nDoRrQiYLoBzwC5BhVJzF",
       "popularity": 80,
       "popularityDelta": 0,
-      "followers": 36276428,
+      "followers": 36272117,
       "image": "https://i.scdn.co/image/ab6761610000e5eb76470faf6330235edbcb90a9",
       "fairPrice": 305.52,
       "price": 305.52,
@@ -612,9 +572,7 @@
       "volatility30d": 0.0,
       "volume": 3614,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "SHMN",
@@ -623,17 +581,15 @@
       "spotifyId": "7n2wHs1TKAczGzO7Dd2rGr",
       "popularity": 82,
       "popularityDelta": 0,
-      "followers": 46532974,
+      "followers": 46527378,
       "image": "https://i.scdn.co/image/ab6761610000e5eb58b4b9419486550f6fda0535",
-      "fairPrice": 322.99,
+      "fairPrice": 322.98,
       "price": 322.98,
       "chg24h": 0.0,
       "volatility30d": 0.0,
       "volume": 4093,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "TROY",
@@ -642,7 +598,7 @@
       "spotifyId": "3WGpXCj9YhhfX11TToZcXP",
       "popularity": 74,
       "popularityDelta": 0,
-      "followers": 9525483,
+      "followers": 9524921,
       "image": "https://i.scdn.co/image/ab6761610000e5eb26e8cb3ff6fc7744b312811b",
       "fairPrice": 254.43,
       "price": 254.43,
@@ -650,9 +606,7 @@
       "volatility30d": 0.0,
       "volume": 1852,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "HLSY",
@@ -661,7 +615,7 @@
       "spotifyId": "26VFTg2z8YR0cCuwLzESi2",
       "popularity": 82,
       "popularityDelta": 0,
-      "followers": 22903521,
+      "followers": 22900580,
       "image": "https://i.scdn.co/image/ab6761610000e5eb15136101a0f63f0b2800b9dc",
       "fairPrice": 322.06,
       "price": 322.06,
@@ -669,9 +623,7 @@
       "volatility30d": 0.0,
       "volume": 2871,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "MADB",
@@ -680,7 +632,7 @@
       "spotifyId": "2kRfqPViCqYdSGhYSM9R0Q",
       "popularity": 76,
       "popularityDelta": 0,
-      "followers": 9377086,
+      "followers": 9374255,
       "image": "https://i.scdn.co/image/ab6761610000e5ebe49a051508f6c1eeaecff664",
       "fairPrice": 270.51,
       "price": 270.51,
@@ -688,9 +640,7 @@
       "volatility30d": 0.0,
       "volume": 1837,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "DRKE",
@@ -699,17 +649,15 @@
       "spotifyId": "3TVXtAsR1Inumwj472S9r4",
       "popularity": 97,
       "popularityDelta": 0,
-      "followers": 109258438,
+      "followers": 109220953,
       "image": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
       "fairPrice": 462.85,
       "price": 462.85,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 6272,
+      "volume": 6271,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "TRVS",
@@ -718,17 +666,15 @@
       "spotifyId": "0Y5tJX1MQlPlqiwlOH1tJY",
       "popularity": 91,
       "popularityDelta": 0,
-      "followers": 43285686,
+      "followers": 43274489,
       "image": "https://i.scdn.co/image/ab6761610000e5eb19c2790744c792d05570bb71",
       "fairPrice": 404.05,
-      "price": 401.05,
-      "chg24h": 1.61,
-      "volatility30d": 2.41,
-      "volume": 3948,
+      "price": 397.3,
+      "chg24h": 0.66,
+      "volatility30d": 1.001,
+      "volume": 3947,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "KDOT",
@@ -737,7 +683,7 @@
       "spotifyId": "2YZyLoL8N0Wb9xBt1NhZWg",
       "popularity": 90,
       "popularityDelta": 0,
-      "followers": 47313762,
+      "followers": 47300023,
       "image": "https://i.scdn.co/image/ab6761610000e5eb39ba6dcd4355c03de0b50918",
       "fairPrice": 394.83,
       "price": 394.83,
@@ -745,9 +691,7 @@
       "volatility30d": 0.0,
       "volume": 4127,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "ICE",
@@ -756,7 +700,7 @@
       "spotifyId": "3LZZPxNDGDFVSIPqf4JuEf",
       "popularity": 73,
       "popularityDelta": 0,
-      "followers": 5237902,
+      "followers": 5236051,
       "image": "https://i.scdn.co/image/ab6761610000e5ebab47bb63dae13065213602cd",
       "fairPrice": 245.73,
       "price": 245.73,
@@ -764,9 +708,7 @@
       "volatility30d": 0.0,
       "volume": 1373,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "POST",
@@ -775,17 +717,15 @@
       "spotifyId": "246dkjvS1zLTtiykXe5h60",
       "popularity": 87,
       "popularityDelta": 0,
-      "followers": 48527195,
+      "followers": 48522376,
       "image": "https://i.scdn.co/image/ab6761610000e5ebe17c0aa1714a03d62b5ce4e0",
       "fairPrice": 367.33,
       "price": 367.33,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 4180,
+      "volume": 4179,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "FUTR",
@@ -794,7 +734,7 @@
       "spotifyId": "1RyvyyTE3xzB2ZywiAwp0i",
       "popularity": 90,
       "popularityDelta": 0,
-      "followers": 24029334,
+      "followers": 24021836,
       "image": "https://i.scdn.co/image/ab6761610000e5eb7565b356bc9d9394eefa2ccb",
       "fairPrice": 393.95,
       "price": 393.95,
@@ -802,9 +742,7 @@
       "volatility30d": 0.0,
       "volume": 2941,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "SVGE",
@@ -813,17 +751,15 @@
       "spotifyId": "1URnnhqYAYcrqrcwql10ft",
       "popularity": 85,
       "popularityDelta": 0,
-      "followers": 25309478,
+      "followers": 25301438,
       "image": "https://i.scdn.co/image/ab6761610000e5eb4f8f76117470957c0e81e5b2",
       "fairPrice": 348.52,
       "price": 348.52,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3019,
+      "volume": 3018,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "NCKI",
@@ -832,7 +768,7 @@
       "spotifyId": "0hCNtLu0JehylgoiP8L4Gh",
       "popularity": 85,
       "popularityDelta": 0,
-      "followers": 34627058,
+      "followers": 34624313,
       "image": "https://i.scdn.co/image/ab6761610000e5eb07a50f0a9a8f11e5a1102cbd",
       "fairPrice": 348.93,
       "price": 348.93,
@@ -840,9 +776,7 @@
       "volatility30d": 0.0,
       "volume": 3531,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "DCHI",
@@ -851,7 +785,7 @@
       "spotifyId": "4E2rKHVDssGJm2SCDOMMJB",
       "popularity": 78,
       "popularityDelta": 0,
-      "followers": 3503814,
+      "followers": 3501377,
       "image": "https://i.scdn.co/image/ab6761610000e5ebca2fee52c41d3f58ceb6474b",
       "fairPrice": 285.68,
       "price": 285.68,
@@ -859,9 +793,7 @@
       "volatility30d": 0.0,
       "volume": 1123,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "JCLE",
@@ -870,7 +802,7 @@
       "spotifyId": "6l3HvQ5sa6mXTsMTB19rO5",
       "popularity": 87,
       "popularityDelta": 0,
-      "followers": 28141486,
+      "followers": 28135738,
       "image": "https://i.scdn.co/image/ab6761610000e5ebc401ea77e86ee984b1ba9fc2",
       "fairPrice": 366.62,
       "price": 366.62,
@@ -878,9 +810,7 @@
       "volatility30d": 0.0,
       "volume": 3183,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "CRTI",
@@ -889,7 +819,7 @@
       "spotifyId": "699OTQXzgjhIYAHMy9RyPD",
       "popularity": 86,
       "popularityDelta": 0,
-      "followers": 16078620,
+      "followers": 16073872,
       "image": "https://i.scdn.co/image/ab6761610000e5ebba50ca67ffc3097f6ea1710a",
       "fairPrice": 356.87,
       "price": 356.87,
@@ -897,9 +827,7 @@
       "volatility30d": 0.0,
       "volume": 2406,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "MTRO",
@@ -908,7 +836,7 @@
       "spotifyId": "0iEtIxbK0KxaSlF7G42ZOp",
       "popularity": 85,
       "popularityDelta": 0,
-      "followers": 12473376,
+      "followers": 12469170,
       "image": "https://i.scdn.co/image/ab6761610000e5eb28f1e72b31e756ea3f3a51e7",
       "fairPrice": 347.6,
       "price": 347.6,
@@ -916,9 +844,7 @@
       "volatility30d": 0.0,
       "volume": 2119,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "GNNA",
@@ -927,36 +853,32 @@
       "spotifyId": "2hlmm7s2ICUX0LVIhVFlZQ",
       "popularity": 86,
       "popularityDelta": 0,
-      "followers": 11444076,
+      "followers": 11437741,
       "image": "https://i.scdn.co/image/ab6761610000e5eba998bc86f87b9fe7e2466110",
       "fairPrice": 356.43,
       "price": 356.43,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2030,
+      "volume": 2029,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "LBBY",
       "name": "Lil Baby",
       "genre": "Hip-hop",
       "spotifyId": "5f7VJjfbwm532GiveGC0ZK",
-      "popularity": 87,
+      "popularity": 86,
       "popularityDelta": 0,
-      "followers": 22879205,
+      "followers": 22872152,
       "image": "https://i.scdn.co/image/ab6761610000e5eb514da623c55dc9d2155705dd",
-      "fairPrice": 366.35,
-      "price": 359.83,
-      "chg24h": 0.7,
-      "volatility30d": 0.845,
-      "volume": 2870,
+      "fairPrice": 357.33,
+      "price": 357.33,
+      "chg24h": 0.0,
+      "volatility30d": 0.0,
+      "volume": 2869,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "CNTC",
@@ -965,17 +887,15 @@
       "spotifyId": "5H4yInM5zmHqpKIoMNAx4r",
       "popularity": 82,
       "popularityDelta": 0,
-      "followers": 10822440,
+      "followers": 10814405,
       "image": "https://i.scdn.co/image/ab6761610000e5eb6ce131983245fc2e6940f6c2",
       "fairPrice": 321.08,
-      "price": 318.31,
-      "chg24h": 1.87,
-      "volatility30d": 2.092,
-      "volume": 1974,
+      "price": 314.86,
+      "chg24h": 0.76,
+      "volatility30d": 0.999,
+      "volume": 1973,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "LTTO",
@@ -984,7 +904,7 @@
       "spotifyId": "3MdXrJWsbVzdn6fe5JYkSQ",
       "popularity": 77,
       "popularityDelta": 0,
-      "followers": 2685748,
+      "followers": 2684368,
       "image": "https://i.scdn.co/image/ab6761610000e5eb2d805d9a367bdad2096ab817",
       "fairPrice": 277.06,
       "price": 277.06,
@@ -992,9 +912,7 @@
       "volatility30d": 0.0,
       "volume": 983,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "MGSN",
@@ -1003,7 +921,7 @@
       "spotifyId": "181bsRPaVXVlUKXrxwZfHK",
       "popularity": 79,
       "popularityDelta": 0,
-      "followers": 11461535,
+      "followers": 11458015,
       "image": "https://i.scdn.co/image/ab6761610000e5eb65a9ac943abab7c9935ea282",
       "fairPrice": 295.58,
       "price": 295.58,
@@ -1011,9 +929,7 @@
       "volatility30d": 0.0,
       "volume": 2031,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "TYLR",
@@ -1022,17 +938,15 @@
       "spotifyId": "4V8LLVI7PbaPR0K2TGSxFF",
       "popularity": 86,
       "popularityDelta": 0,
-      "followers": 26453225,
+      "followers": 26443655,
       "image": "https://i.scdn.co/image/ab6761610000e5ebdf2728294ff77dd11eeb18fb",
       "fairPrice": 357.52,
       "price": 357.52,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3086,
+      "volume": 3085,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "LUZI",
@@ -1041,7 +955,7 @@
       "spotifyId": "4O15NlyKLIASxsJ0PrXPfz",
       "popularity": 85,
       "popularityDelta": 0,
-      "followers": 20210632,
+      "followers": 20205396,
       "image": "https://i.scdn.co/image/ab6761610000e5eb62c272d76220f2e9dad56704",
       "fairPrice": 348.23,
       "price": 348.23,
@@ -1049,9 +963,7 @@
       "volatility30d": 0.0,
       "volume": 2697,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "DONT",
@@ -1060,7 +972,7 @@
       "spotifyId": "4Gso3d4CscCijv0lmajZWs",
       "popularity": 91,
       "popularityDelta": 0,
-      "followers": 8617710,
+      "followers": 8609952,
       "image": "https://i.scdn.co/image/ab6761610000e5ebc52b798deb89eb8414a51b7b",
       "fairPrice": 401.95,
       "price": 401.94,
@@ -1068,9 +980,7 @@
       "volatility30d": 0.0,
       "volume": 1761,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "WKND",
@@ -1079,17 +989,15 @@
       "spotifyId": "1Xyo4u8uXC1ZmMpatF05PJ",
       "popularity": 94,
       "popularityDelta": 0,
-      "followers": 120913216,
+      "followers": 120871866,
       "image": "https://i.scdn.co/image/ab6761610000e5eb9e528993a2820267b97f6aae",
       "fairPrice": 433.85,
       "price": 433.85,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 6598,
+      "volume": 6597,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "SZA",
@@ -1098,17 +1006,15 @@
       "spotifyId": "7tYKF4w9nC0nq9CsPZTHyP",
       "popularity": 88,
       "popularityDelta": 0,
-      "followers": 35437600,
+      "followers": 35425699,
       "image": "https://i.scdn.co/image/ab6761610000e5ebfd0a9fb6c252a3ba44079acf",
       "fairPrice": 376.02,
       "price": 376.02,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3572,
+      "volume": 3571,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BRYS",
@@ -1117,7 +1023,7 @@
       "spotifyId": "2EMAnMvWE2eb56ToJVfCWs",
       "popularity": 79,
       "popularityDelta": 0,
-      "followers": 10965177,
+      "followers": 10963383,
       "image": "https://i.scdn.co/image/ab6761610000e5ebb0ff28b9d4bed74c66901b2b",
       "fairPrice": 295.52,
       "price": 295.52,
@@ -1125,9 +1031,7 @@
       "volatility30d": 0.0,
       "volume": 1987,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "SMRW",
@@ -1136,17 +1040,15 @@
       "spotifyId": "57LYzLEk2LcFghVwuWbcuS",
       "popularity": 77,
       "popularityDelta": 0,
-      "followers": 8462940,
+      "followers": 8460943,
       "image": "https://i.scdn.co/image/ab6761610000e5eb7dccb6280ed3402110d43ce3",
-      "fairPrice": 278.56,
+      "fairPrice": 278.55,
       "price": 278.55,
       "chg24h": 0.0,
       "volatility30d": 0.0,
       "volume": 1745,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BFRY",
@@ -1155,17 +1057,15 @@
       "spotifyId": "3tlXnStJ1fFhdScmQeLpuG",
       "popularity": 84,
       "popularityDelta": 0,
-      "followers": 8512678,
+      "followers": 8509250,
       "image": "https://i.scdn.co/image/ab6761610000e5eb582fbf712f5b6a9bf65d9b84",
       "fairPrice": 338.24,
       "price": 338.24,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1751,
+      "volume": 1750,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "PRTY",
@@ -1174,17 +1074,15 @@
       "spotifyId": "2HPaUgqeutzr3jx5a9WyDV",
       "popularity": 84,
       "popularityDelta": 0,
-      "followers": 11221334,
+      "followers": 11216344,
       "image": "https://i.scdn.co/image/ab6761610000e5eb957320981e31e862bc2fb844",
       "fairPrice": 338.6,
       "price": 338.6,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2010,
+      "volume": 2009,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "GVON",
@@ -1193,7 +1091,7 @@
       "spotifyId": "4fxd5Ee7UefO4CUXgwJ7IP",
       "popularity": 79,
       "popularityDelta": 0,
-      "followers": 5803919,
+      "followers": 5800985,
       "image": "https://i.scdn.co/image/ab6761610000e5eb48769fa9ef3b5f24af90a09d",
       "fairPrice": 294.69,
       "price": 294.69,
@@ -1201,9 +1099,7 @@
       "volatility30d": 0.0,
       "volume": 1445,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "JHEN",
@@ -1212,7 +1108,7 @@
       "spotifyId": "5ZS223C6JyBfXasXxrRqOk",
       "popularity": 78,
       "popularityDelta": 0,
-      "followers": 10043438,
+      "followers": 10040892,
       "image": "https://i.scdn.co/image/ab6761610000e5ebebd0610816b0a89f40cdb4c2",
       "fairPrice": 287.05,
       "price": 287.05,
@@ -1220,9 +1116,7 @@
       "volatility30d": 0.0,
       "volume": 1901,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "KHLN",
@@ -1231,7 +1125,7 @@
       "spotifyId": "0cGUm45nv7Z6M6qdXYQGTX",
       "popularity": 79,
       "popularityDelta": 0,
-      "followers": 9271469,
+      "followers": 9268346,
       "image": "https://i.scdn.co/image/ab6761610000e5ebcf865d7d399a41e1bd036149",
       "fairPrice": 295.3,
       "price": 295.3,
@@ -1239,28 +1133,24 @@
       "volatility30d": 0.0,
       "volume": 1827,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "DCSR",
       "name": "Daniel Caesar",
       "genre": "R&B",
       "spotifyId": "20wkVLutqVOYrc0kxFs7rA",
-      "popularity": 87,
+      "popularity": 86,
       "popularityDelta": 0,
-      "followers": 13551501,
+      "followers": 13535936,
       "image": "https://i.scdn.co/image/ab6761610000e5ebe4d94f7cbebb17504c25d419",
-      "fairPrice": 365.67,
-      "price": 360.96,
-      "chg24h": 1.21,
-      "volatility30d": 1.623,
-      "volume": 2209,
+      "fairPrice": 356.65,
+      "price": 356.65,
+      "chg24h": 0.0,
+      "volatility30d": 0.0,
+      "volume": 2207,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BNNY",
@@ -1269,17 +1159,15 @@
       "spotifyId": "4q3ewBCX7sLwd24euuV69X",
       "popularity": 100,
       "popularityDelta": 0,
-      "followers": 114083241,
+      "followers": 114019079,
       "image": "https://i.scdn.co/image/ab6761610000e5eb81f47f44084e0a09b5f0fa13",
       "fairPrice": 492.7,
       "price": 492.7,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 6409,
+      "volume": 6407,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "PESO",
@@ -1288,17 +1176,15 @@
       "spotifyId": "12GqGscKJx3aE4t07u7eVZ",
       "popularity": 92,
       "popularityDelta": 0,
-      "followers": 27136051,
+      "followers": 27113675,
       "image": "https://i.scdn.co/image/ab6761610000e5ebe5283f5b671cf618b82a2696",
       "fairPrice": 412.85,
       "price": 412.85,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3126,
+      "volume": 3124,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "ROSA",
@@ -1307,17 +1193,15 @@
       "spotifyId": "7ltDVBr6mKbRvohxheJ9h1",
       "popularity": 83,
       "popularityDelta": 0,
-      "followers": 9586869,
+      "followers": 9582691,
       "image": "https://i.scdn.co/image/ab6761610000e5eb9354faf80eb87961466edfbf",
       "fairPrice": 329.62,
       "price": 329.62,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1858,
+      "volume": 1857,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "KROL",
@@ -1326,17 +1210,15 @@
       "spotifyId": "790FomKkXshlbRYZFtlgla",
       "popularity": 88,
       "popularityDelta": 0,
-      "followers": 63897997,
+      "followers": 63880013,
       "image": "https://i.scdn.co/image/ab6761610000e5eb66041ce9eb4497057cbc3496",
       "fairPrice": 376.79,
       "price": 376.79,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 4796,
+      "volume": 4795,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "FEID",
@@ -1345,17 +1227,15 @@
       "spotifyId": "2LRoIwlKmHjgvigdNGBHNo",
       "popularity": 88,
       "popularityDelta": 0,
-      "followers": 20012136,
+      "followers": 20006521,
       "image": "https://i.scdn.co/image/ab6761610000e5eb7e529f4ad13f86c69962cb12",
       "fairPrice": 375.28,
-      "price": 372.36,
-      "chg24h": 1.69,
-      "volatility30d": 2.216,
+      "price": 368.7,
+      "chg24h": 0.69,
+      "volatility30d": 1.053,
       "volume": 2684,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "RAUW",
@@ -1364,17 +1244,15 @@
       "spotifyId": "1mcTU81TzQhprhouKaTkpq",
       "popularity": 89,
       "popularityDelta": 0,
-      "followers": 33443513,
+      "followers": 33431731,
       "image": "https://i.scdn.co/image/ab6761610000e5eb43ea45ccf08451d2511d33fa",
       "fairPrice": 385.12,
       "price": 385.12,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3470,
+      "volume": 3469,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "MYKE",
@@ -1383,7 +1261,7 @@
       "spotifyId": "7iK8PXO48WeuP03g8YR51W",
       "popularity": 86,
       "popularityDelta": 0,
-      "followers": 23740297,
+      "followers": 23731089,
       "image": "https://i.scdn.co/image/ab6761610000e5eb8372345609bebaf1e948ef7f",
       "fairPrice": 357.38,
       "price": 357.38,
@@ -1391,9 +1269,7 @@
       "volatility30d": 0.0,
       "volume": 2923,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "OZNA",
@@ -1402,17 +1278,15 @@
       "spotifyId": "1i8SpTcr7yvPOmcqrbnVXY",
       "popularity": 88,
       "popularityDelta": 0,
-      "followers": 40527509,
+      "followers": 40519898,
       "image": "https://i.scdn.co/image/ab6761610000e5eb1c4284179078e2529b1630e2",
-      "fairPrice": 376.2,
+      "fairPrice": 376.19,
       "price": 376.19,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3820,
+      "volume": 3819,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "JBLV",
@@ -1421,7 +1295,7 @@
       "spotifyId": "1vyhD5VmyZ7KMfW5gqLgo5",
       "popularity": 89,
       "popularityDelta": 0,
-      "followers": 40579199,
+      "followers": 40569153,
       "image": "https://i.scdn.co/image/ab6761610000e5eb0405b03342c2e56751b9923d",
       "fairPrice": 385.37,
       "price": 385.37,
@@ -1429,9 +1303,7 @@
       "volatility30d": 0.0,
       "volume": 3822,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "MLMA",
@@ -1440,17 +1312,15 @@
       "spotifyId": "1r4hJ1h58CWwUQe3MxPuau",
       "popularity": 86,
       "popularityDelta": 0,
-      "followers": 40254123,
+      "followers": 40245181,
       "image": "https://i.scdn.co/image/ab6761610000e5eb1b0d196ca84f4a0d076b4570",
       "fairPrice": 358.07,
       "price": 358.07,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3807,
+      "volume": 3806,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "ANUL",
@@ -1459,17 +1329,15 @@
       "spotifyId": "2R21vXR83lH98kGeO99Y66",
       "popularity": 89,
       "popularityDelta": 0,
-      "followers": 48017692,
+      "followers": 47999992,
       "image": "https://i.scdn.co/image/ab6761610000e5eba23ceb177745632b517cb7b2",
       "fairPrice": 385.59,
       "price": 385.59,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 4158,
+      "volume": 4157,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "SBYA",
@@ -1478,7 +1346,7 @@
       "spotifyId": "07YUOmWljBTXwIseAUd9TW",
       "popularity": 78,
       "popularityDelta": 0,
-      "followers": 24771083,
+      "followers": 24768374,
       "image": "https://i.scdn.co/image/ab6761610000e5eb90671876e11f39f835ececa4",
       "fairPrice": 288.22,
       "price": 288.22,
@@ -1486,9 +1354,7 @@
       "volatility30d": 0.0,
       "volume": 2986,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "QUVD",
@@ -1497,7 +1363,7 @@
       "spotifyId": "52iwsT98xCoGgiGntTiR7K",
       "popularity": 82,
       "popularityDelta": 0,
-      "followers": 6832559,
+      "followers": 6830557,
       "image": "https://i.scdn.co/image/ab6761610000e5eba39825d6c5540eca8f99d4fd",
       "fairPrice": 320.49,
       "price": 320.48,
@@ -1505,9 +1371,7 @@
       "volatility30d": 0.0,
       "volume": 1568,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "FRZA",
@@ -1516,17 +1380,15 @@
       "spotifyId": "0ys2OFYzWYB5hRDLCsBqxt",
       "popularity": 91,
       "popularityDelta": 0,
-      "followers": 24482328,
+      "followers": 24454969,
       "image": "https://i.scdn.co/image/ab6761610000e5ebce436c411ab2436c7ab2c04d",
       "fairPrice": 403.31,
       "price": 403.3,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2969,
+      "volume": 2967,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "JRRH",
@@ -1535,17 +1397,15 @@
       "spotifyId": "7Gi6gjaWy3DxyilpF1a8Is",
       "popularity": 90,
       "popularityDelta": 0,
-      "followers": 32150846,
+      "followers": 32127317,
       "image": "https://i.scdn.co/image/ab6761610000e5eb5fbe9b7dc7d9a2295bd6022c",
       "fairPrice": 394.33,
       "price": 394.33,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3402,
+      "volume": 3401,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "TYLA",
@@ -1554,17 +1414,15 @@
       "spotifyId": "25uiPmTg16RbhZWAqwLBy5",
       "popularity": 85,
       "popularityDelta": 0,
-      "followers": 6923227,
+      "followers": 6920273,
       "image": "https://i.scdn.co/image/ab6761610000e5ebdaa727dd396963ba92dd6377",
       "fairPrice": 346.83,
       "price": 346.83,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1579,
+      "volume": 1578,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "REMA",
@@ -1573,17 +1431,15 @@
       "spotifyId": "46pWGuE3dSwY3bMMXGBvVS",
       "popularity": 79,
       "popularityDelta": 0,
-      "followers": 10413421,
+      "followers": 10403134,
       "image": "https://i.scdn.co/image/ab6761610000e5ebcd9d661b6955241f33ef8a0a",
       "fairPrice": 295.45,
       "price": 295.45,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1936,
+      "volume": 1935,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "AYRA",
@@ -1592,7 +1448,7 @@
       "spotifyId": "3ZpEKRjHaHANcpk10u6Ntq",
       "popularity": 75,
       "popularityDelta": 0,
-      "followers": 6684518,
+      "followers": 6678011,
       "image": "https://i.scdn.co/image/ab6761610000e5eb8bfd832e0547c4acabe6e67c",
       "fairPrice": 261.97,
       "price": 261.97,
@@ -1600,9 +1456,7 @@
       "volatility30d": 0.0,
       "volume": 1551,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BRNA",
@@ -1611,17 +1465,15 @@
       "spotifyId": "3wcj11K77LjEY1PkEazffa",
       "popularity": 81,
       "popularityDelta": 0,
-      "followers": 15897346,
+      "followers": 15885825,
       "image": "https://i.scdn.co/image/ab6761610000e5ebb4e44d0f4e3e47af2cf06f3f",
       "fairPrice": 312.97,
       "price": 312.97,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2392,
+      "volume": 2391,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "WZKD",
@@ -1630,17 +1482,15 @@
       "spotifyId": "3tVQdUvClmAT7URs9V3rsp",
       "popularity": 82,
       "popularityDelta": 0,
-      "followers": 11037643,
+      "followers": 11027066,
       "image": "https://i.scdn.co/image/ab6761610000e5ebe6ef803356b45ee5a9fa7a8a",
       "fairPrice": 321.11,
       "price": 321.11,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1993,
+      "volume": 1992,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "DAVD",
@@ -1649,7 +1499,7 @@
       "spotifyId": "0Y3agQaa6g2r0YmHPOO9rh",
       "popularity": 75,
       "popularityDelta": 0,
-      "followers": 10588354,
+      "followers": 10580038,
       "image": "https://i.scdn.co/image/ab6761610000e5eb057fdb13352beee124b79051",
       "fairPrice": 262.57,
       "price": 262.57,
@@ -1657,9 +1507,7 @@
       "volatility30d": 0.0,
       "volume": 1952,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "ASKE",
@@ -1668,17 +1516,15 @@
       "spotifyId": "3a1tBryiczPAZpgoZN9Rzg",
       "popularity": 79,
       "popularityDelta": 0,
-      "followers": 8676118,
+      "followers": 8666597,
       "image": "https://i.scdn.co/image/ab6761610000e5eb118de2c3241db238c807e9b3",
       "fairPrice": 295.21,
       "price": 295.21,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1767,
+      "volume": 1766,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "CKAY",
@@ -1687,17 +1533,15 @@
       "spotifyId": "048LktY5zMnakWq7PTtFrz",
       "popularity": 69,
       "popularityDelta": 0,
-      "followers": 1996470,
+      "followers": 1994597,
       "image": "https://i.scdn.co/image/ab6761610000e5ebe7e497134d99ab17498988fb",
       "fairPrice": 213.74,
       "price": 213.74,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 848,
+      "volume": 847,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "TEMS",
@@ -1706,17 +1550,15 @@
       "spotifyId": "687cZJR45JO7jhk1LHIbgq",
       "popularity": 83,
       "popularityDelta": 0,
-      "followers": 4264329,
+      "followers": 4258900,
       "image": "https://i.scdn.co/image/ab6761610000e5eb22d7d6f8981c7a27bf68a382",
-      "fairPrice": 328.57,
+      "fairPrice": 328.56,
       "price": 328.56,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1239,
+      "volume": 1238,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "FRBY",
@@ -1725,17 +1567,15 @@
       "spotifyId": "75VKfyoBlkmrJFDqo1o2VY",
       "popularity": 71,
       "popularityDelta": 0,
-      "followers": 5189454,
+      "followers": 5185554,
       "image": "https://i.scdn.co/image/ab6761610000e5ebf0da9bd951adbb3749b40904",
       "fairPrice": 230.17,
       "price": 230.17,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1367,
+      "volume": 1366,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BILL",
@@ -1744,17 +1584,15 @@
       "spotifyId": "6qqNVTkY8uBg9cP3Jd7DAH",
       "popularity": 91,
       "popularityDelta": 0,
-      "followers": 125074495,
+      "followers": 125038445,
       "image": "https://i.scdn.co/image/ab6761610000e5eb4a21b4760d2ecb7b0dcdc8da",
       "fairPrice": 405.43,
       "price": 405.43,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 6710,
+      "volume": 6709,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "LANA",
@@ -1763,17 +1601,15 @@
       "spotifyId": "00FQb4jTyendYWaN8pK0wa",
       "popularity": 90,
       "popularityDelta": 0,
-      "followers": 56286968,
+      "followers": 56261528,
       "image": "https://i.scdn.co/image/ab6761610000e5ebb99cacf8acd5378206767261",
       "fairPrice": 395.06,
       "price": 395.06,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 4501,
+      "volume": 4500,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "HZER",
@@ -1782,7 +1618,7 @@
       "spotifyId": "2FXC3k01G6Gw61bmprjgqS",
       "popularity": 83,
       "popularityDelta": 0,
-      "followers": 9449570,
+      "followers": 9447674,
       "image": "https://i.scdn.co/image/ab6761610000e5ebad85a585103dfc2f3439119a",
       "fairPrice": 329.6,
       "price": 329.6,
@@ -1790,9 +1626,7 @@
       "volatility30d": 0.0,
       "volume": 1844,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "ARCT",
@@ -1801,17 +1635,15 @@
       "spotifyId": "7Ln80lUS6He07XvHI8qqHH",
       "popularity": 86,
       "popularityDelta": 0,
-      "followers": 33948227,
+      "followers": 33936439,
       "image": "https://i.scdn.co/image/ab6761610000e5eb7da39dea0a72f581535fb11f",
       "fairPrice": 357.84,
       "price": 357.84,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3496,
+      "volume": 3495,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "LRDE",
@@ -1820,7 +1652,7 @@
       "spotifyId": "163tK9Wjr9P9DmM0AVK7lm",
       "popularity": 80,
       "popularityDelta": 0,
-      "followers": 10789874,
+      "followers": 10788397,
       "image": "https://i.scdn.co/image/ab6761610000e5ebaa69380a8d5203257611662d",
       "fairPrice": 303.94,
       "price": 303.94,
@@ -1828,9 +1660,7 @@
       "volatility30d": 0.0,
       "volume": 1971,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "TAME",
@@ -1839,17 +1669,15 @@
       "spotifyId": "5INjqkS1o8h1imAzPqGZBb",
       "popularity": 87,
       "popularityDelta": 0,
-      "followers": 10637399,
+      "followers": 10628069,
       "image": "https://i.scdn.co/image/ab6761610000e5ebe412a782245eb20d9626c601",
       "fairPrice": 365.35,
       "price": 365.35,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1957,
+      "volume": 1956,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "FTNS",
@@ -1858,7 +1686,7 @@
       "spotifyId": "3SXwqSqAoBz9WCI9PDQzY6",
       "popularity": 72,
       "popularityDelta": 0,
-      "followers": 1324142,
+      "followers": 1323180,
       "image": "https://i.scdn.co/image/ab6761610000e5ebc4b9cd69cf77ce41487dd69a",
       "fairPrice": 236.12,
       "price": 236.12,
@@ -1866,9 +1694,7 @@
       "volatility30d": 0.0,
       "volume": 690,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "MARI",
@@ -1877,17 +1703,15 @@
       "spotifyId": "2dIgFjalVxs4ThymZ67YCE",
       "popularity": 86,
       "popularityDelta": 0,
-      "followers": 22909923,
+      "followers": 22900607,
       "image": "https://i.scdn.co/image/ab6761610000e5ebf9887d2c9288f0e50a3fd69f",
       "fairPrice": 357.33,
       "price": 357.33,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2872,
+      "volume": 2871,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "CLRO",
@@ -1896,17 +1720,15 @@
       "spotifyId": "3l0CmX0FuQjFxr8SK7Vqag",
       "popularity": 79,
       "popularityDelta": 0,
-      "followers": 7019655,
+      "followers": 7017221,
       "image": "https://i.scdn.co/image/ab6761610000e5eb4804c4a44c85afea1a72d1bd",
       "fairPrice": 294.94,
       "price": 294.94,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1590,
+      "volume": 1589,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BEAB",
@@ -1915,7 +1737,7 @@
       "spotifyId": "35l9BRT7MXmM8bv2WDQiyB",
       "popularity": 80,
       "popularityDelta": 0,
-      "followers": 7226866,
+      "followers": 7223123,
       "image": "https://i.scdn.co/image/ab6761610000e5ebf40305a6273b3e0a514cc8da",
       "fairPrice": 303.42,
       "price": 303.42,
@@ -1923,9 +1745,7 @@
       "volatility30d": 0.0,
       "volume": 1613,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "MTSK",
@@ -1934,7 +1754,7 @@
       "spotifyId": "2uYWxilOVlUdk4oV9DvwqK",
       "popularity": 81,
       "popularityDelta": 0,
-      "followers": 11606408,
+      "followers": 11603490,
       "image": "https://i.scdn.co/image/ab6761610000e5eb16eec86fff40fa5ef0b57cef",
       "fairPrice": 312.56,
       "price": 312.56,
@@ -1942,9 +1762,7 @@
       "volatility30d": 0.0,
       "volume": 2044,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "PHBE",
@@ -1953,7 +1771,7 @@
       "spotifyId": "1r1uxoy19fzMxunt3ONAkG",
       "popularity": 77,
       "popularityDelta": 0,
-      "followers": 3205629,
+      "followers": 3204486,
       "image": "https://i.scdn.co/image/ab6761610000e5eb626686e362d30246e816cc5b",
       "fairPrice": 277.29,
       "price": 277.29,
@@ -1961,9 +1779,7 @@
       "volatility30d": 0.0,
       "volume": 1074,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BOYG",
@@ -1972,7 +1788,7 @@
       "spotifyId": "1hLiboQ98IQWhpKeP9vRFw",
       "popularity": 64,
       "popularityDelta": 0,
-      "followers": 1125110,
+      "followers": 1124824,
       "image": "https://i.scdn.co/image/ab6761610000e5eb1a6373c01e8b86e289859f57",
       "fairPrice": 176.76,
       "price": 176.75,
@@ -1980,9 +1796,7 @@
       "volatility30d": 0.0,
       "volume": 636,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "FAYE",
@@ -1991,7 +1805,7 @@
       "spotifyId": "5szilpXHcwOqnyKLqGco5j",
       "popularity": 71,
       "popularityDelta": 0,
-      "followers": 2396794,
+      "followers": 2395518,
       "image": "https://i.scdn.co/image/ab6761610000e5eb4935804c2a7f4d6a22525607",
       "fairPrice": 229.16,
       "price": 229.16,
@@ -1999,9 +1813,7 @@
       "volatility30d": 0.0,
       "volume": 929,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "CGAS",
@@ -2010,17 +1822,15 @@
       "spotifyId": "1QAJqy2dA3ihHBFIHRphZj",
       "popularity": 84,
       "popularityDelta": 0,
-      "followers": 18744853,
+      "followers": 18737440,
       "image": "https://i.scdn.co/image/ab6761610000e5eb1c312be98c615df97ea79a30",
       "fairPrice": 339.27,
       "price": 339.27,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2598,
+      "volume": 2597,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BTS",
@@ -2029,7 +1839,7 @@
       "spotifyId": "3kYFawNQVZ00FQbgs4rVBe",
       "popularity": 39,
       "popularityDelta": 0,
-      "followers": 132940,
+      "followers": 132937,
       "image": "https://i.scdn.co/image/0078316432cdfb6733c3bde0dc61754d45442d0f",
       "fairPrice": 36.97,
       "price": 36.97,
@@ -2037,9 +1847,7 @@
       "volatility30d": 0.0,
       "volume": 219,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "BLPK",
@@ -2048,17 +1856,15 @@
       "spotifyId": "41MozSoPIsD1dJM0CLPjZF",
       "popularity": 83,
       "popularityDelta": 0,
-      "followers": 58663574,
+      "followers": 58647513,
       "image": "https://i.scdn.co/image/ab6761610000e5eb623538b7014238c54ceee056",
       "fairPrice": 331.98,
       "price": 331.98,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 4596,
+      "volume": 4595,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "NWJN",
@@ -2067,7 +1873,7 @@
       "spotifyId": "6HvZYsbFfjnjFrWF950C9d",
       "popularity": 78,
       "popularityDelta": 0,
-      "followers": 12665496,
+      "followers": 12660545,
       "image": "https://i.scdn.co/image/ab6761610000e5eb8dae71b664393f38ba91f891",
       "fairPrice": 287.35,
       "price": 287.35,
@@ -2075,9 +1881,7 @@
       "volatility30d": 0.0,
       "volume": 2135,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "STRY",
@@ -2086,17 +1890,15 @@
       "spotifyId": "2dIgFjalVxs4ThymZ67YCE",
       "popularity": 86,
       "popularityDelta": 0,
-      "followers": 22909923,
+      "followers": 22900607,
       "image": "https://i.scdn.co/image/ab6761610000e5ebf9887d2c9288f0e50a3fd69f",
       "fairPrice": 357.33,
       "price": 357.33,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2872,
+      "volume": 2871,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "TWIC",
@@ -2105,7 +1907,7 @@
       "spotifyId": "7n2Ycct7Beij7Dj7meI4X0",
       "popularity": 81,
       "popularityDelta": 0,
-      "followers": 24722472,
+      "followers": 24715862,
       "image": "https://i.scdn.co/image/ab6761610000e5eb3d8820046fd455b38d644864",
       "fairPrice": 313.55,
       "price": 313.55,
@@ -2113,9 +1915,7 @@
       "volatility30d": 0.0,
       "volume": 2983,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "GTTA",
@@ -2124,17 +1924,15 @@
       "spotifyId": "1Cs0zKBU1kc0i8ypK3B9ai",
       "popularity": 89,
       "popularityDelta": 0,
-      "followers": 27783028,
+      "followers": 27778517,
       "image": "https://i.scdn.co/image/ab6761610000e5ebf150017ca69c8793503c2d4f",
       "fairPrice": 384.88,
       "price": 384.88,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 3163,
+      "volume": 3162,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "CHRS",
@@ -2143,7 +1941,7 @@
       "spotifyId": "7CajNmpbOovFoOoasH2HaY",
       "popularity": 87,
       "popularityDelta": 0,
-      "followers": 23439920,
+      "followers": 23437032,
       "image": "https://i.scdn.co/image/ab6761610000e5eb8ebba5e60113b48de8c11f6b",
       "fairPrice": 366.38,
       "price": 366.38,
@@ -2151,9 +1949,7 @@
       "volatility30d": 0.0,
       "volume": 2905,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "FRED",
@@ -2162,7 +1958,7 @@
       "spotifyId": "4oLeXFyACqeem2VImYeBFe",
       "popularity": 80,
       "popularityDelta": 0,
-      "followers": 2545577,
+      "followers": 2543762,
       "image": "https://i.scdn.co/image/ab6761610000e5eb381c41adc678e4ce864eb274",
       "fairPrice": 302.06,
       "price": 302.06,
@@ -2170,9 +1966,7 @@
       "volatility30d": 0.0,
       "volume": 957,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "SKRL",
@@ -2181,7 +1975,7 @@
       "spotifyId": "5he5w2lnU9x7JFhnwcekXX",
       "popularity": 77,
       "popularityDelta": 0,
-      "followers": 7594136,
+      "followers": 7593271,
       "image": "https://i.scdn.co/image/ab6761610000e5ebd94d5ea8008678a7b61f01b5",
       "fairPrice": 278.41,
       "price": 278.41,
@@ -2189,9 +1983,7 @@
       "volatility30d": 0.0,
       "volume": 1653,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     },
     {
       "ticker": "MRSH",
@@ -2200,17 +1992,15 @@
       "spotifyId": "64KEffDW9EtZ1y2vBYgq8T",
       "popularity": 81,
       "popularityDelta": 0,
-      "followers": 34863303,
-      "image": "https://i.scdn.co/image/ab6761610000e5ebb2fd50fe9f95c7c4b6f203ac",
+      "followers": 34860512,
+      "image": "https://i.scdn.co/image/ab6761610000e5eb646c8a9d78f11834febcf978",
       "fairPrice": 314.0,
       "price": 314.0,
       "chg24h": 0.0,
       "volatility30d": 0.0,
       "volume": 3543,
       "youtube": null,
-      "youtubeBoost": 0.0,
-      "chartPositions": null,
-      "chartBoost": 0.0
+      "youtubeBoost": 0.0
     }
   ]
 }
