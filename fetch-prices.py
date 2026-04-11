@@ -1040,6 +1040,8 @@ def main():
             "volatility30d": volatility,
             "volume": volume,
             "youtube": yt_stats or None,
+            "youtubeViews": yt_stats.get("views", 0) if yt_stats else 0,
+            "youtubeSubs": yt_stats.get("subscribers", 0) if yt_stats else 0,
             "youtubeBoost": youtube_boost_factor(yt_stats) if yt_stats else 0.0,
             "chartPositions": chart_stats or None,
             "chartBoost": chart_boost_factor(chart_stats),
