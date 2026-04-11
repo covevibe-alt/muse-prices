@@ -71,8 +71,15 @@ MOMENTUM_CAP         = 0.10   # max ±10% from momentum alone
 # in 2024 but the playlists themselves are still public and fetchable with the
 # same client credentials token we already have.
 SPOTIFY_CHART_PLAYLISTS = {
-    "global_top50":  {"id": "37i9dQZEVXbMDoHDwVN2tF", "weight": 1.0, "label": "Top 50 Global"},
-    "global_viral50": {"id": "37i9dQZEVXbLiRSasKsNU9", "weight": 0.6, "label": "Viral 50 Global"},
+    "global_top50":    {"id": "37i9dQZEVXbMDoHDwVN2tF", "weight": 1.0,  "label": "Top 50 Global"},
+    "global_viral50":  {"id": "37i9dQZEVXbLiRSasKsNU9", "weight": 0.6,  "label": "Viral 50 Global"},
+    "us_top50":        {"id": "37i9dQZEVXbLRQDuF5jeBp", "weight": 0.85, "label": "Top 50 USA"},
+    "uk_top50":        {"id": "37i9dQZEVXbLnolsZ8PSNw", "weight": 0.8,  "label": "Top 50 UK"},
+    "today_top_hits":  {"id": "37i9dQZF1DXcBWIGoYBM5M", "weight": 0.9,  "label": "Today's Top Hits"},
+    "rap_caviar":      {"id": "37i9dQZF1DX0XUsuxWHRQd", "weight": 0.7,  "label": "RapCaviar"},
+    "hot_hits_nl":     {"id": "37i9dQZF1DX2vYju3i0lNX", "weight": 0.5,  "label": "Hot Hits NL"},
+    "pop_rising":      {"id": "37i9dQZF1DWUa8ZRTfalHk", "weight": 0.5,  "label": "Pop Rising"},
+    "new_music_fri":   {"id": "37i9dQZF1DX4JAvHpjipBk", "weight": 0.55, "label": "New Music Friday"},
 }
 YOUTUBE_MAX_RESOLVES_PER_RUN = 80  # Channel-search costs 100 quota units each.
                                     # Free tier is 10,000/day, so capping at 80
