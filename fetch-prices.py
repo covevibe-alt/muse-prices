@@ -703,7 +703,7 @@ def blend_price(fair, previous):
         ratio = previous / fair
         if ratio > 5 or ratio < 0.2:
             return fair
-    return round(previous * 0.85 + fair * 0.15, 2)
+    return round(previous * 0.50 + fair * 0.50, 2)
 
 
 def load_previous_prices():
