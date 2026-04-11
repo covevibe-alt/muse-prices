@@ -1,0 +1,241 @@
+name: Scrape monthly listeners
+
+# Runs daily at 06:00 UTC (~08:00 CET) using Playwright to scrape real
+# monthly listener counts from Spotify artist pages. Updates the
+# listener-ratios.json calibration file so the hourly price pipeline
+# uses accurate listener estimates.
+#
+# Spotify blocks their partner API from datacenter IPs, but public
+# artist pages may still render in a headless browser. If Spotify
+# blocks headless browsers too, the workflow logs a warning and the
+# existing calibration ratios remain valid (they drift slowly).
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scrape-listeners
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          playwright install chromium --with-deps
+
+      - name: Scrape Spotify monthly listeners
+        run: |
+          python3 << 'PYEOF'
+          import asyncio
+          import json
+          import statistics
+          import sys
+          from datetime import date
+          from pathlib import Path
+
+          async def scrape_listeners():
+              from playwright.async_api import async_playwright
+
+              # Load artist list
+              with open("artists.json") as f:
+                  artists = json.load(f)
+              spotify_ids = list(set(a["spotifyId"] for a in artists if a.get("spotifyId")))
+              print(f"Scraping {len(spotify_ids)} unique Spotify IDs...")
+
+              results = {}
+              failed = []
+
+              async with async_playwright() as p:
+                  browser = await p.chromium.launch(
+                      headless=True,
+                      args=[
+                          "--disable-blink-features=AutomationControlled",
+                          "--no-sandbox",
+                      ]
+                  )
+                  context = await browser.new_context(
+                      user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                      viewport={"width": 1280, "height": 720},
+                      locale="en-US",
+                  )
+                  page = await context.new_page()
+
+                  for i, sid in enumerate(spotify_ids):
+                      url = f"https://open.spotify.com/artist/{sid}"
+                      try:
+                          resp = await page.goto(url, wait_until="domcontentloaded", timeout=15000)
+                          if resp and resp.status == 403:
+                              print(f"  [{i+1}/{len(spotify_ids)}] {sid}: HTTP 403 — Spotify blocking this IP")
+                              failed.append(sid)
+                              if len(failed) >= 3 and len(results) == 0:
+                                  print("\n⚠ First 3 artists all returned 403 — Spotify is blocking datacenter IPs.")
+                                  print("  Aborting scrape. Existing calibration ratios will be used.")
+                                  await browser.close()
+                                  return results, failed, True
+                              continue
+
+                          # Wait for the monthly listeners element to appear
+                          try:
+                              await page.wait_for_selector(
+                                  '[data-testid="monthly-listeners-label"]',
+                                  timeout=8000
+                              )
+                          except:
+                              # Try alternative selector
+                              try:
+                                  await page.wait_for_selector(
+                                      'span:has-text("monthly listeners")',
+                                      timeout=3000
+                                  )
+                              except:
+                                  print(f"  [{i+1}/{len(spotify_ids)}] {sid}: no listener element found")
+                                  failed.append(sid)
+                                  continue
+
+                          # Extract the number
+                          listeners = await page.evaluate('''() => {
+                              const el = document.querySelector('[data-testid="monthly-listeners-label"]');
+                              if (el) {
+                                  const nums = el.textContent.replace(/[^0-9]/g, '');
+                                  return nums ? parseInt(nums, 10) : 0;
+                              }
+                              // Fallback: find any element with "monthly listeners"
+                              const allSpans = document.querySelectorAll('span');
+                              for (const s of allSpans) {
+                                  if (s.textContent.includes('monthly listeners')) {
+                                      const nums = s.textContent.replace(/[^0-9]/g, '');
+                                      if (nums) return parseInt(nums, 10);
+                                  }
+                              }
+                              return 0;
+                          }''')
+
+                          if listeners > 0:
+                              results[sid] = listeners
+                              print(f"  [{i+1}/{len(spotify_ids)}] {sid}: {listeners:,}")
+                          else:
+                              print(f"  [{i+1}/{len(spotify_ids)}] {sid}: got 0 listeners")
+                              failed.append(sid)
+
+                      except Exception as e:
+                          print(f"  [{i+1}/{len(spotify_ids)}] {sid}: error — {e}")
+                          failed.append(sid)
+
+                      # Small delay to avoid rate limiting
+                      if i < len(spotify_ids) - 1:
+                          await asyncio.sleep(1.5)
+
+                  await browser.close()
+
+              return results, failed, False
+
+          async def main():
+              results, failed, aborted = await scrape_listeners()
+
+              print(f"\n{'='*50}")
+              print(f"Scraped: {len(results)} artists")
+              print(f"Failed:  {len(failed)} artists")
+
+              if aborted:
+                  print("Scrape aborted — IP blocked. Keeping existing ratios.")
+                  sys.exit(0)
+
+              if len(results) < 10:
+                  print("Too few results — not updating ratios.")
+                  sys.exit(0)
+
+              # Load follower counts from prices.json
+              with open("prices.json") as f:
+                  prices = json.load(f)
+
+              followers_by_id = {}
+              for a in prices.get("artists", []):
+                  sid = a.get("spotifyId")
+                  fol = a.get("followers", 0)
+                  if sid and fol:
+                      followers_by_id[sid] = fol
+
+              # Calculate ratios
+              ratios = {}
+              for sid, listeners in results.items():
+                  fol = followers_by_id.get(sid, 0)
+                  if fol > 0 and listeners > 0:
+                      ratios[sid] = round(listeners / fol, 4)
+
+              if not ratios:
+                  print("No valid ratios calculated — skipping update.")
+                  sys.exit(0)
+
+              median_ratio = round(statistics.median(ratios.values()), 4)
+
+              # Merge with existing ratios (keep old ones for artists we couldn't scrape)
+              existing = {}
+              try:
+                  with open("listener-ratios.json") as f:
+                      existing = json.load(f).get("ratios", {})
+              except FileNotFoundError:
+                  pass
+
+              merged = {**existing, **ratios}  # new values override old
+
+              calibration = {
+                  "calibratedAt": str(date.today()),
+                  "description": "Per-artist monthly-listeners / followers ratio from real Spotify data.",
+                  "defaultRatio": median_ratio,
+                  "ratios": merged
+              }
+
+              with open("listener-ratios.json", "w") as f:
+                  json.dump(calibration, f, indent=2)
+
+              print(f"\nUpdated listener-ratios.json:")
+              print(f"  New scrapes: {len(ratios)}")
+              print(f"  Total ratios: {len(merged)} (merged with existing)")
+              print(f"  Median ratio: {median_ratio}")
+
+          asyncio.run(main())
+          PYEOF
+
+      - name: Commit updated ratios
+        run: |
+          git config user.name "Muse Price Bot"
+          git config user.email "bot@muse.exchange"
+
+          # Pull latest to avoid conflicts with hourly bot
+          git fetch origin main
+          git reset --hard origin/main
+
+          # Copy updated ratios back (the scraper wrote to the checkout dir)
+          # Re-run would be needed if reset wiped it, but the file is untracked
+          # so reset doesn't remove it — it stays in the working tree.
+
+          git add listener-ratios.json
+          if git diff --staged --quiet; then
+            echo "No ratio changes — skipping commit."
+          else
+            git commit -m "chore: daily listener ratio update $(date -u +%Y-%m-%d)"
+            git push
+
+            echo "Purging jsDelivr CDN cache…"
+            curl -sf "https://purge.jsdelivr.net/gh/covevibe-alt/muse-prices@main/listener-ratios.json" || true
+            echo "CDN purge sent."
+          fi
