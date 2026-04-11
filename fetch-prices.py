@@ -492,9 +492,10 @@ def fetch_spotify_playlist(token, playlist_id):
     """Fetch up to 50 tracks from a Spotify playlist. Returns the raw items
     list, or [] on failure."""
     headers = {"Authorization": f"Bearer {token}"}
+    # Use fields filter to minimize payload; Spotify accepts URL-encoded parens.
     params = urllib.parse.urlencode({
         "fields": "items(track(name,artists(id,name)))",
-        "limit": 50,
+        "limit": 100,
     })
     url = f"{PLAYLIST_URL}/{playlist_id}/tracks?{params}"
     try:
@@ -507,7 +508,13 @@ def fetch_spotify_playlist(token, playlist_id):
             pass
         print(f"  ! Spotify playlist {playlist_id} fetch failed: HTTP {e.code} {detail}")
         return []
-    return resp.get("items") or []
+    except Exception as e:
+        print(f"  ! Spotify playlist {playlist_id} fetch error: {e}")
+        return []
+    items = resp.get("items") or []
+    if not items:
+        print(f"  ! Spotify playlist {playlist_id} returned 0 items (response keys: {list(resp.keys())})")
+    return items
 
 
 def fetch_chart_positions(token):
@@ -956,10 +963,16 @@ def main():
 
     print("Fetching Spotify editorial chart positions…")
     chart_positions_by_id = fetch_chart_positions(token)
+    print(f"  · Total unique artist IDs found across all charts: {len(chart_positions_by_id)}")
     charted_in_roster = sum(
         1 for a in ARTISTS if chart_positions_by_id.get(a.get("spotifyId"))
     )
     print(f"  · {charted_in_roster}/{len(ARTISTS)} of our roster is currently on at least one chart")
+    if charted_in_roster > 0:
+        for a in ARTISTS:
+            cp = chart_positions_by_id.get(a.get("spotifyId"))
+            if cp:
+                print(f"    {a['ticker']:<5} {a['name']:<25} {cp}")
 
     youtube_key = os.environ.get("YOUTUBE_API_KEY")
     if youtube_key:
