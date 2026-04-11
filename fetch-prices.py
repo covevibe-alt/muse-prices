@@ -1045,6 +1045,7 @@ def main():
             "youtubeBoost": youtube_boost_factor(yt_stats) if yt_stats else 0.0,
             "chartPositions": chart_stats or None,
             "chartBoost": chart_boost_factor(chart_stats),
+            "popularityBoost": popularity_boost_factor(popularity, prev_popularity),
         })
 
     if not out_artists:
