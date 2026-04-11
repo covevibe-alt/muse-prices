@@ -2,21 +2,29 @@
 """
 Muse price fetcher — Python version.
 
-Pulls the 24 tracked artists from the Spotify Web API, optionally augments
-with YouTube Data API view/subscriber counts, runs the pricing formula,
-blends with the previous run for smoothing, and writes prices.json and
-history.json next to this file.
+Computes the Muse Composite Index for 105 listed artists using four signals:
+
+  1. Spotify monthly listeners   → base price (€0.03/listener ÷ 1M shares)
+  2. YouTube views & subscribers → up to +30% boost (via YouTube Data API)
+  3. Spotify popularity (0-100)  → ±15% swing + momentum kicker (±10%)
+  4. Chart placements            → up to +25% boost (Global Top 50 / Viral 50)
+
+The final price is smoothed with a 50/50 blend against the previous run to
+prevent jarring jumps, then written to prices.json and history.json.
 
 Dependencies: Python 3.8+ standard library only. No pip install required.
 
 Environment variables (read from .env in the same folder OR the shell):
     SPOTIFY_CLIENT_ID      (required)
     SPOTIFY_CLIENT_SECRET  (required)
-    YOUTUBE_API_KEY        (optional — enables YouTube-weighted pricing)
+    YOUTUBE_API_KEY        (optional — enables YouTube signal, up to +30%)
+    SP_DC                  (optional — Spotify sp_dc cookie for real listener counts)
 
 Output files:
     prices.json            — latest snapshot used by the prototype
+    prices.js              — JS-wrapped version for sync <script> loading
     history.json           — rolling price history (1080-point cap)
+    history.js             — JS-wrapped version
     youtube-channels.json  — cached YouTube channel IDs (auto-populated)
 """
 
@@ -705,9 +713,11 @@ def popularity_boost_factor(popularity, prev_popularity=None):
 
 def compute_fair_price(popularity, followers, youtube_stats=None, chart_stats=None,
                        monthly_listeners=None, prev_popularity=None):
-    # ── Muse Streaming Index formula ──
-    # Must stay in sync with the frontend `fairFromListeners()`:
-    #   fairPrice = (monthlyListeners × VALUE_PER_LISTENER) / SHARES_OUTSTANDING
+    # ── Muse Composite Index formula ──
+    # Base price from Spotify listeners, then boosted by YouTube, popularity,
+    # and chart signals. Must stay in sync with the frontend `fairFromListeners()`:
+    #   base = (monthlyListeners × VALUE_PER_LISTENER) / SHARES_OUTSTANDING
+    #   price = base × (1 + yt_boost + chart_boost + popularity_boost)
     # where VALUE_PER_LISTENER = €0.03 and SHARES_OUTSTANDING = 1 000 000.
     VALUE_PER_LISTENER = 0.03
     SHARES_OUTSTANDING = 1_000_000
