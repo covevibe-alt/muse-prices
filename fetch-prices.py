@@ -489,15 +489,13 @@ PLAYLIST_URL = "https://api.spotify.com/v1/playlists"
 
 
 def fetch_spotify_playlist(token, playlist_id):
-    """Fetch up to 50 tracks from a Spotify playlist. Returns the raw items
+    """Fetch up to 100 tracks from a Spotify playlist. Returns the raw items
     list, or [] on failure."""
     headers = {"Authorization": f"Bearer {token}"}
-    # Use fields filter to minimize payload; Spotify accepts URL-encoded parens.
-    params = urllib.parse.urlencode({
-        "fields": "items(track(name,artists(id,name)))",
-        "limit": 100,
-    })
-    url = f"{PLAYLIST_URL}/{playlist_id}/tracks?{params}"
+    # Spotify's fields filter requires literal parentheses (NOT url-encoded).
+    # Using urlencode() would encode them as %28/%29 causing a 404.
+    fields = "items(track(name,artists(id,name)))"
+    url = f"{PLAYLIST_URL}/{playlist_id}/tracks?fields={fields}&limit=100"
     try:
         resp = http_request("GET", url, headers=headers)
     except urllib.error.HTTPError as e:
