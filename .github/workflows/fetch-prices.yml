@@ -1,9 +1,9 @@
 name: Fetch Muse prices
 
-# Runs hourly + on-demand. Each run pulls Spotify artist stats, Spotify
-# editorial chart positions (Global Top 50 + Viral 50), and YouTube channel
-# statistics, recomputes fair prices with smoothing, appends to the rolling
-# history, and commits the results back to the repo. GitHub Pages (or any
+# Runs hourly + on-demand. Each run pulls Spotify artist stats, Billboard
+# Hot 100 chart positions, and YouTube channel statistics, recomputes fair
+# prices with smoothing, appends to the rolling history, and commits the
+# results back to the repo. GitHub Pages (or any
 # static host pointed at this repo) then serves the updated files to the
 # frontend with zero infrastructure on our side.
 #
@@ -47,6 +47,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install billboard.py
 
       - name: Run fetcher
         env:

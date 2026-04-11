@@ -70,17 +70,10 @@ MOMENTUM_CAP         = 0.10   # max ±10% from momentum alone
 # endpoints on Spotify — the Web API deprecated the old /v1/browse/charts route
 # in 2024 but the playlists themselves are still public and fetchable with the
 # same client credentials token we already have.
-SPOTIFY_CHART_PLAYLISTS = {
-    "global_top50":    {"id": "37i9dQZEVXbMDoHDwVN2tF", "weight": 1.0,  "label": "Top 50 Global"},
-    "global_viral50":  {"id": "37i9dQZEVXbLiRSasKsNU9", "weight": 0.6,  "label": "Viral 50 Global"},
-    "us_top50":        {"id": "37i9dQZEVXbLRQDuF5jeBp", "weight": 0.85, "label": "Top 50 USA"},
-    "uk_top50":        {"id": "37i9dQZEVXbLnolsZ8PSNw", "weight": 0.8,  "label": "Top 50 UK"},
-    "today_top_hits":  {"id": "37i9dQZF1DXcBWIGoYBM5M", "weight": 0.9,  "label": "Today's Top Hits"},
-    "rap_caviar":      {"id": "37i9dQZF1DX0XUsuxWHRQd", "weight": 0.7,  "label": "RapCaviar"},
-    "hot_hits_nl":     {"id": "37i9dQZF1DX2vYju3i0lNX", "weight": 0.5,  "label": "Hot Hits NL"},
-    "pop_rising":      {"id": "37i9dQZF1DWUa8ZRTfalHk", "weight": 0.5,  "label": "Pop Rising"},
-    "new_music_fri":   {"id": "37i9dQZF1DX4JAvHpjipBk", "weight": 0.55, "label": "New Music Friday"},
-}
+# Billboard Hot 100 — replaces Spotify editorial playlists as the chart signal.
+# We use the billboard.py library (pip install billboard.py) to scrape the
+# current Hot 100 chart and match artists by name against our roster.
+BILLBOARD_CHART = "hot-100"
 YOUTUBE_MAX_RESOLVES_PER_RUN = 80  # Channel-search costs 100 quota units each.
                                     # Free tier is 10,000/day, so capping at 80
                                     # keeps first-run cost at 8,000 + the stats
@@ -485,83 +478,105 @@ def fetch_all_artists(token):
 
 
 # -------- Spotify editorial charts (Top 50 Global + Viral 50 Global) --------
-PLAYLIST_URL = "https://api.spotify.com/v1/playlists"
+# (Spotify playlist URL removed — chart signal now uses Billboard Hot 100)
 
 
-def fetch_spotify_playlist(token, playlist_id):
-    """Fetch up to 100 tracks from a Spotify playlist. Returns the raw items
-    list, or [] on failure."""
-    headers = {"Authorization": f"Bearer {token}"}
-    # Spotify's fields filter requires literal parentheses (NOT url-encoded).
-    # Using urlencode() would encode them as %28/%29 causing a 404.
-    fields = "items(track(name,artists(id,name)))"
-    url = f"{PLAYLIST_URL}/{playlist_id}/tracks?fields={fields}&limit=100"
-    try:
-        resp = http_request("GET", url, headers=headers)
-    except urllib.error.HTTPError as e:
-        detail = ""
-        try:
-            detail = e.read().decode("utf-8", errors="replace")[:200]
-        except Exception:
-            pass
-        print(f"  ! Spotify playlist {playlist_id} fetch failed: HTTP {e.code} {detail}")
-        return []
-    except Exception as e:
-        print(f"  ! Spotify playlist {playlist_id} fetch error: {e}")
-        return []
-    items = resp.get("items") or []
-    if not items:
-        print(f"  ! Spotify playlist {playlist_id} returned 0 items (response keys: {list(resp.keys())})")
-    return items
+def _normalize_artist_name(name):
+    """Lower-case, strip accents, trim whitespace for fuzzy matching."""
+    import unicodedata
+    name = unicodedata.normalize("NFKD", name)
+    name = "".join(c for c in name if not unicodedata.combining(c))
+    return name.strip().lower()
 
 
-def fetch_chart_positions(token):
-    """Return { spotifyArtistId: {global_top50: pos, global_viral50: pos, best_weighted_pos} }.
+def _split_billboard_artists(artist_str):
+    """Billboard credits look like 'Drake Featuring Travis Scott & 21 Savage'.
+    Split on Featuring / With / X / , / & to get individual artist names."""
+    import re
+    # First split on "Featuring", "With", "X " (collaborator separator)
+    parts = re.split(r'\s+(?:Featuring|With|X)\s+', artist_str, flags=re.IGNORECASE)
+    # Then split each part on & and ,
+    names = []
+    for p in parts:
+        for sub in re.split(r'\s*[&,]\s*', p):
+            sub = sub.strip()
+            if sub:
+                names.append(sub)
+    return names
 
-    For each playlist we walk the track list in order. Each track's primary
-    artists get a position = their track's rank (1-indexed). If the same
-    artist appears on multiple tracks we keep the best (lowest) rank.
+
+def fetch_billboard_hot100():
+    """Fetch the current Billboard Hot 100 and return a dict mapping
+    normalized artist name → best (lowest) chart position.
+
+    Returns: { "drake": 3, "kendrick lamar": 7, ... }
     """
-    positions = {}  # id -> { playlist_key: 1-indexed_pos }
-    for key, meta in SPOTIFY_CHART_PLAYLISTS.items():
-        items = fetch_spotify_playlist(token, meta["id"])
-        if not items:
-            continue
-        for rank, item in enumerate(items, start=1):
-            track = (item or {}).get("track") or {}
-            for art in (track.get("artists") or []):
-                aid = art.get("id")
-                if not aid:
-                    continue
-                bucket = positions.setdefault(aid, {})
-                cur = bucket.get(key)
-                if cur is None or rank < cur:
-                    bucket[key] = rank
-        print(f"  · fetched {meta['label']}: {len(items)} tracks → "
-              f"{sum(1 for p in positions.values() if key in p)} unique artists on chart")
+    try:
+        import billboard
+    except ImportError:
+        print("  ! billboard.py not installed — run: pip install billboard.py")
+        return {}
+
+    try:
+        chart = billboard.ChartData(BILLBOARD_CHART)
+    except Exception as e:
+        print(f"  ! Failed to fetch Billboard {BILLBOARD_CHART}: {e}")
+        return {}
+
+    print(f"  · Billboard {chart.name} ({chart.date}): {len(chart.entries)} entries")
+
+    # Map normalized name → best position (artist can appear on multiple songs)
+    positions = {}
+    for entry in chart.entries:
+        for name in _split_billboard_artists(entry.artist):
+            norm = _normalize_artist_name(name)
+            if norm not in positions or entry.rank < positions[norm]:
+                positions[norm] = entry.rank
+
     return positions
 
 
-def chart_boost_factor(chart_stats):
-    """Turn chart positions into a 0.0–0.25 multiplier.
+def match_billboard_to_roster(billboard_positions):
+    """Match Billboard artist names to our ARTISTS roster.
 
-    Scoring per chart: position 1 → 1.0, position 50 → 0.02, off-chart → 0.
-    We then weight charts (Top 50 Global outweighs Viral 50), take the max
-    weighted score across charts, and scale to CHART_BOOST_MAX.
+    Returns: { spotifyArtistId: {"hot100": position, "song": title} }
+    """
+    # Build a lookup: normalized name → artist dict
+    roster_lookup = {}
+    for a in ARTISTS:
+        norm = _normalize_artist_name(a["name"])
+        roster_lookup[norm] = a
+        # Also add common short names (e.g. "The Weeknd" → "weeknd")
+        if norm.startswith("the "):
+            roster_lookup[norm[4:]] = a
+
+    matched = {}
+    for norm_name, pos in billboard_positions.items():
+        artist = roster_lookup.get(norm_name)
+        if artist:
+            sid = artist.get("spotifyId")
+            if sid:
+                cur = matched.get(sid)
+                if cur is None or pos < cur["hot100"]:
+                    matched[sid] = {"hot100": pos}
+
+    return matched
+
+
+def chart_boost_factor(chart_stats):
+    """Turn a Billboard Hot 100 position into a 0.0–0.25 multiplier.
+
+    Position-weighted: #1 → full +25%, #100 → ~0.25%, off-chart → 0.
+    Formula: boost = CHART_BOOST_MAX × (101 - position) / 100
     """
     if not chart_stats:
         return 0.0
-    best = 0.0
-    for key, meta in SPOTIFY_CHART_PLAYLISTS.items():
-        pos = chart_stats.get(key)
-        if pos is None:
-            continue
-        # Linear decay from 1.0 at rank 1 to ~0 at rank 50.
-        raw = max(0.0, (51 - pos) / 50.0)
-        weighted = raw * meta["weight"]
-        if weighted > best:
-            best = weighted
-    return round(min(CHART_BOOST_MAX, best * CHART_BOOST_MAX), 4)
+    pos = chart_stats.get("hot100")
+    if pos is None:
+        return 0.0
+    # Linear decay: #1 → 1.0, #100 → 0.01
+    raw = max(0.0, (101 - pos) / 100.0)
+    return round(raw * CHART_BOOST_MAX, 4)
 
 
 # -------- YouTube Data API (optional second signal) --------
@@ -959,18 +974,17 @@ def main():
     except Exception as e:
         print(f"  ! failed to load listener-ratios.json: {e} — using flat 0.6")
 
-    print("Fetching Spotify editorial chart positions…")
-    chart_positions_by_id = fetch_chart_positions(token)
-    print(f"  · Total unique artist IDs found across all charts: {len(chart_positions_by_id)}")
-    charted_in_roster = sum(
-        1 for a in ARTISTS if chart_positions_by_id.get(a.get("spotifyId"))
-    )
-    print(f"  · {charted_in_roster}/{len(ARTISTS)} of our roster is currently on at least one chart")
+    print("Fetching Billboard Hot 100 chart positions…")
+    billboard_positions = fetch_billboard_hot100()
+    chart_positions_by_id = match_billboard_to_roster(billboard_positions)
+    print(f"  · Billboard names matched: {len(billboard_positions)} unique artists on chart")
+    charted_in_roster = len(chart_positions_by_id)
+    print(f"  · {charted_in_roster}/{len(ARTISTS)} of our roster is currently on the Billboard Hot 100")
     if charted_in_roster > 0:
         for a in ARTISTS:
             cp = chart_positions_by_id.get(a.get("spotifyId"))
             if cp:
-                print(f"    {a['ticker']:<5} {a['name']:<25} {cp}")
+                print(f"    {a['ticker']:<5} #{cp['hot100']:<4} {a['name']}")
 
     youtube_key = os.environ.get("YOUTUBE_API_KEY")
     if youtube_key:
@@ -1140,11 +1154,10 @@ def main():
     charted = [a for a in out_artists if a.get("chartPositions")]
     if charted:
         print()
-        print(f"  Charted artists: {len(charted)}/{len(out_artists)} — showing top 5 by chart boost:")
-        for a in sorted(charted, key=lambda x: -x["chartBoost"])[:5]:
-            pos = a["chartPositions"]
-            parts = [f"{k}=#{v}" for k, v in pos.items()]
-            print(f"    {a['ticker']:<5} boost +{a['chartBoost']*100:4.1f}%   {' · '.join(parts)}   {a['name']}")
+        print(f"  Billboard Hot 100: {len(charted)}/{len(out_artists)} roster artists on chart — top 5:")
+        for a in sorted(charted, key=lambda x: x["chartPositions"].get("hot100", 999))[:5]:
+            pos = a["chartPositions"].get("hot100", "?")
+            print(f"    {a['ticker']:<5} #{pos:<4} boost +{a['chartBoost']*100:4.1f}%   {a['name']}")
     print()
     print("  Sector indices:")
     for s in sector_indices:
