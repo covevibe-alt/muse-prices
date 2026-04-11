@@ -677,7 +677,38 @@ def youtube_boost_factor(yt_stats):
     return round(min(YOUTUBE_BOOST_MAX, max(0.0, raw * YOUTUBE_BOOST_MAX)), 4)
 
 
-def compute_fair_price(popularity, followers, youtube_stats=None, chart_stats=None, monthly_listeners=None):
+def popularity_boost_factor(popularity, prev_popularity=None):
+    """Map Spotify popularity (0-100) to a price modifier.
+
+    The popularity score reflects recent streaming momentum — it updates
+    faster than raw listener counts and captures virality. We use it as
+    a ±15% swing around the base price:
+      - popularity 50 (average) → 0% boost (neutral)
+      - popularity 100 (peak) → +15% boost
+      - popularity 0 (dead) → -15% penalty
+    Plus a momentum kicker: if popularity changed since last run, amplify
+    the move to create visible intraday price action.
+    """
+    POPULARITY_BOOST_MAX = 0.15  # ±15% range
+    pop = max(0, min(100, popularity or 0))
+    # Linear map: 0→-0.15, 50→0.0, 100→+0.15
+    base_boost = ((pop - 50) / 50) * POPULARITY_BOOST_MAX
+
+    # Momentum: amplify recent popularity changes. Each point of
+    # popularity change adds ~0.5% to the price in that direction.
+    # This creates the intraday volatility that makes prices feel alive.
+    MOMENTUM_PER_POINT = 0.005  # 0.5% per popularity point change
+    MOMENTUM_CAP = 0.10         # max ±10% from momentum alone
+    momentum = 0.0
+    if prev_popularity is not None:
+        delta = pop - prev_popularity
+        momentum = max(-MOMENTUM_CAP, min(MOMENTUM_CAP, delta * MOMENTUM_PER_POINT))
+
+    return round(base_boost + momentum, 4)
+
+
+def compute_fair_price(popularity, followers, youtube_stats=None, chart_stats=None,
+                       monthly_listeners=None, prev_popularity=None):
     # ── Muse Streaming Index formula ──
     # Must stay in sync with the frontend `fairFromListeners()`:
     #   fairPrice = (monthlyListeners × VALUE_PER_LISTENER) / SHARES_OUTSTANDING
@@ -688,10 +719,11 @@ def compute_fair_price(popularity, followers, youtube_stats=None, chart_stats=No
     base = max(0.01, (listeners * VALUE_PER_LISTENER) / SHARES_OUTSTANDING)
     yt_boost = youtube_boost_factor(youtube_stats)
     ch_boost = chart_boost_factor(chart_stats)
-    # Boosts stack additively (capped total ≈ 0.55) — an artist at #1 on the
-    # Global Top 50 AND with a billion-view YouTube presence gets +55% over
-    # their pure Spotify fair price.
-    return round(base * (1 + yt_boost + ch_boost), 2)
+    pop_boost = popularity_boost_factor(popularity, prev_popularity)
+    # Boosts stack additively — an artist at #1 on the Global Top 50,
+    # with a billion-view YouTube presence, and trending popularity
+    # can get up to +70% over their pure Spotify fair price.
+    return round(base * (1 + yt_boost + ch_boost + pop_boost), 2)
 
 
 def blend_price(fair, previous):
@@ -955,11 +987,12 @@ def main():
 
         yt_stats = youtube_data.get(a["ticker"])
         chart_stats = chart_positions_by_id.get(a["spotifyId"])
-        fair = compute_fair_price(popularity, followers, yt_stats, chart_stats,
-                                  monthly_listeners=monthly_listeners)
         prev_entry = previous.get(a["ticker"]) or {}
         prev_price = prev_entry.get("price")
         prev_popularity = prev_entry.get("popularity", popularity)
+        fair = compute_fair_price(popularity, followers, yt_stats, chart_stats,
+                                  monthly_listeners=monthly_listeners,
+                                  prev_popularity=prev_popularity)
         price = blend_price(fair, prev_price)
 
         # Append before we compute chg24h / volatility so the point we just
