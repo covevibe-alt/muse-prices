@@ -39,9 +39,9 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v4
         with:
-          # We need full history so the bot's commits don't create a detached
-          # state when pushing back.
-          fetch-depth: 1
+          # Full history so the bot's rebase-and-push doesn't create a
+          # detached state.
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5

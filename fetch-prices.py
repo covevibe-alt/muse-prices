@@ -54,6 +54,9 @@ YOUTUBE_BOOST_MAX = 0.30  # a huge YouTube presence can boost the Spotify fair
 CHART_BOOST_MAX = 0.25    # appearing at the top of Spotify's Global Top 50 /
                           # Viral 50 playlists can add up to +25% to the fair
                           # price. Artists off the charts get 0 boost.
+POPULARITY_BOOST_MAX = 0.15   # popularity (0-100) maps to ±15% price swing
+MOMENTUM_PER_POINT   = 0.005  # 0.5% per point of popularity change
+MOMENTUM_CAP         = 0.10   # max ±10% from momentum alone
 
 # Spotify editorial chart playlists we track. These are the canonical "charts"
 # endpoints on Spotify — the Web API deprecated the old /v1/browse/charts route
@@ -237,8 +240,6 @@ def http_request(method, url, headers=None, data=None, timeout=30):
 # We treat this as best-effort: if anything fails we return None and the
 # caller falls back to the follower-based proxy so the pipeline keeps
 # working.
-import re
-import http.cookiejar
 
 _BROWSER_UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -689,16 +690,11 @@ def popularity_boost_factor(popularity, prev_popularity=None):
     Plus a momentum kicker: if popularity changed since last run, amplify
     the move to create visible intraday price action.
     """
-    POPULARITY_BOOST_MAX = 0.15  # ±15% range
     pop = max(0, min(100, popularity or 0))
     # Linear map: 0→-0.15, 50→0.0, 100→+0.15
     base_boost = ((pop - 50) / 50) * POPULARITY_BOOST_MAX
 
-    # Momentum: amplify recent popularity changes. Each point of
-    # popularity change adds ~0.5% to the price in that direction.
-    # This creates the intraday volatility that makes prices feel alive.
-    MOMENTUM_PER_POINT = 0.005  # 0.5% per popularity point change
-    MOMENTUM_CAP = 0.10         # max ±10% from momentum alone
+    # Momentum: amplify recent popularity changes.
     momentum = 0.0
     if prev_popularity is not None:
         delta = pop - prev_popularity
