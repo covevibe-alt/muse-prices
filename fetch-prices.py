@@ -7,12 +7,12 @@ Computes the Muse Composite Index for 105 listed artists using four signals:
   1. Spotify monthly listeners   → base price (€0.03/listener ÷ 1M shares)
   2. YouTube views & subscribers → up to +30% boost (via YouTube Data API)
   3. Spotify popularity (0-100)  → ±15% swing + momentum kicker (±10%)
-  4. Chart placements            → up to +25% boost (Global Top 50 / Viral 50)
+  4. Billboard Hot 100 position   → up to +25% boost (position-weighted)
 
 The final price is smoothed with a 50/50 blend against the previous run to
 prevent jarring jumps, then written to prices.json and history.json.
 
-Dependencies: Python 3.8+ standard library only. No pip install required.
+Dependencies: Python 3.8+ stdlib + billboard.py (pip install billboard.py).
 
 Environment variables (read from .env in the same folder OR the shell):
     SPOTIFY_CLIENT_ID      (required)
@@ -59,18 +59,14 @@ MUSE_INDEX_BASELINE = 1000.0  # market index is rebased to this on first run
 YOUTUBE_BOOST_MAX = 0.30  # a huge YouTube presence can boost the Spotify fair
                           # price by up to +30%. Artists with no YouTube data
                           # just get boost = 0 (back to pure Spotify pricing).
-CHART_BOOST_MAX = 0.25    # appearing at the top of Spotify's Global Top 50 /
-                          # Viral 50 playlists can add up to +25% to the fair
-                          # price. Artists off the charts get 0 boost.
+CHART_BOOST_MAX = 0.25    # #1 on the Billboard Hot 100 can boost the fair price
+                          # by up to +25%, linearly decreasing to ~0.25% at #100.
+                          # Artists off the chart get 0 boost.
 POPULARITY_BOOST_MAX = 0.15   # popularity (0-100) maps to ±15% price swing
 MOMENTUM_PER_POINT   = 0.005  # 0.5% per point of popularity change
 MOMENTUM_CAP         = 0.10   # max ±10% from momentum alone
 
-# Spotify editorial chart playlists we track. These are the canonical "charts"
-# endpoints on Spotify — the Web API deprecated the old /v1/browse/charts route
-# in 2024 but the playlists themselves are still public and fetchable with the
-# same client credentials token we already have.
-# Billboard Hot 100 — replaces Spotify editorial playlists as the chart signal.
+# Billboard Hot 100 — the chart signal for the Muse Composite Index.
 # We use the billboard.py library (pip install billboard.py) to scrape the
 # current Hot 100 chart and match artists by name against our roster.
 BILLBOARD_CHART = "hot-100"
@@ -477,8 +473,7 @@ def fetch_all_artists(token):
     return by_id
 
 
-# -------- Spotify editorial charts (Top 50 Global + Viral 50 Global) --------
-# (Spotify playlist URL removed — chart signal now uses Billboard Hot 100)
+# -------- Billboard Hot 100 Chart Signal --------
 
 
 def _normalize_artist_name(name):
@@ -598,25 +593,35 @@ def save_youtube_cache(cache):
 
 
 def youtube_search_channel_id(api_key, name):
-    """Resolve an artist name → canonical YouTube channel ID. Costs 100 quota
+    """Resolve an artist name → official YouTube channel ID. Costs 100 quota
     units per call, vs 1 for a stats fetch — so we only call this once per
-    artist and cache the result in youtube-channels.json."""
-    params = urllib.parse.urlencode({
-        "part": "snippet",
-        "q": name,
-        "type": "channel",
-        "maxResults": 1,
-        "key": api_key,
-    })
-    try:
-        resp = http_request("GET", f"{YOUTUBE_SEARCH_URL}?{params}")
-    except urllib.error.HTTPError as e:
-        print(f"  ! YouTube search failed for {name}: HTTP {e.code}")
-        return None
-    items = resp.get("items", [])
-    if not items:
-        return None
-    return items[0]["snippet"].get("channelId")
+    artist and cache the result in youtube-channels.json.
+
+    We search for the artist name + "official" to bias towards the real
+    artist channel (e.g. "Drake official") rather than auto-generated Topic
+    channels that have much lower subscriber counts and incomplete view totals.
+    Falls back to a plain name search if the official query returns nothing.
+    """
+    # Try official channel first, then plain name as fallback
+    for query in [f"{name} official", name]:
+        params = urllib.parse.urlencode({
+            "part": "snippet",
+            "q": query,
+            "type": "channel",
+            "maxResults": 1,
+            "key": api_key,
+        })
+        try:
+            resp = http_request("GET", f"{YOUTUBE_SEARCH_URL}?{params}")
+        except urllib.error.HTTPError as e:
+            print(f"  ! YouTube search failed for '{query}': HTTP {e.code}")
+            continue
+        items = resp.get("items", [])
+        if items:
+            cid = items[0]["snippet"].get("channelId")
+            if cid:
+                return cid
+    return None
 
 
 def youtube_fetch_stats(api_key, channel_ids):
@@ -675,10 +680,7 @@ def fetch_all_youtube(api_key):
               f"{len(to_resolve)} this run (quota-capped), remainder next run")
     for a in to_resolve:
         print(f"  · resolving YouTube channel for {a['name']}…")
-        # Prefer "Topic" auto-channels (more canonical) but fall back to direct.
-        cid = youtube_search_channel_id(api_key, a["name"] + " topic")
-        if not cid:
-            cid = youtube_search_channel_id(api_key, a["name"])
+        cid = youtube_search_channel_id(api_key, a["name"])
         cache[a["ticker"]] = {"channelId": cid, "name": a["name"]}
         cache_dirty = True
     if cache_dirty:
@@ -753,7 +755,7 @@ def compute_fair_price(popularity, followers, youtube_stats=None, chart_stats=No
     yt_boost = youtube_boost_factor(youtube_stats)
     ch_boost = chart_boost_factor(chart_stats)
     pop_boost = popularity_boost_factor(popularity, prev_popularity)
-    # Boosts stack additively — an artist at #1 on the Global Top 50,
+    # Boosts stack additively — an artist at #1 on the Billboard Hot 100,
     # with a billion-view YouTube presence, and trending popularity
     # can get up to +70% over their pure Spotify fair price.
     return round(base * (1 + yt_boost + ch_boost + pop_boost), 2)
