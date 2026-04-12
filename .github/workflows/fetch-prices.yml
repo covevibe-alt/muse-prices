@@ -20,7 +20,7 @@ name: Fetch Muse prices
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '5,35 * * * *'
   workflow_dispatch:
 
 permissions:
