@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-20T08:22:12Z",
+  "updatedAt": "2026-04-20T09:55:47Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.83,
   "topGainers": [
@@ -9,18 +9,18 @@
     },
     {
       "ticker": "JBBR",
-      "chg24h": 2.33
+      "chg24h": 2.69
     },
     {
       "ticker": "OLVR",
       "chg24h": 2.02
     },
     {
-      "ticker": "DCHI",
-      "chg24h": 1.85
+      "ticker": "CHRS",
+      "chg24h": 1.98
     },
     {
-      "ticker": "GVON",
+      "ticker": "DCHI",
       "chg24h": 1.85
     }
   ],
@@ -80,8 +80,8 @@
     },
     {
       "sector": "Electronic",
-      "avgPrice": 2.11,
-      "chg24h": 1.08,
+      "avgPrice": 2.12,
+      "chg24h": 1.35,
       "members": [
         "GTTA",
         "CHRS",
@@ -147,7 +147,7 @@
     {
       "sector": "Latin",
       "avgPrice": 1.99,
-      "chg24h": 0.01,
+      "chg24h": 0.04,
       "members": [
         "BNNY",
         "PESO",
@@ -169,7 +169,7 @@
     {
       "sector": "Pop",
       "avgPrice": 2.69,
-      "chg24h": 0.18,
+      "chg24h": 0.19,
       "members": [
         "SABR",
         "TSWF",
@@ -261,7 +261,7 @@
       "fairPrice": 5.09,
       "price": 5.09,
       "chg24h": 0.0,
-      "volatility30d": 0.007,
+      "volatility30d": 0.006,
       "volume": 7483,
       "youtube": {
         "subscribers": 63100000,
@@ -319,7 +319,7 @@
       "fairPrice": 2.03,
       "price": 2.02,
       "chg24h": 2.02,
-      "volatility30d": 0.038,
+      "volatility30d": 0.039,
       "volume": 4359,
       "youtube": {
         "subscribers": 15800000,
@@ -403,7 +403,7 @@
       "fairPrice": 3.54,
       "price": 3.54,
       "chg24h": 0.0,
-      "volatility30d": 0.002,
+      "volatility30d": 0.0,
       "volume": 6324,
       "youtube": {
         "subscribers": 57100000,
@@ -517,7 +517,7 @@
       "fairPrice": 1.24,
       "price": 1.25,
       "chg24h": 0.0,
-      "volatility30d": 0.094,
+      "volatility30d": 0.046,
       "volume": 1582,
       "youtube": {
         "subscribers": 4050000,
@@ -622,17 +622,17 @@
       "name": "Justin Bieber",
       "genre": "Pop",
       "spotifyId": "1uNFoZAHBGtllmzznpCI3s",
-      "popularity": 95,
-      "popularityDelta": 0,
+      "popularity": 96,
+      "popularityDelta": 1,
       "followers": 89017474,
       "monthlyListeners": 116479365,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebaf20f7db5288bce9beede034",
-      "fairPrice": 5.72,
-      "price": 5.71,
-      "chg24h": 2.33,
-      "volatility30d": 0.131,
-      "volume": 5661,
+      "fairPrice": 5.75,
+      "price": 5.73,
+      "chg24h": 2.69,
+      "volatility30d": 0.127,
+      "volume": 10190,
       "youtube": {
         "subscribers": 77700000,
         "views": 37884178576,
@@ -645,7 +645,7 @@
         "hot100": 20
       },
       "chartBoost": 0.2025,
-      "popularityBoost": 0.135
+      "popularityBoost": 0.143
     },
     {
       "ticker": "BRNO",
@@ -661,7 +661,7 @@
       "fairPrice": 6.86,
       "price": 6.86,
       "chg24h": 0.29,
-      "volatility30d": 0.007,
+      "volatility30d": 0.008,
       "volume": 5422,
       "youtube": {
         "subscribers": 43500000,
@@ -747,7 +747,7 @@
       "fairPrice": 1.5,
       "price": 1.5,
       "chg24h": -1.32,
-      "volatility30d": 0.06,
+      "volatility30d": 0.059,
       "volume": 1698,
       "youtube": {
         "subscribers": 4480,
@@ -1057,7 +1057,7 @@
       "fairPrice": 2.9,
       "price": 2.9,
       "chg24h": 0.0,
-      "volatility30d": 0.007,
+      "volatility30d": 0.006,
       "volume": 4182,
       "youtube": {
         "subscribers": 28700000,
@@ -1829,7 +1829,7 @@
       "fairPrice": 2.1,
       "price": 2.09,
       "chg24h": 0.48,
-      "volatility30d": 0.002,
+      "volatility30d": 0.003,
       "volume": 3139,
       "youtube": {
         "subscribers": 9150000,
@@ -1878,17 +1878,17 @@
       "name": "Karol G",
       "genre": "Latin",
       "spotifyId": "790FomKkXshlbRYZFtlgla",
-      "popularity": 88,
-      "popularityDelta": 0,
+      "popularity": 89,
+      "popularityDelta": 1,
       "followers": 64104852,
       "monthlyListeners": 51437733,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb66041ce9eb4497057cbc3496",
-      "fairPrice": 2.18,
-      "price": 2.17,
-      "chg24h": 0.0,
-      "volatility30d": 0.0,
-      "volume": 4804,
+      "fairPrice": 2.19,
+      "price": 2.18,
+      "chg24h": 0.46,
+      "volatility30d": 0.002,
+      "volume": 8647,
       "youtube": {
         "subscribers": 41000000,
         "views": 32821659081,
@@ -1899,7 +1899,7 @@
       "youtubeBoost": 0.3,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.114
+      "popularityBoost": 0.122
     },
     {
       "ticker": "FEID",
@@ -1915,7 +1915,7 @@
       "fairPrice": 1.55,
       "price": 1.56,
       "chg24h": 0.0,
-      "volatility30d": 0.007,
+      "volatility30d": 0.006,
       "volume": 2688,
       "youtube": {
         "subscribers": 7150000,
@@ -2167,7 +2167,7 @@
       "fairPrice": 1.89,
       "price": 1.88,
       "chg24h": 0.0,
-      "volatility30d": 0.006,
+      "volatility30d": 0.005,
       "volume": 2989,
       "youtube": {
         "subscribers": 6620000,
@@ -2223,7 +2223,7 @@
       "fairPrice": 1.42,
       "price": 1.42,
       "chg24h": 1.43,
-      "volatility30d": 0.02,
+      "volatility30d": 0.021,
       "volume": 1307,
       "youtube": {
         "subscribers": 5810000,
@@ -2537,7 +2537,7 @@
       "fairPrice": 2.72,
       "price": 2.71,
       "chg24h": 0.0,
-      "volatility30d": 0.007,
+      "volatility30d": 0.006,
       "volume": 4512,
       "youtube": {
         "subscribers": 18500000,
@@ -2565,7 +2565,7 @@
       "fairPrice": 1.65,
       "price": 1.65,
       "chg24h": 0.0,
-      "volatility30d": 0.002,
+      "volatility30d": 0.0,
       "volume": 1846,
       "youtube": {
         "subscribers": 4690000,
@@ -2649,7 +2649,7 @@
       "fairPrice": 2.8,
       "price": 2.79,
       "chg24h": 0.72,
-      "volatility30d": 0.023,
+      "volatility30d": 0.022,
       "volume": 1966,
       "youtube": {
         "subscribers": 3370000,
@@ -2931,12 +2931,12 @@
       "fairPrice": 2.31,
       "price": 2.31,
       "chg24h": -0.86,
-      "volatility30d": 0.026,
+      "volatility30d": 0.022,
       "volume": 5528,
       "youtube": {
         "subscribers": 83800000,
         "views": 27560458391,
-        "videos": 3008
+        "videos": 3009
       },
       "youtubeViews": 27560458391,
       "youtubeSubs": 83800000,
@@ -2992,12 +2992,12 @@
       "volatility30d": 0.0,
       "volume": 2140,
       "youtube": {
-        "subscribers": 8330000,
+        "subscribers": 8340000,
         "views": 5082041387,
         "videos": 752
       },
       "youtubeViews": 5082041387,
-      "youtubeSubs": 8330000,
+      "youtubeSubs": 8340000,
       "youtubeBoost": 0.2436,
       "chartPositions": null,
       "chartBoost": 0.0,
@@ -3092,17 +3092,17 @@
       "name": "Calvin Harris",
       "genre": "Electronic",
       "spotifyId": "7CajNmpbOovFoOoasH2HaY",
-      "popularity": 82,
-      "popularityDelta": 0,
+      "popularity": 87,
+      "popularityDelta": 5,
       "followers": 23471978,
       "monthlyListeners": 73645678,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb8ebba5e60113b48de8c11f6b",
-      "fairPrice": 3.05,
-      "price": 3.04,
-      "chg24h": 0.66,
-      "volatility30d": 0.027,
-      "volume": 2907,
+      "fairPrice": 3.14,
+      "price": 3.09,
+      "chg24h": 1.98,
+      "volatility30d": 0.026,
+      "volume": 14534,
       "youtube": {
         "subscribers": 19600000,
         "views": 18757602426,
@@ -3113,7 +3113,7 @@
       "youtubeBoost": 0.284,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.096
+      "popularityBoost": 0.136
     },
     {
       "ticker": "FRED",
@@ -3157,7 +3157,7 @@
       "fairPrice": 1.06,
       "price": 1.06,
       "chg24h": 3.92,
-      "volatility30d": 0.032,
+      "volatility30d": 0.031,
       "volume": 1654,
       "youtube": {
         "subscribers": 20400000,
