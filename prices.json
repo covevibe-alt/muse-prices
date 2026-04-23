@@ -1,26 +1,26 @@
 {
-  "updatedAt": "2026-04-23T09:14:00Z",
+  "updatedAt": "2026-04-23T10:55:30Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.84,
   "topGainers": [
     {
-      "ticker": "TYLR",
-      "chg24h": 0.6
+      "ticker": "SLNA",
+      "chg24h": 0.58
     },
     {
-      "ticker": "KTPR",
-      "chg24h": 0.32
+      "ticker": "OLVR",
+      "chg24h": 0.48
     },
     {
       "ticker": "CHRS",
       "chg24h": 0.32
     },
     {
-      "ticker": "JBBR",
-      "chg24h": 0.17
+      "ticker": "SABR",
+      "chg24h": 0.0
     },
     {
-      "ticker": "SABR",
+      "ticker": "TSWF",
       "chg24h": 0.0
     }
   ],
@@ -28,10 +28,6 @@
     {
       "ticker": "FRED",
       "chg24h": -1.45
-    },
-    {
-      "ticker": "KDOT",
-      "chg24h": -0.33
     },
     {
       "ticker": "SHKR",
@@ -43,6 +39,10 @@
     },
     {
       "ticker": "SKRL",
+      "chg24h": 0.0
+    },
+    {
+      "ticker": "GTTA",
       "chg24h": 0.0
     }
   ],
@@ -93,7 +93,7 @@
     {
       "sector": "Hip-hop",
       "avgPrice": 1.83,
-      "chg24h": 0.01,
+      "chg24h": 0.0,
       "members": [
         "DRKE",
         "TRVS",
@@ -169,7 +169,7 @@
     {
       "sector": "Pop",
       "avgPrice": 2.72,
-      "chg24h": 0.01,
+      "chg24h": 0.03,
       "members": [
         "SABR",
         "TSWF",
@@ -310,17 +310,17 @@
       "name": "Olivia Rodrigo",
       "genre": "Pop",
       "spotifyId": "1McMsnEElThX1knmY4oliG",
-      "popularity": 88,
-      "popularityDelta": 0,
+      "popularity": 89,
+      "popularityDelta": 1,
       "followers": 52847772,
       "monthlyListeners": 51035093,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebe654806251e2661def1f4e65",
-      "fairPrice": 2.1,
-      "price": 2.09,
-      "chg24h": 0.0,
-      "volatility30d": 0.035,
-      "volume": 4362,
+      "fairPrice": 2.12,
+      "price": 2.1,
+      "chg24h": 0.48,
+      "volatility30d": 0.034,
+      "volume": 7851,
       "youtube": {
         "subscribers": 15900000,
         "views": 6641212010,
@@ -331,7 +331,7 @@
       "youtubeBoost": 0.2601,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.114
+      "popularityBoost": 0.122
     },
     {
       "ticker": "TATE",
@@ -602,7 +602,7 @@
       "image": "https://i.scdn.co/image/ab6761610000e5eb4be5330bd48527f9dd620663",
       "fairPrice": 3.11,
       "price": 3.12,
-      "chg24h": 0.32,
+      "chg24h": 0.0,
       "volatility30d": 0.018,
       "volume": 3803,
       "youtube": {
@@ -630,8 +630,8 @@
       "image": "https://i.scdn.co/image/ab6761610000e5ebaf20f7db5288bce9beede034",
       "fairPrice": 6.04,
       "price": 6.04,
-      "chg24h": 0.17,
-      "volatility30d": 0.151,
+      "chg24h": 0.0,
+      "volatility30d": 0.149,
       "volume": 5670,
       "youtube": {
         "subscribers": 77900000,
@@ -661,7 +661,7 @@
       "fairPrice": 6.88,
       "price": 6.88,
       "chg24h": 0.0,
-      "volatility30d": 0.013,
+      "volatility30d": 0.012,
       "volume": 5426,
       "youtube": {
         "subscribers": 43500000,
@@ -682,17 +682,17 @@
       "name": "Selena Gomez",
       "genre": "Pop",
       "spotifyId": "0C8ZW7ezQVs4URX5aX7Kqx",
-      "popularity": 82,
-      "popularityDelta": 0,
+      "popularity": 83,
+      "popularityDelta": 1,
       "followers": 54154313,
       "monthlyListeners": 41417219,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb815e520e3ce7fe210046ba66",
-      "fairPrice": 1.72,
-      "price": 1.71,
-      "chg24h": 0.0,
-      "volatility30d": 0.0,
-      "volume": 4415,
+      "fairPrice": 1.73,
+      "price": 1.72,
+      "chg24h": 0.58,
+      "volatility30d": 0.002,
+      "volume": 7948,
       "youtube": {
         "subscribers": 35700000,
         "views": 16127111883,
@@ -703,7 +703,7 @@
       "youtubeBoost": 0.2914,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.096
+      "popularityBoost": 0.104
     },
     {
       "ticker": "GAGA",
@@ -719,7 +719,7 @@
       "fairPrice": 4.46,
       "price": 4.46,
       "chg24h": 0.0,
-      "volatility30d": 0.178,
+      "volatility30d": 0.174,
       "volume": 4069,
       "youtube": {
         "subscribers": 30500000,
@@ -749,7 +749,7 @@
       "fairPrice": 1.5,
       "price": 1.5,
       "chg24h": 0.0,
-      "volatility30d": 0.002,
+      "volatility30d": 0.0,
       "volume": 1699,
       "youtube": {
         "subscribers": 4480,
@@ -777,7 +777,7 @@
       "fairPrice": 1.29,
       "price": 1.29,
       "chg24h": 0.0,
-      "volatility30d": 0.005,
+      "volatility30d": 0.004,
       "volume": 1825,
       "youtube": {
         "subscribers": 1960000,
@@ -833,7 +833,7 @@
       "fairPrice": 1.9,
       "price": 1.9,
       "chg24h": 0.0,
-      "volatility30d": 0.018,
+      "volatility30d": 0.013,
       "volume": 4096,
       "youtube": {
         "subscribers": 30600000,
@@ -973,7 +973,7 @@
       "fairPrice": 2.92,
       "price": 2.92,
       "chg24h": 0.0,
-      "volatility30d": 0.066,
+      "volatility30d": 0.064,
       "volume": 3954,
       "youtube": {
         "subscribers": 20700000,
@@ -994,17 +994,17 @@
       "name": "Kendrick Lamar",
       "genre": "Hip-hop",
       "spotifyId": "2YZyLoL8N0Wb9xBt1NhZWg",
-      "popularity": 90,
-      "popularityDelta": 0,
+      "popularity": 91,
+      "popularityDelta": 1,
       "followers": 47492602,
       "monthlyListeners": 71770820,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb39ba6dcd4355c03de0b50918",
-      "fairPrice": 3.01,
-      "price": 3.0,
-      "chg24h": -0.33,
+      "fairPrice": 3.02,
+      "price": 3.01,
+      "chg24h": 0.0,
       "volatility30d": 0.005,
-      "volume": 4135,
+      "volume": 7443,
       "youtube": {
         "subscribers": 20100000,
         "views": 12075535588,
@@ -1015,7 +1015,7 @@
       "youtubeBoost": 0.2758,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.12
+      "popularityBoost": 0.128
     },
     {
       "ticker": "ICE",
@@ -1089,7 +1089,7 @@
       "fairPrice": 2.39,
       "price": 2.38,
       "chg24h": 0.0,
-      "volatility30d": 0.061,
+      "volatility30d": 0.06,
       "volume": 2947,
       "youtube": {
         "subscribers": 14900000,
@@ -1147,7 +1147,7 @@
       "fairPrice": 2.16,
       "price": 2.16,
       "chg24h": 0.0,
-      "volatility30d": 0.131,
+      "volatility30d": 0.128,
       "volume": 3533,
       "youtube": {
         "subscribers": 28100000,
@@ -1177,7 +1177,7 @@
       "fairPrice": 1.21,
       "price": 1.21,
       "chg24h": 0.0,
-      "volatility30d": 0.052,
+      "volatility30d": 0.051,
       "volume": 1127,
       "youtube": {
         "subscribers": 3220000,
@@ -1254,17 +1254,17 @@
       "name": "Metro Boomin",
       "genre": "Hip-hop",
       "spotifyId": "0iEtIxbK0KxaSlF7G42ZOp",
-      "popularity": 85,
-      "popularityDelta": 0,
+      "popularity": 86,
+      "popularityDelta": 1,
       "followers": 12525824,
       "monthlyListeners": 42368600,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb28f1e72b31e756ea3f3a51e7",
-      "fairPrice": 1.68,
+      "fairPrice": 1.69,
       "price": 1.69,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2124,
+      "volume": 3822,
       "youtube": {
         "subscribers": 3570000,
         "views": 3115489636,
@@ -1275,7 +1275,7 @@
       "youtubeBoost": 0.2193,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.105
+      "popularityBoost": 0.113
     },
     {
       "ticker": "GNNA",
@@ -1432,7 +1432,7 @@
       "image": "https://i.scdn.co/image/ab6761610000e5ebdf2728294ff77dd11eeb18fb",
       "fairPrice": 1.68,
       "price": 1.69,
-      "chg24h": 0.6,
+      "chg24h": 0.0,
       "volatility30d": 0.01,
       "volume": 3093,
       "youtube": {
@@ -1461,7 +1461,7 @@
       "fairPrice": 1.49,
       "price": 1.5,
       "chg24h": 0.0,
-      "volatility30d": 0.01,
+      "volatility30d": 0.009,
       "volume": 2702,
       "youtube": {
         "subscribers": 10300000,
@@ -1775,7 +1775,7 @@
       "fairPrice": 1.76,
       "price": 1.75,
       "chg24h": 0.0,
-      "volatility30d": 0.029,
+      "volatility30d": 0.028,
       "volume": 2224,
       "youtube": {
         "subscribers": 2730000,
@@ -1805,7 +1805,7 @@
       "fairPrice": 4.52,
       "price": 4.53,
       "chg24h": 0.0,
-      "volatility30d": 0.286,
+      "volatility30d": 0.281,
       "volume": 6432,
       "youtube": {
         "subscribers": 52700000,
@@ -1891,7 +1891,7 @@
       "fairPrice": 2.19,
       "price": 2.19,
       "chg24h": 0.0,
-      "volatility30d": 0.007,
+      "volatility30d": 0.006,
       "volume": 4806,
       "youtube": {
         "subscribers": 41000000,
@@ -2091,10 +2091,10 @@
       "volume": 4168,
       "youtube": {
         "subscribers": 4670,
-        "views": 1356661,
+        "views": 1356772,
         "videos": 38
       },
-      "youtubeViews": 1356661,
+      "youtubeViews": 1356772,
       "youtubeSubs": 4670,
       "youtubeBoost": 0.006,
       "chartPositions": null,
@@ -2516,7 +2516,7 @@
       "youtube": {
         "subscribers": 13500,
         "views": 5687903399,
-        "videos": 794
+        "videos": 795
       },
       "youtubeViews": 5687903399,
       "youtubeSubs": 13500,
@@ -2712,12 +2712,12 @@
       "volatility30d": 0.01,
       "volume": 1321,
       "youtube": {
-        "subscribers": 1870,
+        "subscribers": 1860,
         "views": 408864098,
         "videos": 60
       },
       "youtubeViews": 408864098,
-      "youtubeSubs": 1870,
+      "youtubeSubs": 1860,
       "youtubeBoost": 0.1175,
       "chartPositions": null,
       "chartBoost": 0.0,
@@ -3075,7 +3075,7 @@
       "fairPrice": 3.65,
       "price": 3.65,
       "chg24h": 0.0,
-      "volatility30d": 0.015,
+      "volatility30d": 0.014,
       "volume": 3166,
       "youtube": {
         "subscribers": 27800000,
@@ -3095,16 +3095,16 @@
       "genre": "Electronic",
       "spotifyId": "7CajNmpbOovFoOoasH2HaY",
       "popularity": 88,
-      "popularityDelta": 1,
+      "popularityDelta": 0,
       "followers": 23481242,
       "monthlyListeners": 74137325,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb8ebba5e60113b48de8c11f6b",
-      "fairPrice": 3.12,
+      "fairPrice": 3.11,
       "price": 3.1,
       "chg24h": 0.32,
-      "volatility30d": 0.017,
-      "volume": 5233,
+      "volatility30d": 0.015,
+      "volume": 2907,
       "youtube": {
         "subscribers": 19600000,
         "views": 18757602426,
@@ -3115,7 +3115,7 @@
       "youtubeBoost": 0.284,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.119
+      "popularityBoost": 0.114
     },
     {
       "ticker": "FRED",
@@ -3159,7 +3159,7 @@
       "fairPrice": 1.11,
       "price": 1.1,
       "chg24h": 0.0,
-      "volatility30d": 0.02,
+      "volatility30d": 0.019,
       "volume": 1655,
       "youtube": {
         "subscribers": 20400000,
