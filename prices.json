@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-24T20:26:22Z",
+  "updatedAt": "2026-04-24T21:30:10Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.84,
   "topGainers": [
@@ -8,12 +8,12 @@
       "chg24h": 2.68
     },
     {
-      "ticker": "OLVR",
-      "chg24h": 1.88
+      "ticker": "JBBR",
+      "chg24h": 1.96
     },
     {
-      "ticker": "JBBR",
-      "chg24h": 1.79
+      "ticker": "OLVR",
+      "chg24h": 1.88
     },
     {
       "ticker": "GNNA",
@@ -622,17 +622,17 @@
       "name": "Justin Bieber",
       "genre": "Pop",
       "spotifyId": "1uNFoZAHBGtllmzznpCI3s",
-      "popularity": 97,
-      "popularityDelta": 0,
+      "popularity": 98,
+      "popularityDelta": 1,
       "followers": 89369608,
       "monthlyListeners": 125305127,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebaf20f7db5288bce9beede034",
-      "fairPrice": 6.24,
-      "price": 6.24,
-      "chg24h": 1.79,
-      "volatility30d": 0.076,
-      "volume": 5672,
+      "fairPrice": 6.27,
+      "price": 6.25,
+      "chg24h": 1.96,
+      "volatility30d": 0.077,
+      "volume": 10210,
       "youtube": {
         "subscribers": 78000000,
         "views": 37884178576,
@@ -645,7 +645,7 @@
         "hot100": 13
       },
       "chartBoost": 0.22,
-      "popularityBoost": 0.141
+      "popularityBoost": 0.149
     },
     {
       "ticker": "BRNO",
@@ -1089,7 +1089,7 @@
       "fairPrice": 2.4,
       "price": 2.4,
       "chg24h": 0.84,
-      "volatility30d": 0.004,
+      "volatility30d": 0.005,
       "volume": 2947,
       "youtube": {
         "subscribers": 14900000,
@@ -1775,7 +1775,7 @@
       "fairPrice": 1.77,
       "price": 1.77,
       "chg24h": 1.14,
-      "volatility30d": 0.009,
+      "volatility30d": 0.01,
       "volume": 2225,
       "youtube": {
         "subscribers": 2730000,
@@ -2078,17 +2078,17 @@
       "name": "Anuel AA",
       "genre": "Latin",
       "spotifyId": "2R21vXR83lH98kGeO99Y66",
-      "popularity": 89,
-      "popularityDelta": 0,
+      "popularity": 90,
+      "popularityDelta": 1,
       "followers": 48261918,
       "monthlyListeners": 43358507,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eba23ceb177745632b517cb7b2",
-      "fairPrice": 1.46,
+      "fairPrice": 1.47,
       "price": 1.46,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 4168,
+      "volume": 7503,
       "youtube": {
         "subscribers": 4670,
         "views": 1356986,
@@ -2099,7 +2099,7 @@
       "youtubeBoost": 0.006,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.117
+      "popularityBoost": 0.125
     },
     {
       "ticker": "SBYA",
@@ -2285,7 +2285,7 @@
       "fairPrice": 0.58,
       "price": 0.58,
       "chg24h": 0.0,
-      "volatility30d": 0.005,
+      "volatility30d": 0.004,
       "volume": 1562,
       "youtube": {
         "subscribers": 4510,
@@ -2453,7 +2453,7 @@
       "fairPrice": 1.9,
       "price": 1.9,
       "chg24h": 1.06,
-      "volatility30d": 0.009,
+      "volatility30d": 0.01,
       "volume": 1250,
       "youtube": {
         "subscribers": 1540000,
@@ -2765,7 +2765,7 @@
       "fairPrice": 0.88,
       "price": 0.89,
       "chg24h": 0.0,
-      "volatility30d": 0.005,
+      "volatility30d": 0.004,
       "volume": 1618,
       "youtube": {
         "subscribers": 1980000,
@@ -2793,7 +2793,7 @@
       "fairPrice": 0.79,
       "price": 0.8,
       "chg24h": 0.0,
-      "volatility30d": 0.005,
+      "volatility30d": 0.004,
       "volume": 2047,
       "youtube": {
         "subscribers": 2850000,
@@ -2908,12 +2908,12 @@
       "volatility30d": 0.0,
       "volume": 2605,
       "youtube": {
-        "subscribers": 4240000,
+        "subscribers": 4250000,
         "views": 1906512729,
         "videos": 64
       },
       "youtubeViews": 1906512729,
-      "youtubeSubs": 4240000,
+      "youtubeSubs": 4250000,
       "youtubeBoost": 0.2127,
       "chartPositions": null,
       "chartBoost": 0.0,
