@@ -1,0 +1,65 @@
+name: Calibrate listener ratios
+
+# Replaces the manual browser-based scraper that ran on Sander's Mac.
+# Pulls monthly-listener data from kworb.net (free, no API key, daily
+# refresh), recomputes per-artist monthlyListeners/followers ratios,
+# and commits an updated listener-ratios.json. The hourly fetch-prices
+# workflow then picks up the new ratios from main on its next run.
+#
+# Runs at 06:15 UTC because kworb typically refreshes its dataset
+# between 03:00 and 05:00 UTC. The exact minute (15) avoids colliding
+# with the hourly fetch-prices job at :05 and :35.
+
+on:
+  schedule:
+    - cron: '15 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # Block while the hourly price job is running so we don't push on top
+  # of an in-flight rebase.
+  group: muse-prices-write
+  cancel-in-progress: false
+
+jobs:
+  calibrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run calibrator
+        run: python calibrate-from-kworb.py
+
+      - name: Commit updated listener-ratios.json
+        run: |
+          git config user.name "Muse Calibration Bot"
+          git config user.email "bot@muse.exchange"
+
+          # Save the freshly written file so we can replay it on top of
+          # the latest remote (the hourly bot may have committed while
+          # we were running).
+          cp listener-ratios.json /tmp/listener-ratios.json
+
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/listener-ratios.json listener-ratios.json
+
+          git add listener-ratios.json
+          if git diff --staged --quiet; then
+            echo "No ratio changes — skipping commit."
+          else
+            git commit -m "chore: daily listener ratio update $(date -u +%Y-%m-%d)"
+            git push
+          fi
