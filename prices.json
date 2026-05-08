@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-08T17:42:46Z",
+  "updatedAt": "2026-05-08T19:42:30Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.86,
   "topGainers": [
@@ -169,7 +169,7 @@
     {
       "sector": "Pop",
       "avgPrice": 2.81,
-      "chg24h": 0.15,
+      "chg24h": 0.16,
       "members": [
         "SABR",
         "TSWF",
@@ -291,7 +291,7 @@
       "fairPrice": 1.27,
       "price": 1.27,
       "chg24h": 0.0,
-      "volatility30d": 0.004,
+      "volatility30d": 0.002,
       "volume": 1714,
       "youtube": {
         "subscribers": 2400000,
@@ -633,7 +633,7 @@
       "fairPrice": 7.17,
       "price": 7.17,
       "chg24h": 0.7,
-      "volatility30d": 0.034,
+      "volatility30d": 0.033,
       "volume": 5699,
       "youtube": {
         "subscribers": 78200000,
@@ -712,17 +712,17 @@
       "name": "Lady Gaga",
       "genre": "Pop",
       "spotifyId": "1HY2Jd0NmPuamShAr6KMms",
-      "popularity": 90,
-      "popularityDelta": 0,
+      "popularity": 91,
+      "popularityDelta": 1,
       "followers": 46266765,
       "monthlyListeners": 99464291,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebaadc18cac8d48124357c38e6",
-      "fairPrice": 4.23,
-      "price": 4.22,
-      "chg24h": 0.24,
-      "volatility30d": 0.012,
-      "volume": 4081,
+      "fairPrice": 4.25,
+      "price": 4.23,
+      "chg24h": 0.48,
+      "volatility30d": 0.013,
+      "volume": 7346,
       "youtube": {
         "subscribers": 30500000,
         "views": 24813379830,
@@ -733,7 +733,7 @@
       "youtubeBoost": 0.2971,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.12
+      "popularityBoost": 0.128
     },
     {
       "ticker": "BENS",
@@ -749,7 +749,7 @@
       "fairPrice": 1.5,
       "price": 1.5,
       "chg24h": 0.0,
-      "volatility30d": 0.004,
+      "volatility30d": 0.002,
       "volume": 1705,
       "youtube": {
         "subscribers": 4480,
@@ -833,7 +833,7 @@
       "fairPrice": 2.02,
       "price": 2.01,
       "chg24h": 0.5,
-      "volatility30d": 0.006,
+      "volatility30d": 0.005,
       "volume": 4100,
       "youtube": {
         "subscribers": 30700000,
@@ -945,7 +945,7 @@
       "fairPrice": 3.87,
       "price": 3.87,
       "chg24h": 0.0,
-      "volatility30d": 0.002,
+      "volatility30d": 0.0,
       "volume": 6304,
       "youtube": {
         "subscribers": 32100000,
@@ -973,7 +973,7 @@
       "fairPrice": 2.73,
       "price": 2.74,
       "chg24h": -0.36,
-      "volatility30d": 0.005,
+      "volatility30d": 0.004,
       "volume": 3961,
       "youtube": {
         "subscribers": 20700000,
@@ -1341,7 +1341,7 @@
       "fairPrice": 1.01,
       "price": 1.02,
       "chg24h": 0.0,
-      "volatility30d": 0.004,
+      "volatility30d": 0.002,
       "volume": 1993,
       "youtube": {
         "subscribers": 6820000,
@@ -1825,7 +1825,7 @@
       "fairPrice": 1.97,
       "price": 1.96,
       "chg24h": 0.0,
-      "volatility30d": 0.004,
+      "volatility30d": 0.002,
       "volume": 3160,
       "youtube": {
         "subscribers": 9200000,
@@ -2023,7 +2023,7 @@
       "fairPrice": 3.13,
       "price": 3.13,
       "chg24h": 0.0,
-      "volatility30d": 0.004,
+      "volatility30d": 0.002,
       "volume": 3835,
       "youtube": {
         "subscribers": 35200000,
@@ -2112,7 +2112,7 @@
       "youtube": {
         "subscribers": 12600,
         "views": 1710294623,
-        "videos": 1246
+        "videos": 1247
       },
       "youtubeViews": 1710294623,
       "youtubeSubs": 12600,
@@ -2240,8 +2240,8 @@
       "name": "Rema",
       "genre": "Afropop",
       "spotifyId": "46pWGuE3dSwY3bMMXGBvVS",
-      "popularity": 79,
-      "popularityDelta": 0,
+      "popularity": 80,
+      "popularityDelta": 1,
       "followers": 10681623,
       "monthlyListeners": 24582687,
       "listenersSource": "calibrated-proxy",
@@ -2250,7 +2250,7 @@
       "price": 0.96,
       "chg24h": 1.05,
       "volatility30d": 0.004,
-      "volume": 1961,
+      "volume": 3530,
       "youtube": {
         "subscribers": 5450000,
         "views": 2468781832,
@@ -2261,7 +2261,7 @@
       "youtubeBoost": 0.2221,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.087
+      "popularityBoost": 0.095
     },
     {
       "ticker": "AYRA",
@@ -2333,7 +2333,7 @@
       "fairPrice": 0.67,
       "price": 0.68,
       "chg24h": 0.0,
-      "volatility30d": 0.002,
+      "volatility30d": 0.0,
       "volume": 2020,
       "youtube": {
         "subscribers": 25500,
@@ -2365,10 +2365,10 @@
       "volume": 1973,
       "youtube": {
         "subscribers": 14000,
-        "views": 346854115,
+        "views": 346997634,
         "videos": 194
       },
-      "youtubeViews": 346854115,
+      "youtubeViews": 346997634,
       "youtubeSubs": 14000,
       "youtubeBoost": 0.1143,
       "chartPositions": null,
@@ -2445,7 +2445,7 @@
       "fairPrice": 1.85,
       "price": 1.85,
       "chg24h": 0.0,
-      "volatility30d": 0.004,
+      "volatility30d": 0.002,
       "volume": 1260,
       "youtube": {
         "subscribers": 1560000,
@@ -2704,12 +2704,12 @@
       "volatility30d": 0.0,
       "volume": 1330,
       "youtube": {
-        "subscribers": 1880,
+        "subscribers": 1890,
         "views": 419751589,
         "videos": 61
       },
       "youtubeViews": 419751589,
-      "youtubeSubs": 1880,
+      "youtubeSubs": 1890,
       "youtubeBoost": 0.118,
       "chartPositions": null,
       "chartBoost": 0.0,
@@ -2734,7 +2734,7 @@
       "youtube": {
         "subscribers": 1960,
         "views": 192000085,
-        "videos": 86
+        "videos": 69
       },
       "youtubeViews": 192000085,
       "youtubeSubs": 1960,
@@ -2925,7 +2925,7 @@
       "fairPrice": 1.95,
       "price": 1.96,
       "chg24h": 0.0,
-      "volatility30d": 0.004,
+      "volatility30d": 0.002,
       "volume": 5544,
       "youtube": {
         "subscribers": 84200000,
