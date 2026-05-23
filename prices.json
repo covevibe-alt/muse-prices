@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-23T14:01:36Z",
+  "updatedAt": "2026-05-23T15:15:38Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.86,
   "topGainers": [
@@ -147,7 +147,7 @@
     {
       "sector": "Latin",
       "avgPrice": 1.95,
-      "chg24h": 0.06,
+      "chg24h": 0.03,
       "members": [
         "BNNY",
         "PESO",
@@ -317,7 +317,7 @@
       "fairPrice": 2.91,
       "price": 2.92,
       "chg24h": -1.02,
-      "volatility30d": 0.042,
+      "volatility30d": 0.041,
       "volume": 4393,
       "youtube": {
         "subscribers": 16000000,
@@ -338,17 +338,17 @@
       "name": "Tate McRae",
       "genre": "Pop",
       "spotifyId": "45dkTj5sMRSjrmBSBeiHym",
-      "popularity": 86,
-      "popularityDelta": 0,
+      "popularity": 85,
+      "popularityDelta": -1,
       "followers": 10865409,
       "monthlyListeners": 45526064,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebbed8016bd64422793ff3bc75",
-      "fairPrice": 1.83,
+      "fairPrice": 1.82,
       "price": 1.83,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1978,
+      "volume": 3560,
       "youtube": {
         "subscribers": 6660000,
         "views": 3260603622,
@@ -359,7 +359,7 @@
       "youtubeBoost": 0.231,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.108
+      "popularityBoost": 0.1
     },
     {
       "ticker": "DUAL",
@@ -603,12 +603,12 @@
       "fairPrice": 3.6,
       "price": 3.59,
       "chg24h": 0.0,
-      "volatility30d": 0.006,
+      "volatility30d": 0.005,
       "volume": 3822,
       "youtube": {
         "subscribers": 46900000,
         "views": 29975427718,
-        "videos": 218
+        "videos": 219
       },
       "youtubeViews": 29975427718,
       "youtubeSubs": 46900000,
@@ -631,7 +631,7 @@
       "fairPrice": 6.99,
       "price": 7.0,
       "chg24h": -0.57,
-      "volatility30d": 0.08,
+      "volatility30d": 0.078,
       "volume": 5728,
       "youtube": {
         "subscribers": 78400000,
@@ -661,7 +661,7 @@
       "fairPrice": 6.92,
       "price": 6.92,
       "chg24h": 0.0,
-      "volatility30d": 0.096,
+      "volatility30d": 0.095,
       "volume": 5469,
       "youtube": {
         "subscribers": 43700000,
@@ -1203,7 +1203,7 @@
       "fairPrice": 1.6,
       "price": 1.6,
       "chg24h": 1.27,
-      "volatility30d": 0.006,
+      "volatility30d": 0.007,
       "volume": 3197,
       "youtube": {
         "subscribers": 8450000,
@@ -1427,7 +1427,7 @@
       "fairPrice": 1.62,
       "price": 1.62,
       "chg24h": -0.61,
-      "volatility30d": 0.003,
+      "volatility30d": 0.004,
       "volume": 3110,
       "youtube": {
         "subscribers": 8200000,
@@ -1655,7 +1655,7 @@
       "fairPrice": 1.2,
       "price": 1.19,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 2036,
       "youtube": {
         "subscribers": 2430000,
@@ -1853,7 +1853,7 @@
       "fairPrice": 1.18,
       "price": 1.19,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 1874,
       "youtube": {
         "subscribers": 12200000,
@@ -1928,17 +1928,17 @@
       "name": "Rauw Alejandro",
       "genre": "Latin",
       "spotifyId": "1mcTU81TzQhprhouKaTkpq",
-      "popularity": 88,
-      "popularityDelta": 0,
+      "popularity": 87,
+      "popularityDelta": -1,
       "followers": 33924275,
       "monthlyListeners": 53254327,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb6d72db3fd29576caa9cb821f",
-      "fairPrice": 2.23,
-      "price": 2.23,
-      "chg24h": 0.0,
-      "volatility30d": 0.0,
-      "volume": 3495,
+      "fairPrice": 2.21,
+      "price": 2.22,
+      "chg24h": -0.45,
+      "volatility30d": 0.002,
+      "volume": 6290,
       "youtube": {
         "subscribers": 15400000,
         "views": 18725972311,
@@ -1949,7 +1949,7 @@
       "youtubeBoost": 0.2798,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.114
+      "popularityBoost": 0.106
     },
     {
       "ticker": "MYKE",
@@ -1965,7 +1965,7 @@
       "fairPrice": 1.69,
       "price": 1.69,
       "chg24h": 1.2,
-      "volatility30d": 0.006,
+      "volatility30d": 0.007,
       "volume": 2948,
       "youtube": {
         "subscribers": 14500000,
@@ -2245,7 +2245,7 @@
       "fairPrice": 1.01,
       "price": 1.0,
       "chg24h": 1.01,
-      "volatility30d": 0.003,
+      "volatility30d": 0.004,
       "volume": 1974,
       "youtube": {
         "subscribers": 5480000,
@@ -2725,7 +2725,7 @@
       "fairPrice": 0.6,
       "price": 0.6,
       "chg24h": 1.69,
-      "volatility30d": 0.003,
+      "volatility30d": 0.004,
       "volume": 1602,
       "youtube": {
         "subscribers": 1950,
@@ -2893,7 +2893,7 @@
       "fairPrice": 1.17,
       "price": 1.17,
       "chg24h": 1.74,
-      "volatility30d": 0.006,
+      "volatility30d": 0.007,
       "volume": 2621,
       "youtube": {
         "subscribers": 4270000,
@@ -2921,7 +2921,7 @@
       "fairPrice": 1.84,
       "price": 1.85,
       "chg24h": 0.0,
-      "volatility30d": 0.017,
+      "volatility30d": 0.016,
       "volume": 5560,
       "youtube": {
         "subscribers": 84400000,
@@ -3091,7 +3091,7 @@
       "fairPrice": 3.27,
       "price": 3.27,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 2914,
       "youtube": {
         "subscribers": 19600000,
@@ -3175,7 +3175,7 @@
       "fairPrice": 2.23,
       "price": 2.23,
       "chg24h": -0.45,
-      "volatility30d": 0.003,
+      "volatility30d": 0.004,
       "volume": 3549,
       "youtube": {
         "subscribers": 58500000,
