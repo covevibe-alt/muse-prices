@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T23:14:35Z",
+  "updatedAt": "2026-06-28T01:37:04Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.85,
   "topGainers": [
@@ -38,12 +38,12 @@
       "chg24h": -1.0
     },
     {
-      "ticker": "TAME",
-      "chg24h": -0.7
-    },
-    {
       "ticker": "FUTR",
       "chg24h": -0.39
+    },
+    {
+      "ticker": "TAME",
+      "chg24h": -0.35
     }
   ],
   "sectorIndices": [
@@ -67,7 +67,7 @@
     {
       "sector": "Alt",
       "avgPrice": 1.96,
-      "chg24h": -0.1,
+      "chg24h": -0.05,
       "members": [
         "BILL",
         "LANA",
@@ -319,7 +319,7 @@
       "fairPrice": 3.4,
       "price": 3.4,
       "chg24h": 0.59,
-      "volatility30d": 0.013,
+      "volatility30d": 0.012,
       "volume": 4438,
       "youtube": {
         "subscribers": 16300000,
@@ -349,7 +349,7 @@
       "fairPrice": 1.74,
       "price": 1.75,
       "chg24h": 0.0,
-      "volatility30d": 0.005,
+      "volatility30d": 0.004,
       "volume": 1995,
       "youtube": {
         "subscribers": 6680000,
@@ -405,7 +405,7 @@
       "fairPrice": 4.76,
       "price": 4.75,
       "chg24h": 0.21,
-      "volatility30d": 0.014,
+      "volatility30d": 0.013,
       "volume": 6378,
       "youtube": {
         "subscribers": 57500000,
@@ -521,7 +521,7 @@
       "fairPrice": 1.2,
       "price": 1.21,
       "chg24h": 0.0,
-      "volatility30d": 0.01,
+      "volatility30d": 0.009,
       "volume": 1605,
       "youtube": {
         "subscribers": 4100000,
@@ -549,7 +549,7 @@
       "fairPrice": 2.38,
       "price": 2.38,
       "chg24h": 0.0,
-      "volatility30d": 0.005,
+      "volatility30d": 0.004,
       "volume": 3187,
       "youtube": {
         "subscribers": 20100000,
@@ -635,7 +635,7 @@
       "fairPrice": 5.53,
       "price": 5.54,
       "chg24h": 0.0,
-      "volatility30d": 0.006,
+      "volatility30d": 0.005,
       "volume": 5783,
       "youtube": {
         "subscribers": 78700000,
@@ -1089,7 +1089,7 @@
       "fairPrice": 2.55,
       "price": 2.55,
       "chg24h": -0.39,
-      "volatility30d": 0.008,
+      "volatility30d": 0.007,
       "volume": 2980,
       "youtube": {
         "subscribers": 15000000,
@@ -1119,7 +1119,7 @@
       "fairPrice": 1.84,
       "price": 1.85,
       "chg24h": 0.0,
-      "volatility30d": 0.005,
+      "volatility30d": 0.004,
       "volume": 3057,
       "youtube": {
         "subscribers": 10100000,
@@ -1627,7 +1627,7 @@
       "fairPrice": 0.86,
       "price": 0.86,
       "chg24h": 0.0,
-      "volatility30d": 0.005,
+      "volatility30d": 0.004,
       "volume": 1777,
       "youtube": {
         "subscribers": 1990000,
@@ -1683,7 +1683,7 @@
       "fairPrice": 1.06,
       "price": 1.06,
       "chg24h": 0.0,
-      "volatility30d": 0.005,
+      "volatility30d": 0.004,
       "volume": 1477,
       "youtube": {
         "subscribers": 3470000,
@@ -2243,7 +2243,7 @@
       "fairPrice": 1.13,
       "price": 1.13,
       "chg24h": 0.0,
-      "volatility30d": 0.01,
+      "volatility30d": 0.009,
       "volume": 2004,
       "youtube": {
         "subscribers": 5540000,
@@ -2441,7 +2441,7 @@
       "fairPrice": 1.64,
       "price": 1.63,
       "chg24h": 0.0,
-      "volatility30d": 0.01,
+      "volatility30d": 0.009,
       "volume": 1295,
       "youtube": {
         "subscribers": 1630000,
@@ -2583,7 +2583,7 @@
       "fairPrice": 2.21,
       "price": 2.21,
       "chg24h": 0.0,
-      "volatility30d": 0.01,
+      "volatility30d": 0.009,
       "volume": 3541,
       "youtube": {
         "subscribers": 9450000,
@@ -2630,17 +2630,17 @@
       "name": "Tame Impala",
       "genre": "Alt",
       "spotifyId": "5INjqkS1o8h1imAzPqGZBb",
-      "popularity": 86,
-      "popularityDelta": 0,
+      "popularity": 87,
+      "popularityDelta": 1,
       "followers": 11245582,
       "monthlyListeners": 61998018,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebe412a782245eb20d9626c601",
-      "fairPrice": 2.85,
-      "price": 2.85,
-      "chg24h": -0.7,
-      "volatility30d": 0.01,
-      "volume": 2012,
+      "fairPrice": 2.87,
+      "price": 2.86,
+      "chg24h": -0.35,
+      "volatility30d": 0.009,
+      "volume": 3622,
       "youtube": {
         "subscribers": 3480000,
         "views": 2876147156,
@@ -2653,7 +2653,7 @@
         "hot100": 18
       },
       "chartBoost": 0.2075,
-      "popularityBoost": 0.108
+      "popularityBoost": 0.116
     },
     {
       "ticker": "FTNS",
@@ -2772,8 +2772,8 @@
       "name": "Mitski",
       "genre": "Indie",
       "spotifyId": "2uYWxilOVlUdk4oV9DvwqK",
-      "popularity": 79,
-      "popularityDelta": 0,
+      "popularity": 80,
+      "popularityDelta": 1,
       "followers": 11824631,
       "monthlyListeners": 20383299,
       "listenersSource": "calibrated-proxy",
@@ -2782,7 +2782,7 @@
       "price": 0.8,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2063,
+      "volume": 3714,
       "youtube": {
         "subscribers": 2890000,
         "views": 1553146523,
@@ -2793,7 +2793,7 @@
       "youtubeBoost": 0.202,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.087
+      "popularityBoost": 0.095
     },
     {
       "ticker": "PHBE",
@@ -2828,8 +2828,8 @@
       "name": "boygenius",
       "genre": "Indie",
       "spotifyId": "1hLiboQ98IQWhpKeP9vRFw",
-      "popularity": 63,
-      "popularityDelta": 0,
+      "popularity": 64,
+      "popularityDelta": 1,
       "followers": 1151402,
       "monthlyListeners": 3599168,
       "listenersSource": "calibrated-proxy",
@@ -2838,7 +2838,7 @@
       "price": 0.11,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 644,
+      "volume": 1159,
       "youtube": {
         "subscribers": 173000,
         "views": 69028752,
@@ -2849,7 +2849,7 @@
       "youtubeBoost": 0.0923,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.039
+      "popularityBoost": 0.047
     },
     {
       "ticker": "FAYE",
@@ -2998,17 +2998,17 @@
       "name": "Stray Kids",
       "genre": "K-Pop",
       "spotifyId": "2dIgFjalVxs4ThymZ67YCE",
-      "popularity": 84,
-      "popularityDelta": 0,
+      "popularity": 85,
+      "popularityDelta": 1,
       "followers": 23723895,
       "monthlyListeners": 9731542,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebf9887d2c9288f0e50a3fd69f",
-      "fairPrice": 0.4,
+      "fairPrice": 0.41,
       "price": 0.41,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2922,
+      "volume": 5260,
       "youtube": {
         "subscribers": 24200000,
         "views": 11866073816,
@@ -3019,7 +3019,7 @@
       "youtubeBoost": 0.2787,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.102
+      "popularityBoost": 0.11
     },
     {
       "ticker": "TWIC",
