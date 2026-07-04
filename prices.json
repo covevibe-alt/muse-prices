@@ -1,26 +1,26 @@
 {
-  "updatedAt": "2026-07-04T09:47:53Z",
+  "updatedAt": "2026-07-04T11:43:15Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.85,
   "topGainers": [
     {
-      "ticker": "BRNA",
-      "chg24h": 0.51
+      "ticker": "GRAB",
+      "chg24h": 0.65
     },
     {
       "ticker": "DUAL",
       "chg24h": 0.35
     },
     {
-      "ticker": "OLVR",
-      "chg24h": 0.29
+      "ticker": "SABR",
+      "chg24h": 0.0
     },
     {
       "ticker": "TSWF",
-      "chg24h": 0.19
+      "chg24h": 0.0
     },
     {
-      "ticker": "SABR",
+      "ticker": "CHPL",
       "chg24h": 0.0
     }
   ],
@@ -50,7 +50,7 @@
     {
       "sector": "Afropop",
       "avgPrice": 0.88,
-      "chg24h": 0.05,
+      "chg24h": 0.0,
       "members": [
         "TYLA",
         "REMA",
@@ -169,7 +169,7 @@
     {
       "sector": "Pop",
       "avgPrice": 2.86,
-      "chg24h": 0.03,
+      "chg24h": 0.04,
       "members": [
         "SABR",
         "TSWF",
@@ -260,7 +260,7 @@
       "image": "https://i.scdn.co/image/ab6761610000e5ebe2e8e7ff002a4afda1c7147e",
       "fairPrice": 5.22,
       "price": 5.22,
-      "chg24h": 0.19,
+      "chg24h": 0.0,
       "volatility30d": 0.005,
       "volume": 7592,
       "youtube": {
@@ -318,7 +318,7 @@
       "image": "https://i.scdn.co/image/ab6761610000e5ebb14eb4dcfd2f3858bed06e44",
       "fairPrice": 3.44,
       "price": 3.45,
-      "chg24h": 0.29,
+      "chg24h": 0.0,
       "volatility30d": 0.012,
       "volume": 4443,
       "youtube": {
@@ -521,7 +521,7 @@
       "fairPrice": 1.19,
       "price": 1.19,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 1606,
       "youtube": {
         "subscribers": 4100000,
@@ -549,7 +549,7 @@
       "fairPrice": 2.35,
       "price": 2.35,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 3190,
       "youtube": {
         "subscribers": 20100000,
@@ -577,7 +577,7 @@
       "fairPrice": 4.41,
       "price": 4.41,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 3966,
       "youtube": {
         "subscribers": 51700000,
@@ -770,17 +770,17 @@
       "name": "Gracie Abrams",
       "genre": "Pop",
       "spotifyId": "4tuJ0bMpJh08umKkEXKUI5",
-      "popularity": 83,
-      "popularityDelta": 0,
+      "popularity": 84,
+      "popularityDelta": 1,
       "followers": 9799838,
       "monthlyListeners": 36442658,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb18e3675ebfda9c29cfb2b57e",
-      "fairPrice": 1.55,
-      "price": 1.54,
-      "chg24h": 0.0,
-      "volatility30d": 0.0,
-      "volume": 1878,
+      "fairPrice": 1.56,
+      "price": 1.55,
+      "chg24h": 0.65,
+      "volatility30d": 0.002,
+      "volume": 3381,
       "youtube": {
         "subscribers": 2030000,
         "views": 1046369108,
@@ -793,7 +793,7 @@
         "hot100": 49
       },
       "chartBoost": 0.13,
-      "popularityBoost": 0.099
+      "popularityBoost": 0.107
     },
     {
       "ticker": "CMLA",
@@ -979,7 +979,7 @@
       "fairPrice": 2.46,
       "price": 2.46,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 3988,
       "youtube": {
         "subscribers": 20700000,
@@ -1487,7 +1487,7 @@
       "fairPrice": 1.98,
       "price": 1.98,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 1820,
       "youtube": {
         "subscribers": 2930000,
@@ -1685,7 +1685,7 @@
       "fairPrice": 1.04,
       "price": 1.04,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 1479,
       "youtube": {
         "subscribers": 3480000,
@@ -2124,17 +2124,17 @@
       "name": "Quevedo",
       "genre": "Latin",
       "spotifyId": "52iwsT98xCoGgiGntTiR7K",
-      "popularity": 85,
-      "popularityDelta": 0,
+      "popularity": 86,
+      "popularityDelta": 1,
       "followers": 7050971,
       "monthlyListeners": 29814326,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb6ba600ad0f41d8a3aa3f53b2",
-      "fairPrice": 1.1,
+      "fairPrice": 1.11,
       "price": 1.1,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1593,
+      "volume": 2868,
       "youtube": {
         "subscribers": 720,
         "views": 665288101,
@@ -2145,7 +2145,7 @@
       "youtubeBoost": 0.127,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.105
+      "popularityBoost": 0.113
     },
     {
       "ticker": "FRZA",
@@ -2300,7 +2300,7 @@
       "image": "https://i.scdn.co/image/ab6761610000e5ebb4e44d0f4e3e47af2cf06f3f",
       "fairPrice": 1.99,
       "price": 1.99,
-      "chg24h": 0.51,
+      "chg24h": 0.0,
       "volatility30d": 0.012,
       "volume": 2461,
       "youtube": {
@@ -2331,7 +2331,7 @@
       "fairPrice": 0.64,
       "price": 0.64,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 2073,
       "youtube": {
         "subscribers": 25500,
@@ -2870,12 +2870,12 @@
       "volatility30d": 0.0,
       "volume": 947,
       "youtube": {
-        "subscribers": 450,
+        "subscribers": 449,
         "views": 186511595,
         "videos": 50
       },
       "youtubeViews": 186511595,
-      "youtubeSubs": 450,
+      "youtubeSubs": 449,
       "youtubeBoost": 0.1022,
       "chartPositions": null,
       "chartBoost": 0.0,
@@ -2886,17 +2886,17 @@
       "name": "Cigarettes After Sex",
       "genre": "Indie",
       "spotifyId": "1QAJqy2dA3ihHBFIHRphZj",
-      "popularity": 83,
-      "popularityDelta": 0,
+      "popularity": 84,
+      "popularityDelta": 1,
       "followers": 19397715,
       "monthlyListeners": 30477690,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb2e08fd554de35c3ef1db7fd9",
-      "fairPrice": 1.2,
+      "fairPrice": 1.21,
       "price": 1.21,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 2643,
+      "volume": 4757,
       "youtube": {
         "subscribers": 4290000,
         "views": 2015567593,
@@ -2907,7 +2907,7 @@
       "youtubeBoost": 0.214,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.099
+      "popularityBoost": 0.107
     },
     {
       "ticker": "BTS",
@@ -3014,7 +3014,7 @@
       "youtube": {
         "subscribers": 24300000,
         "views": 11922592047,
-        "videos": 2126
+        "videos": 2127
       },
       "youtubeViews": 11922592047,
       "youtubeSubs": 24300000,
