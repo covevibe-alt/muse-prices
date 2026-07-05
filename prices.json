@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T11:59:42Z",
+  "updatedAt": "2026-07-05T14:02:44Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.86,
   "topGainers": [
@@ -261,7 +261,7 @@
       "fairPrice": 5.22,
       "price": 5.22,
       "chg24h": 0.0,
-      "volatility30d": 0.004,
+      "volatility30d": 0.003,
       "volume": 7596,
       "youtube": {
         "subscribers": 63300000,
@@ -319,7 +319,7 @@
       "fairPrice": 3.44,
       "price": 3.45,
       "chg24h": 0.0,
-      "volatility30d": 0.004,
+      "volatility30d": 0.003,
       "volume": 4446,
       "youtube": {
         "subscribers": 16300000,
@@ -405,7 +405,7 @@
       "fairPrice": 4.78,
       "price": 4.79,
       "chg24h": 0.21,
-      "volatility30d": 0.003,
+      "volatility30d": 0.004,
       "volume": 6385,
       "youtube": {
         "subscribers": 57600000,
@@ -1227,7 +1227,7 @@
       "genre": "Hip-hop",
       "spotifyId": "699OTQXzgjhIYAHMy9RyPD",
       "popularity": 86,
-      "popularityDelta": 1,
+      "popularityDelta": 0,
       "followers": 16484267,
       "monthlyListeners": 40762295,
       "listenersSource": "calibrated-proxy",
@@ -1236,7 +1236,7 @@
       "price": 1.62,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 4385,
+      "volume": 2436,
       "youtube": {
         "subscribers": 4930000,
         "views": 2728162820,
@@ -1247,7 +1247,7 @@
       "youtubeBoost": 0.2223,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.113
+      "popularityBoost": 0.108
     },
     {
       "ticker": "MTRO",
@@ -2097,16 +2097,16 @@
       "genre": "Latin",
       "spotifyId": "07YUOmWljBTXwIseAUd9TW",
       "popularity": 79,
-      "popularityDelta": 1,
+      "popularityDelta": 0,
       "followers": 25004229,
       "monthlyListeners": 23869037,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb90671876e11f39f835ececa4",
-      "fairPrice": 0.89,
+      "fairPrice": 0.88,
       "price": 0.89,
       "chg24h": 1.14,
       "volatility30d": 0.002,
-      "volume": 5400,
+      "volume": 3000,
       "youtube": {
         "subscribers": 12600,
         "views": 1751183757,
@@ -2117,7 +2117,7 @@
       "youtubeBoost": 0.1459,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.092
+      "popularityBoost": 0.087
     },
     {
       "ticker": "QUVD",
@@ -2730,12 +2730,12 @@
       "volatility30d": 0.0,
       "volume": 1614,
       "youtube": {
-        "subscribers": 1960,
-        "views": 156136126,
+        "subscribers": 1950,
+        "views": 156246218,
         "videos": 65
       },
-      "youtubeViews": 156136126,
-      "youtubeSubs": 1960,
+      "youtubeViews": 156246218,
+      "youtubeSubs": 1950,
       "youtubeBoost": 0.0987,
       "chartPositions": null,
       "chartBoost": 0.0,
