@@ -1,15 +1,11 @@
 {
-  "updatedAt": "2026-07-11T08:24:24Z",
+  "updatedAt": "2026-07-11T10:05:26Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.85,
   "topGainers": [
     {
       "ticker": "WZKD",
-      "chg24h": 3.08
-    },
-    {
-      "ticker": "PHBE",
-      "chg24h": 2.13
+      "chg24h": 1.52
     },
     {
       "ticker": "BRNA",
@@ -22,6 +18,10 @@
     {
       "ticker": "QUVD",
       "chg24h": 0.89
+    },
+    {
+      "ticker": "RAUW",
+      "chg24h": 0.47
     }
   ],
   "topLosers": [
@@ -38,19 +38,19 @@
       "chg24h": -1.39
     },
     {
-      "ticker": "CNTC",
-      "chg24h": -1.06
+      "ticker": "BTS",
+      "chg24h": -1.2
     },
     {
-      "ticker": "REMA",
-      "chg24h": -0.88
+      "ticker": "CNTC",
+      "chg24h": -1.06
     }
   ],
   "sectorIndices": [
     {
       "sector": "Afropop",
       "avgPrice": 0.9,
-      "chg24h": 0.36,
+      "chg24h": 0.2,
       "members": [
         "TYLA",
         "REMA",
@@ -120,7 +120,7 @@
     {
       "sector": "Indie",
       "avgPrice": 0.71,
-      "chg24h": 0.27,
+      "chg24h": 0.0,
       "members": [
         "MARI",
         "CLRO",
@@ -135,7 +135,7 @@
     {
       "sector": "K-Pop",
       "avgPrice": 0.82,
-      "chg24h": -0.12,
+      "chg24h": -0.24,
       "members": [
         "BTS",
         "BLPK",
@@ -147,7 +147,7 @@
     {
       "sector": "Latin",
       "avgPrice": 1.93,
-      "chg24h": 0.03,
+      "chg24h": 0.06,
       "members": [
         "BNNY",
         "PESO",
@@ -282,8 +282,8 @@
       "name": "Chappell Roan",
       "genre": "Pop",
       "spotifyId": "7GlBOeep6PqTfFi59PTUUN",
-      "popularity": 80,
-      "popularityDelta": 0,
+      "popularity": 81,
+      "popularityDelta": 1,
       "followers": 8350287,
       "monthlyListeners": 31211703,
       "listenersSource": "calibrated-proxy",
@@ -292,7 +292,7 @@
       "price": 1.21,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 1734,
+      "volume": 3121,
       "youtube": {
         "subscribers": 2420000,
         "views": 1479905568,
@@ -303,7 +303,7 @@
       "youtubeBoost": 0.198,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.09
+      "popularityBoost": 0.098
     },
     {
       "ticker": "OLVR",
@@ -405,7 +405,7 @@
       "fairPrice": 4.75,
       "price": 4.75,
       "chg24h": -0.63,
-      "volatility30d": 0.013,
+      "volatility30d": 0.014,
       "volume": 6390,
       "youtube": {
         "subscribers": 57600000,
@@ -723,7 +723,7 @@
       "fairPrice": 4.25,
       "price": 4.25,
       "chg24h": -0.7,
-      "volatility30d": 0.013,
+      "volatility30d": 0.014,
       "volume": 4137,
       "youtube": {
         "subscribers": 30700000,
@@ -751,7 +751,7 @@
       "fairPrice": 1.67,
       "price": 1.67,
       "chg24h": 1.21,
-      "volatility30d": 0.006,
+      "volatility30d": 0.007,
       "volume": 1729,
       "youtube": {
         "subscribers": 4510,
@@ -1689,7 +1689,7 @@
       "fairPrice": 1.0,
       "price": 1.0,
       "chg24h": -1.96,
-      "volatility30d": 0.009,
+      "volatility30d": 0.01,
       "volume": 1482,
       "youtube": {
         "subscribers": 3480000,
@@ -1876,17 +1876,17 @@
       "name": "Karol G",
       "genre": "Latin",
       "spotifyId": "790FomKkXshlbRYZFtlgla",
-      "popularity": 88,
-      "popularityDelta": 0,
+      "popularity": 89,
+      "popularityDelta": 1,
       "followers": 65591093,
       "monthlyListeners": 52886098,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb66041ce9eb4497057cbc3496",
-      "fairPrice": 2.24,
+      "fairPrice": 2.26,
       "price": 2.25,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 4859,
+      "volume": 8747,
       "youtube": {
         "subscribers": 41200000,
         "views": 33909204737,
@@ -1897,7 +1897,7 @@
       "youtubeBoost": 0.3,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.114
+      "popularityBoost": 0.122
     },
     {
       "ticker": "FEID",
@@ -1932,17 +1932,17 @@
       "name": "Rauw Alejandro",
       "genre": "Latin",
       "spotifyId": "1mcTU81TzQhprhouKaTkpq",
-      "popularity": 88,
-      "popularityDelta": 0,
+      "popularity": 89,
+      "popularityDelta": 1,
       "followers": 34383475,
       "monthlyListeners": 51389542,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb6d72db3fd29576caa9cb821f",
-      "fairPrice": 2.15,
-      "price": 2.15,
-      "chg24h": 0.0,
+      "fairPrice": 2.16,
+      "price": 2.16,
+      "chg24h": 0.47,
       "volatility30d": 0.005,
-      "volume": 3518,
+      "volume": 6333,
       "youtube": {
         "subscribers": 15400000,
         "views": 18917562517,
@@ -1953,7 +1953,7 @@
       "youtubeBoost": 0.28,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.114
+      "popularityBoost": 0.122
     },
     {
       "ticker": "MYKE",
@@ -1997,7 +1997,7 @@
       "fairPrice": 2.18,
       "price": 2.19,
       "chg24h": -0.45,
-      "volatility30d": 0.005,
+      "volatility30d": 0.006,
       "volume": 3855,
       "youtube": {
         "subscribers": 38200000,
@@ -2334,7 +2334,7 @@
       "image": "https://i.scdn.co/image/ab6761610000e5ebe6ef803356b45ee5a9fa7a8a",
       "fairPrice": 0.67,
       "price": 0.67,
-      "chg24h": 3.08,
+      "chg24h": 1.52,
       "volatility30d": 0.006,
       "volume": 2081,
       "youtube": {
@@ -2589,7 +2589,7 @@
       "fairPrice": 2.14,
       "price": 2.15,
       "chg24h": -0.46,
-      "volatility30d": 0.005,
+      "volatility30d": 0.006,
       "volume": 3548,
       "youtube": {
         "subscribers": 9460000,
@@ -2814,7 +2814,7 @@
       "image": "https://i.scdn.co/image/ab6761610000e5eb6e2d4ab2b84463aa4c349311",
       "fairPrice": 0.49,
       "price": 0.48,
-      "chg24h": 2.13,
+      "chg24h": 0.0,
       "volatility30d": 0.005,
       "volume": 1103,
       "youtube": {
@@ -2925,9 +2925,9 @@
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebf80ec63ea7a0ef0fba60957d",
       "fairPrice": 1.65,
-      "price": 1.66,
-      "chg24h": -0.6,
-      "volatility30d": 0.002,
+      "price": 1.65,
+      "chg24h": -1.2,
+      "volatility30d": 0.004,
       "volume": 5609,
       "youtube": {
         "subscribers": 85100000,
