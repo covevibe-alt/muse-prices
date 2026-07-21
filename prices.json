@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T20:04:11Z",
+  "updatedAt": "2026-07-21T21:31:24Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.84,
   "topGainers": [
@@ -231,7 +231,7 @@
       "fairPrice": 2.59,
       "price": 2.59,
       "chg24h": -1.15,
-      "volatility30d": 0.013,
+      "volatility30d": 0.014,
       "volume": 3497,
       "youtube": {
         "subscribers": 13500000,
@@ -319,7 +319,7 @@
       "fairPrice": 3.34,
       "price": 3.34,
       "chg24h": -0.3,
-      "volatility30d": 0.045,
+      "volatility30d": 0.044,
       "volume": 4462,
       "youtube": {
         "subscribers": 16400000,
@@ -549,7 +549,7 @@
       "fairPrice": 2.38,
       "price": 2.38,
       "chg24h": -12.18,
-      "volatility30d": 0.114,
+      "volatility30d": 0.122,
       "volume": 3197,
       "youtube": {
         "subscribers": 20100000,
@@ -577,12 +577,12 @@
       "fairPrice": 4.83,
       "price": 4.83,
       "chg24h": 2.55,
-      "volatility30d": 0.057,
+      "volatility30d": 0.06,
       "volume": 3986,
       "youtube": {
         "subscribers": 52300000,
         "views": 37303955009,
-        "videos": 409
+        "videos": 410
       },
       "youtubeViews": 37303955009,
       "youtubeSubs": 52300000,
@@ -635,7 +635,7 @@
       "fairPrice": 5.41,
       "price": 5.42,
       "chg24h": -1.45,
-      "volatility30d": 0.03,
+      "volatility30d": 0.032,
       "volume": 5817,
       "youtube": {
         "subscribers": 78900000,
@@ -1091,7 +1091,7 @@
       "fairPrice": 2.56,
       "price": 2.55,
       "chg24h": 4.51,
-      "volatility30d": 0.045,
+      "volatility30d": 0.048,
       "volume": 2992,
       "youtube": {
         "subscribers": 15000000,
@@ -1476,17 +1476,17 @@
       "name": "Don Toliver",
       "genre": "Hip-hop",
       "spotifyId": "4Gso3d4CscCijv0lmajZWs",
-      "popularity": 89,
-      "popularityDelta": 0,
+      "popularity": 90,
+      "popularityDelta": 1,
       "followers": 9343139,
       "monthlyListeners": 43435319,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebc52b798deb89eb8414a51b7b",
-      "fairPrice": 1.93,
+      "fairPrice": 1.94,
       "price": 1.94,
       "chg24h": 0.0,
       "volatility30d": 0.02,
-      "volume": 1834,
+      "volume": 3301,
       "youtube": {
         "subscribers": 2950000,
         "views": 2746607048,
@@ -1499,7 +1499,7 @@
         "hot100": 40
       },
       "chartBoost": 0.1525,
-      "popularityBoost": 0.117
+      "popularityBoost": 0.125
     },
     {
       "ticker": "WKND",
@@ -2079,10 +2079,10 @@
       "volume": 4233,
       "youtube": {
         "subscribers": 4690,
-        "views": 1369962,
+        "views": 1370099,
         "videos": 38
       },
-      "youtubeViews": 1369962,
+      "youtubeViews": 1370099,
       "youtubeSubs": 4690,
       "youtubeBoost": 0.0062,
       "chartPositions": null,
@@ -2299,7 +2299,7 @@
       "fairPrice": 2.42,
       "price": 2.42,
       "chg24h": 3.42,
-      "volatility30d": 0.037,
+      "volatility30d": 0.039,
       "volume": 2478,
       "youtube": {
         "subscribers": 6630000,
