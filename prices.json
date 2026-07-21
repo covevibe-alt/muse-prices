@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T21:31:24Z",
+  "updatedAt": "2026-07-21T22:31:53Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.84,
   "topGainers": [
@@ -43,7 +43,7 @@
     },
     {
       "ticker": "JBBR",
-      "chg24h": -1.45
+      "chg24h": -1.63
     }
   ],
   "sectorIndices": [
@@ -169,7 +169,7 @@
     {
       "sector": "Pop",
       "avgPrice": 2.85,
-      "chg24h": -0.61,
+      "chg24h": -0.62,
       "members": [
         "SABR",
         "TSWF",
@@ -549,7 +549,7 @@
       "fairPrice": 2.38,
       "price": 2.38,
       "chg24h": -12.18,
-      "volatility30d": 0.122,
+      "volatility30d": 0.13,
       "volume": 3197,
       "youtube": {
         "subscribers": 20100000,
@@ -577,7 +577,7 @@
       "fairPrice": 4.83,
       "price": 4.83,
       "chg24h": 2.55,
-      "volatility30d": 0.06,
+      "volatility30d": 0.063,
       "volume": 3986,
       "youtube": {
         "subscribers": 52300000,
@@ -634,8 +634,8 @@
       "image": "https://i.scdn.co/image/ab6761610000e5ebaf20f7db5288bce9beede034",
       "fairPrice": 5.41,
       "price": 5.42,
-      "chg24h": -1.45,
-      "volatility30d": 0.032,
+      "chg24h": -1.63,
+      "volatility30d": 0.033,
       "volume": 5817,
       "youtube": {
         "subscribers": 78900000,
@@ -949,7 +949,7 @@
       "fairPrice": 4.6,
       "price": 4.61,
       "chg24h": -0.22,
-      "volatility30d": 0.062,
+      "volatility30d": 0.061,
       "volume": 6413,
       "youtube": {
         "subscribers": 32800000,
@@ -1091,7 +1091,7 @@
       "fairPrice": 2.56,
       "price": 2.55,
       "chg24h": 4.51,
-      "volatility30d": 0.048,
+      "volatility30d": 0.051,
       "volume": 2992,
       "youtube": {
         "subscribers": 15000000,
@@ -1477,7 +1477,7 @@
       "genre": "Hip-hop",
       "spotifyId": "4Gso3d4CscCijv0lmajZWs",
       "popularity": 90,
-      "popularityDelta": 1,
+      "popularityDelta": 0,
       "followers": 9343139,
       "monthlyListeners": 43435319,
       "listenersSource": "calibrated-proxy",
@@ -1485,8 +1485,8 @@
       "fairPrice": 1.94,
       "price": 1.94,
       "chg24h": 0.0,
-      "volatility30d": 0.02,
-      "volume": 3301,
+      "volatility30d": 0.019,
+      "volume": 1834,
       "youtube": {
         "subscribers": 2950000,
         "views": 2746607048,
@@ -1499,7 +1499,7 @@
         "hot100": 40
       },
       "chartBoost": 0.1525,
-      "popularityBoost": 0.125
+      "popularityBoost": 0.12
     },
     {
       "ticker": "WKND",
@@ -2299,7 +2299,7 @@
       "fairPrice": 2.42,
       "price": 2.42,
       "chg24h": 3.42,
-      "volatility30d": 0.039,
+      "volatility30d": 0.041,
       "volume": 2478,
       "youtube": {
         "subscribers": 6630000,
@@ -2921,7 +2921,7 @@
       "fairPrice": 1.52,
       "price": 1.52,
       "chg24h": -2.56,
-      "volatility30d": 0.018,
+      "volatility30d": 0.019,
       "volume": 5620,
       "youtube": {
         "subscribers": 85300000,
