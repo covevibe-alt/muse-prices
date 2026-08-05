@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-05T20:38:03Z",
+  "updatedAt": "2026-08-05T22:18:06Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.85,
   "topGainers": [
@@ -67,7 +67,7 @@
     {
       "sector": "Alt",
       "avgPrice": 1.92,
-      "chg24h": 0.0,
+      "chg24h": 0.05,
       "members": [
         "BILL",
         "LANA",
@@ -231,7 +231,7 @@
       "fairPrice": 2.64,
       "price": 2.65,
       "chg24h": 0.0,
-      "volatility30d": 0.021,
+      "volatility30d": 0.022,
       "volume": 3513,
       "youtube": {
         "subscribers": 13600000,
@@ -405,7 +405,7 @@
       "fairPrice": 4.83,
       "price": 4.83,
       "chg24h": 0.84,
-      "volatility30d": 0.016,
+      "volatility30d": 0.017,
       "volume": 6412,
       "youtube": {
         "subscribers": 57900000,
@@ -521,7 +521,7 @@
       "fairPrice": 1.27,
       "price": 1.27,
       "chg24h": 0.0,
-      "volatility30d": 0.033,
+      "volatility30d": 0.032,
       "volume": 1618,
       "youtube": {
         "subscribers": 4130000,
@@ -609,12 +609,12 @@
       "fairPrice": 3.81,
       "price": 3.81,
       "chg24h": 0.0,
-      "volatility30d": 0.012,
+      "volatility30d": 0.011,
       "volume": 3873,
       "youtube": {
         "subscribers": 47200000,
         "views": 30386072462,
-        "videos": 246
+        "videos": 247
       },
       "youtubeViews": 30386072462,
       "youtubeSubs": 47200000,
@@ -725,7 +725,7 @@
       "fairPrice": 4.06,
       "price": 4.06,
       "chg24h": 0.0,
-      "volatility30d": 0.007,
+      "volatility30d": 0.006,
       "volume": 4154,
       "youtube": {
         "subscribers": 30700000,
@@ -1319,7 +1319,7 @@
       "fairPrice": 1.5,
       "price": 1.5,
       "chg24h": 0.0,
-      "volatility30d": 0.007,
+      "volatility30d": 0.006,
       "volume": 2924,
       "youtube": {
         "subscribers": 10500000,
@@ -1519,7 +1519,7 @@
       "fairPrice": 4.92,
       "price": 4.92,
       "chg24h": 0.2,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 6733,
       "youtube": {
         "subscribers": 39900000,
@@ -1941,7 +1941,7 @@
       "fairPrice": 2.2,
       "price": 2.2,
       "chg24h": 0.46,
-      "volatility30d": 0.008,
+      "volatility30d": 0.007,
       "volume": 3530,
       "youtube": {
         "subscribers": 15400000,
@@ -1969,7 +1969,7 @@
       "fairPrice": 1.75,
       "price": 1.75,
       "chg24h": 0.0,
-      "volatility30d": 0.007,
+      "volatility30d": 0.006,
       "volume": 2988,
       "youtube": {
         "subscribers": 14500000,
@@ -2308,12 +2308,12 @@
       "volatility30d": 0.003,
       "volume": 2493,
       "youtube": {
-        "subscribers": 6900000,
+        "subscribers": 6910000,
         "views": 3950274738,
         "videos": 321
       },
       "youtubeViews": 3950274738,
-      "youtubeSubs": 6900000,
+      "youtubeSubs": 6910000,
       "youtubeBoost": 0.2354,
       "chartPositions": {
         "hot100": 20
@@ -2391,7 +2391,7 @@
       "fairPrice": 0.34,
       "price": 0.34,
       "chg24h": 0.0,
-      "volatility30d": 0.003,
+      "volatility30d": 0.002,
       "volume": 1904,
       "youtube": {
         "subscribers": 2110000,
@@ -2636,17 +2636,17 @@
       "name": "Tame Impala",
       "genre": "Alt",
       "spotifyId": "5INjqkS1o8h1imAzPqGZBb",
-      "popularity": 87,
-      "popularityDelta": 0,
+      "popularity": 88,
+      "popularityDelta": 1,
       "followers": 11485768,
       "monthlyListeners": 58927733,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebe412a782245eb20d9626c601",
-      "fairPrice": 2.77,
-      "price": 2.76,
-      "chg24h": 0.0,
-      "volatility30d": 0.0,
-      "volume": 2033,
+      "fairPrice": 2.78,
+      "price": 2.77,
+      "chg24h": 0.36,
+      "volatility30d": 0.002,
+      "volume": 3660,
       "youtube": {
         "subscribers": 3540000,
         "views": 2918017119,
@@ -2659,7 +2659,7 @@
         "hot100": 6
       },
       "chartBoost": 0.2375,
-      "popularityBoost": 0.111
+      "popularityBoost": 0.119
     },
     {
       "ticker": "FTNS",
