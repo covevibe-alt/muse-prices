@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-10T09:44:07Z",
+  "updatedAt": "2026-08-10T11:18:03Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.86,
   "topGainers": [
@@ -8,20 +8,20 @@
       "chg24h": 1.41
     },
     {
+      "ticker": "POST",
+      "chg24h": 1.12
+    },
+    {
       "ticker": "SBYA",
       "chg24h": 1.12
     },
     {
+      "ticker": "SLNA",
+      "chg24h": 1.09
+    },
+    {
       "ticker": "KROL",
       "chg24h": 0.83
-    },
-    {
-      "ticker": "POST",
-      "chg24h": 0.75
-    },
-    {
-      "ticker": "SLNA",
-      "chg24h": 0.55
     }
   ],
   "topLosers": [
@@ -34,15 +34,15 @@
       "chg24h": -0.38
     },
     {
+      "ticker": "MRSH",
+      "chg24h": 0.0
+    },
+    {
       "ticker": "SKRL",
       "chg24h": 0.0
     },
     {
       "ticker": "CHRS",
-      "chg24h": 0.0
-    },
-    {
-      "ticker": "GTTA",
       "chg24h": 0.0
     }
   ],
@@ -81,7 +81,7 @@
     {
       "sector": "Electronic",
       "avgPrice": 2.19,
-      "chg24h": 0.37,
+      "chg24h": 0.28,
       "members": [
         "GTTA",
         "CHRS",
@@ -93,7 +93,7 @@
     {
       "sector": "Hip-hop",
       "avgPrice": 1.74,
-      "chg24h": 0.05,
+      "chg24h": 0.08,
       "members": [
         "DRKE",
         "TRVS",
@@ -169,7 +169,7 @@
     {
       "sector": "Pop",
       "avgPrice": 2.88,
-      "chg24h": 0.04,
+      "chg24h": 0.07,
       "members": [
         "SABR",
         "TSWF",
@@ -319,7 +319,7 @@
       "fairPrice": 3.2,
       "price": 3.21,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 4481,
       "youtube": {
         "subscribers": 16500000,
@@ -377,7 +377,7 @@
       "fairPrice": 2.83,
       "price": 2.83,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 4184,
       "youtube": {
         "subscribers": 25200000,
@@ -404,8 +404,8 @@
       "image": "https://i.scdn.co/image/ab6761610000e5eb68412f2d0177a9ebc265ff58",
       "fairPrice": 4.93,
       "price": 4.92,
-      "chg24h": 0.41,
-      "volatility30d": 0.014,
+      "chg24h": 0.2,
+      "volatility30d": 0.013,
       "volume": 6416,
       "youtube": {
         "subscribers": 57900000,
@@ -461,9 +461,9 @@
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebe309f8c3056a59f20d0968ca",
       "fairPrice": 3.04,
-      "price": 3.03,
-      "chg24h": 0.33,
-      "volatility30d": 0.005,
+      "price": 3.04,
+      "chg24h": 0.66,
+      "volatility30d": 0.006,
       "volume": 3590,
       "youtube": {
         "subscribers": 15500000,
@@ -667,7 +667,7 @@
       "fairPrice": 6.52,
       "price": 6.51,
       "chg24h": 0.15,
-      "volatility30d": 0.014,
+      "volatility30d": 0.013,
       "volume": 5587,
       "youtube": {
         "subscribers": 44200000,
@@ -695,9 +695,9 @@
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb815e520e3ce7fe210046ba66",
       "fairPrice": 1.85,
-      "price": 1.84,
-      "chg24h": 0.55,
-      "volatility30d": 0.002,
+      "price": 1.85,
+      "chg24h": 1.09,
+      "volatility30d": 0.004,
       "volume": 4443,
       "youtube": {
         "subscribers": 35800000,
@@ -725,7 +725,7 @@
       "fairPrice": 4.09,
       "price": 4.08,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 4157,
       "youtube": {
         "subscribers": 30700000,
@@ -753,7 +753,7 @@
       "fairPrice": 1.54,
       "price": 1.54,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 1739,
       "youtube": {
         "subscribers": 4510,
@@ -781,7 +781,7 @@
       "fairPrice": 1.6,
       "price": 1.6,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 1899,
       "youtube": {
         "subscribers": 2060000,
@@ -949,9 +949,9 @@
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9",
       "fairPrice": 4.58,
-      "price": 4.57,
-      "chg24h": 0.22,
-      "volatility30d": 0.009,
+      "price": 4.58,
+      "chg24h": 0.44,
+      "volatility30d": 0.01,
       "volume": 6438,
       "youtube": {
         "subscribers": 32900000,
@@ -1063,9 +1063,9 @@
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5ebe17c0aa1714a03d62b5ce4e0",
       "fairPrice": 2.7,
-      "price": 2.69,
-      "chg24h": 0.75,
-      "volatility30d": 0.004,
+      "price": 2.7,
+      "chg24h": 1.12,
+      "volatility30d": 0.006,
       "volume": 4206,
       "youtube": {
         "subscribers": 28900000,
@@ -1743,7 +1743,7 @@
       "fairPrice": 1.08,
       "price": 1.08,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 1864,
       "youtube": {
         "subscribers": 4680000,
@@ -1874,17 +1874,17 @@
       "name": "Karol G",
       "genre": "Latin",
       "spotifyId": "790FomKkXshlbRYZFtlgla",
-      "popularity": 90,
-      "popularityDelta": 0,
+      "popularity": 91,
+      "popularityDelta": 1,
       "followers": 66156894,
       "monthlyListeners": 56253207,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb3869e286c9043f85e8e4bc06",
-      "fairPrice": 2.44,
-      "price": 2.43,
+      "fairPrice": 2.45,
+      "price": 2.44,
       "chg24h": 0.83,
       "volatility30d": 0.018,
-      "volume": 4880,
+      "volume": 8784,
       "youtube": {
         "subscribers": 41300000,
         "views": 34181998106,
@@ -1897,7 +1897,7 @@
         "hot100": 91
       },
       "chartBoost": 0.025,
-      "popularityBoost": 0.12
+      "popularityBoost": 0.128
     },
     {
       "ticker": "FEID",
@@ -1913,7 +1913,7 @@
       "fairPrice": 1.54,
       "price": 1.54,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 2722,
       "youtube": {
         "subscribers": 7210000,
@@ -2305,7 +2305,7 @@
       "fairPrice": 2.79,
       "price": 2.79,
       "chg24h": 0.0,
-      "volatility30d": 0.009,
+      "volatility30d": 0.008,
       "volume": 2498,
       "youtube": {
         "subscribers": 6970000,
@@ -2948,8 +2948,8 @@
       "name": "BLACKPINK",
       "genre": "K-Pop",
       "spotifyId": "41MozSoPIsD1dJM0CLPjZF",
-      "popularity": 81,
-      "popularityDelta": 0,
+      "popularity": 82,
+      "popularityDelta": 1,
       "followers": 60503074,
       "monthlyListeners": 19863159,
       "listenersSource": "calibrated-proxy",
@@ -2958,7 +2958,7 @@
       "price": 0.82,
       "chg24h": 0.0,
       "volatility30d": 0.0,
-      "volume": 4667,
+      "volume": 8401,
       "youtube": {
         "subscribers": 101000000,
         "views": 42769956779,
@@ -2969,7 +2969,7 @@
       "youtubeBoost": 0.3,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.093
+      "popularityBoost": 0.101
     },
     {
       "ticker": "NWJN",
@@ -3018,7 +3018,7 @@
       "youtube": {
         "subscribers": 24700000,
         "views": 12331547490,
-        "videos": 2218
+        "videos": 2219
       },
       "youtubeViews": 12331547490,
       "youtubeSubs": 24700000,
@@ -3180,7 +3180,7 @@
       "image": "https://i.scdn.co/image/ab6761610000e5ebfa62d7b4d09a4ea9b4c5f05d",
       "fairPrice": 2.3,
       "price": 2.29,
-      "chg24h": 0.44,
+      "chg24h": 0.0,
       "volatility30d": 0.013,
       "volume": 3561,
       "youtube": {
