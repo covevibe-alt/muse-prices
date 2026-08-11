@@ -1,8 +1,12 @@
 {
-  "updatedAt": "2026-08-11T04:04:33Z",
+  "updatedAt": "2026-08-11T05:20:15Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.86,
   "topGainers": [
+    {
+      "ticker": "QUVD",
+      "chg24h": 1.6
+    },
     {
       "ticker": "FRED",
       "chg24h": 1.41
@@ -18,10 +22,6 @@
     {
       "ticker": "SLNA",
       "chg24h": 1.09
-    },
-    {
-      "ticker": "KROL",
-      "chg24h": 0.83
     }
   ],
   "topLosers": [
@@ -147,7 +147,7 @@
     {
       "sector": "Latin",
       "avgPrice": 1.96,
-      "chg24h": 0.2,
+      "chg24h": 0.25,
       "members": [
         "BNNY",
         "PESO",
@@ -2085,10 +2085,10 @@
       "volume": 4248,
       "youtube": {
         "subscribers": 4690,
-        "views": 1373634,
+        "views": 1373699,
         "videos": 38
       },
-      "youtubeViews": 1373634,
+      "youtubeViews": 1373699,
       "youtubeSubs": 4690,
       "youtubeBoost": 0.0062,
       "chartPositions": null,
@@ -2113,10 +2113,10 @@
       "volume": 3005,
       "youtube": {
         "subscribers": 12600,
-        "views": 1690920843,
+        "views": 1691251387,
         "videos": 1134
       },
-      "youtubeViews": 1690920843,
+      "youtubeViews": 1691251387,
       "youtubeSubs": 12600,
       "youtubeBoost": 0.1453,
       "chartPositions": null,
@@ -2135,9 +2135,9 @@
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb6ba600ad0f41d8a3aa3f53b2",
       "fairPrice": 1.27,
-      "price": 1.26,
-      "chg24h": 0.8,
-      "volatility30d": 0.002,
+      "price": 1.27,
+      "chg24h": 1.6,
+      "volatility30d": 0.004,
       "volume": 1609,
       "youtube": {
         "subscribers": 723,
@@ -2308,12 +2308,12 @@
       "volatility30d": 0.0,
       "volume": 2498,
       "youtube": {
-        "subscribers": 6980000,
+        "subscribers": 6990000,
         "views": 3991067711,
         "videos": 321
       },
       "youtubeViews": 3991067711,
-      "youtubeSubs": 6980000,
+      "youtubeSubs": 6990000,
       "youtubeBoost": 0.2358,
       "chartPositions": {
         "hot100": 20
@@ -2339,10 +2339,10 @@
       "volume": 2110,
       "youtube": {
         "subscribers": 25500,
-        "views": 521450412,
+        "views": 521619086,
         "videos": 251
       },
-      "youtubeViews": 521450412,
+      "youtubeViews": 521619086,
       "youtubeSubs": 25500,
       "youtubeBoost": 0.1223,
       "chartPositions": null,
@@ -2481,10 +2481,10 @@
       "volume": 1417,
       "youtube": {
         "subscribers": 1030,
-        "views": 282787891,
+        "views": 282882871,
         "videos": 126
       },
-      "youtubeViews": 282787891,
+      "youtubeViews": 282882871,
       "youtubeSubs": 1030,
       "youtubeBoost": 0.1103,
       "chartPositions": null,
@@ -2735,10 +2735,10 @@
       "volume": 1624,
       "youtube": {
         "subscribers": 1960,
-        "views": 165265897,
+        "views": 165404016,
         "videos": 65
       },
-      "youtubeViews": 165265897,
+      "youtubeViews": 165404016,
       "youtubeSubs": 1960,
       "youtubeBoost": 0.0998,
       "chartPositions": null,
@@ -3129,10 +3129,10 @@
       "volume": 994,
       "youtube": {
         "subscribers": 481,
-        "views": 329618009,
+        "views": 329965957,
         "videos": 388
       },
-      "youtubeViews": 329618009,
+      "youtubeViews": 329965957,
       "youtubeSubs": 481,
       "youtubeBoost": 0.1133,
       "chartPositions": null,
