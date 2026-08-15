@@ -1,12 +1,8 @@
 {
-  "updatedAt": "2026-08-15T17:53:30Z",
+  "updatedAt": "2026-08-15T18:43:31Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.86,
   "topGainers": [
-    {
-      "ticker": "BFRY",
-      "chg24h": 2.33
-    },
     {
       "ticker": "CGAS",
       "chg24h": 1.65
@@ -14,6 +10,10 @@
     {
       "ticker": "FRED",
       "chg24h": 1.32
+    },
+    {
+      "ticker": "BFRY",
+      "chg24h": 1.15
     },
     {
       "ticker": "SBYA",
@@ -201,7 +201,7 @@
     {
       "sector": "R&B",
       "avgPrice": 1.53,
-      "chg24h": 0.13,
+      "chg24h": 0.01,
       "members": [
         "WKND",
         "SZA",
@@ -1628,7 +1628,7 @@
       "image": "https://i.scdn.co/image/ab6761610000e5eb582fbf712f5b6a9bf65d9b84",
       "fairPrice": 0.88,
       "price": 0.88,
-      "chg24h": 2.33,
+      "chg24h": 1.15,
       "volatility30d": 0.005,
       "volume": 1792,
       "youtube": {
@@ -1797,7 +1797,7 @@
       "fairPrice": 4.33,
       "price": 4.33,
       "chg24h": 0.46,
-      "volatility30d": 0.01,
+      "volatility30d": 0.009,
       "volume": 6618,
       "youtube": {
         "subscribers": 53100000,
@@ -2816,12 +2816,12 @@
       "volatility30d": 0.0,
       "volume": 1114,
       "youtube": {
-        "subscribers": 490000,
+        "subscribers": 491000,
         "views": 251013449,
         "videos": 25
       },
       "youtubeViews": 251013449,
-      "youtubeSubs": 490000,
+      "youtubeSubs": 491000,
       "youtubeBoost": 0.1356,
       "chartPositions": null,
       "chartBoost": 0.0,
