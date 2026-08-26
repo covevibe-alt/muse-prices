@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-26T14:22:01Z",
+  "updatedAt": "2026-08-26T16:04:03Z",
   "marketIndex": 1000.0,
   "rawAveragePrice": 1.87,
   "topGainers": [
@@ -222,17 +222,17 @@
       "name": "Sabrina Carpenter",
       "genre": "Pop",
       "spotifyId": "74KM79TiuVKeVCqs8QtB0B",
-      "popularity": 90,
-      "popularityDelta": 0,
+      "popularity": 89,
+      "popularityDelta": -1,
       "followers": 34670439,
       "monthlyListeners": 56682701,
       "listenersSource": "calibrated-proxy",
       "image": "https://i.scdn.co/image/ab6761610000e5eb78e45cfa4697ce3c437cb455",
-      "fairPrice": 2.51,
+      "fairPrice": 2.49,
       "price": 2.5,
       "chg24h": -0.79,
       "volatility30d": 0.016,
-      "volume": 3533,
+      "volume": 6359,
       "youtube": {
         "subscribers": 13600000,
         "views": 7099884717,
@@ -245,7 +245,7 @@
         "hot100": 63
       },
       "chartBoost": 0.095,
-      "popularityBoost": 0.12
+      "popularityBoost": 0.112
     },
     {
       "ticker": "TSWF",
@@ -405,7 +405,7 @@
       "fairPrice": 5.07,
       "price": 5.06,
       "chg24h": -0.39,
-      "volatility30d": 0.072,
+      "volatility30d": 0.071,
       "volume": 6427,
       "youtube": {
         "subscribers": 58000000,
@@ -575,12 +575,12 @@
       "fairPrice": 5.0,
       "price": 5.0,
       "chg24h": -0.6,
-      "volatility30d": 0.056,
+      "volatility30d": 0.055,
       "volume": 4027,
       "youtube": {
         "subscribers": 53600000,
         "views": 38312495724,
-        "videos": 414
+        "videos": 415
       },
       "youtubeViews": 38312495724,
       "youtubeSubs": 53600000,
@@ -663,7 +663,7 @@
       "fairPrice": 6.59,
       "price": 6.59,
       "chg24h": -0.3,
-      "volatility30d": 0.088,
+      "volatility30d": 0.087,
       "volume": 5612,
       "youtube": {
         "subscribers": 44200000,
@@ -891,7 +891,7 @@
       "fairPrice": 2.23,
       "price": 2.23,
       "chg24h": 0.0,
-      "volatility30d": 0.004,
+      "volatility30d": 0.0,
       "volume": 2899,
       "youtube": {
         "subscribers": 12500000,
@@ -1601,10 +1601,10 @@
       "volume": 1776,
       "youtube": {
         "subscribers": 1770,
-        "views": 985167541,
+        "views": 985389044,
         "videos": 406
       },
-      "youtubeViews": 985167541,
+      "youtubeViews": 985389044,
       "youtubeSubs": 1770,
       "youtubeBoost": 0.1347,
       "chartPositions": null,
@@ -1963,7 +1963,7 @@
       "fairPrice": 1.81,
       "price": 1.81,
       "chg24h": 1.12,
-      "volatility30d": 0.007,
+      "volatility30d": 0.008,
       "volume": 3000,
       "youtube": {
         "subscribers": 14600000,
@@ -2135,10 +2135,10 @@
       "volume": 1615,
       "youtube": {
         "subscribers": 725,
-        "views": 699360198,
+        "views": 699692424,
         "videos": 89
       },
-      "youtubeViews": 699360198,
+      "youtubeViews": 699692424,
       "youtubeSubs": 725,
       "youtubeBoost": 0.128,
       "chartPositions": null,
@@ -2660,8 +2660,8 @@
       "name": "Fontaines D.C.",
       "genre": "Alt",
       "spotifyId": "3SXwqSqAoBz9WCI9PDQzY6",
-      "popularity": 74,
-      "popularityDelta": 0,
+      "popularity": 75,
+      "popularityDelta": 1,
       "followers": 1464434,
       "monthlyListeners": 8011333,
       "listenersSource": "calibrated-proxy",
@@ -2670,18 +2670,18 @@
       "price": 0.28,
       "chg24h": 3.7,
       "volatility30d": 0.004,
-      "volume": 726,
+      "volume": 1307,
       "youtube": {
         "subscribers": 210,
-        "views": 59171982,
+        "views": 59248094,
         "videos": 183
       },
-      "youtubeViews": 59171982,
+      "youtubeViews": 59248094,
       "youtubeSubs": 210,
-      "youtubeBoost": 0.0797,
+      "youtubeBoost": 0.0798,
       "chartPositions": null,
       "chartBoost": 0.0,
-      "popularityBoost": 0.072
+      "popularityBoost": 0.08
     },
     {
       "ticker": "MARI",
@@ -2701,10 +2701,10 @@
       "volume": 1387,
       "youtube": {
         "subscribers": 1910,
-        "views": 486608040,
+        "views": 486971831,
         "videos": 61
       },
-      "youtubeViews": 486608040,
+      "youtubeViews": 486971831,
       "youtubeSubs": 1910,
       "youtubeBoost": 0.1209,
       "chartPositions": null,
@@ -2729,10 +2729,10 @@
       "volume": 1629,
       "youtube": {
         "subscribers": 1970,
-        "views": 169278133,
+        "views": 169427258,
         "videos": 65
       },
-      "youtubeViews": 169278133,
+      "youtubeViews": 169427258,
       "youtubeSubs": 1970,
       "youtubeBoost": 0.1003,
       "chartPositions": null,
@@ -3007,7 +3007,7 @@
       "fairPrice": 0.46,
       "price": 0.46,
       "chg24h": -9.8,
-      "volatility30d": 0.022,
+      "volatility30d": 0.021,
       "volume": 2962,
       "youtube": {
         "subscribers": 24900000,
@@ -3123,10 +3123,10 @@
       "volume": 998,
       "youtube": {
         "subscribers": 483,
-        "views": 300722970,
+        "views": 300943885,
         "videos": 375
       },
-      "youtubeViews": 300722970,
+      "youtubeViews": 300943885,
       "youtubeSubs": 483,
       "youtubeBoost": 0.1115,
       "chartPositions": null,
@@ -3175,15 +3175,15 @@
       "fairPrice": 2.5,
       "price": 2.5,
       "chg24h": 5.04,
-      "volatility30d": 0.053,
+      "volatility30d": 0.051,
       "volume": 3563,
       "youtube": {
-        "subscribers": 58600000,
+        "subscribers": 58700000,
         "views": 18137782931,
         "videos": 590
       },
       "youtubeViews": 18137782931,
-      "youtubeSubs": 58600000,
+      "youtubeSubs": 58700000,
       "youtubeBoost": 0.3,
       "chartPositions": {
         "hot100": 65
